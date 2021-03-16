@@ -25,25 +25,25 @@ class PingLibrary
 
         for ($x = 1; $x <= $counter; $x++) {
         try{
-            exec("rm -rf /nfs/home/websites/mikmon/storage/pings/ips_to_be_pinged$x.txt");
+            exec("rm -rf /var/www/html/mikmon/storage/pings/ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
             dd($e);
 
         }
             try{
-                exec("touch /nfs/home/websites/mikmon/storage/pings/ips_to_be_pinged$x.txt");
+                exec("touch /var/www/html/mikmon/storage/pings/ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
                 dd($e);
 
             }
             try{
-                exec("rm -rf /nfs/home/websites/mikmon/storage/pings/historical_ips_to_be_pinged$x.txt");
+                exec("rm -rf /var/www/html/mikmon/storage/pings/historical_ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
                 dd($e);
 
             }
             try{
-                exec("touch /nfs/home/websites/mikmon/storage/pings/historical_ips_to_be_pinged$x.txt");
+                exec("touch /var/www/html/mikmon/storage/pings/historical_ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
                 dd($e);
             }
@@ -63,8 +63,8 @@ class PingLibrary
             }
         }
         foreach($finals as $key=> $final){
-            $file = "/nfs/home/websites/mikmon/storage/pings/ips_to_be_pinged$key.txt";
-            $historical_file = "/nfs/home/websites/mikmon/storage/pings/historical_ips_to_be_pinged$key.txt";
+            $file = "/var/www/html/mikmon/storage/pings/ips_to_be_pinged$key.txt";
+            $historical_file = "/var/www/html/mikmon/storage/pings/historical_ips_to_be_pinged$key.txt";
             foreach($final as $ip){
                 file_put_contents($file, $ip."\n", FILE_APPEND);
                 file_put_contents($historical_file, $ip."\n", FILE_APPEND);
@@ -84,7 +84,7 @@ class PingLibrary
 
     public static function PingWorker($filename){
         \Log::info("Normal Pingworker nr $filename starting with historical_ips_to_be_pinged".$filename);
-        $file= "/nfs/home/websites/mikmon/storage/pings/ips_to_be_pinged$filename.txt";
+        $file= "/var/www/html/mikmon/storage/pings/ips_to_be_pinged$filename.txt";
         exec("fping -t 250 -f $file",$results);
         foreach($results as $result){
             $finals[] = preg_split('/ is /',$result);
@@ -106,7 +106,7 @@ class PingLibrary
 
     public static function HistoricalPingWorker($filename){
         \Log::info("Historical Pingworker nr $filename starting with historical_ips_to_be_pinged".$filename);
-        $file= "/nfs/home/websites/mikmon/storage/pings/historical_ips_to_be_pinged$filename.txt";
+        $file= "/var/www/html/mikmon/storage/pings/historical_ips_to_be_pinged$filename.txt";
         $results = array();
         $matrix = array();
         $data = array();
@@ -164,7 +164,7 @@ class PingLibrary
         foreach ($data as $key=> $row){
 
             $time = time();
-            if(!file_exists("/nfs/home/websites/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd")){
+            if(!file_exists("/var/www/html/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd")){
                 \Log::info( "NO RRD FOUND");
                 $options = array(
                     '--step','60',
@@ -178,14 +178,14 @@ class PingLibrary
                     "RRA:AVERAGE:0.5:60:20000"
                 );
 
-                if(!\rrd_create("/nfs/home/websites/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd",$options)){
+                if(!\rrd_create("/var/www/html/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd",$options)){
                     \Log::info(rrd_error());
                 }else{
 //                        echo "RRD CREATED ".$row['ip']."\n";
                 }
 
             }else{
-                $rrdFile ="/nfs/home/websites/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd";
+                $rrdFile ="/var/www/html/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd";
                 //\Log::info("Updating RRD for $ip");
                 $updator = new \RRDUpdater($rrdFile);
                 $updator->update( array(
@@ -293,7 +293,7 @@ class PingLibrary
 
     public static function store1DayUptimeRRD($row){
         $time = time();
-        if(!file_exists("/nfs/home/websites/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd")){
+        if(!file_exists("/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd")){
             echo "NO uptime RRD FOUND for  ".$row['ip']." \n";
             $options = array(
                 '--step','86400',
@@ -302,14 +302,14 @@ class PingLibrary
                 'RRA:AVERAGE:0.5:1:365'
             );
 
-            if(!\rrd_create("/nfs/home/websites/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd",$options)){
+            if(!\rrd_create("/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd",$options)){
                 echo rrd_error();
             }else{
                 \Log::info( "RRD CREATED ".$row['ip']);
             }
 
         }else{
-            $rrdFile ="/nfs/home/websites/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd";
+            $rrdFile ="/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd";
             \Log::info("Updating 1 day uptime RRD for ".$row['ip']);
             $row['packet_loss'] = preg_replace('/\,/','',$row['packet_loss']);
             $updator = new \RRDUpdater($rrdFile);

@@ -180,8 +180,8 @@ class MikrotikLibrary
     public static function storeSystemInfo($results,$device){
         $time = time();
         $files = [
-            '/nfs/home/websites/mikmon/storage/rrd/'.$device->id,
-            "/nfs/home/websites/mikmon/storage/rrd/".$device->id."/sysinfo"
+            '/var/www/html/mikmon/storage/rrd/'.$device->id,
+            "/var/www/html/mikmon/storage/rrd/".$device->id."/sysinfo"
         ];
         foreach($files as $file){
             if(!file_exists($file)){
