@@ -1,0 +1,21 @@
+
+---- EXPECTED OUTPUT
+string(%i) "%s"
+bool(true)
+bool(true)
+---- ACTUAL OUTPUT
+Warning: Missing arginfo for rrd_error() in Unknown on line 0
+
+Warning: Missing arginfo for rrdc_disconnect() in Unknown on line 0
+
+Warning: Missing arginfo for rrd_version() in Unknown on line 0
+
+Warning: Missing arginfo for RRDGraph::save() in Unknown on line 0
+
+Warning: Missing arginfo for RRDGraph::saveVerbose() in Unknown on line 0
+
+Warning: Missing arginfo for RRDCreator::save() in Unknown on line 0
+string(5) "1.7.2"
+bool(true)
+bool(true)
+---- FAILED

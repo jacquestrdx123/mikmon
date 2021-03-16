@@ -1,0 +1,13 @@
+Warning: Missing arginfo for rrd_error() in Unknown on line 0
+
+Warning: Missing arginfo for rrdc_disconnect() in Unknown on line 0
+
+Warning: Missing arginfo for rrd_version() in Unknown on line 0
+
+Warning: Missing arginfo for RRDGraph::save() in Unknown on line 0
+
+Warning: Missing arginfo for RRDGraph::saveVerbose() in Unknown on line 0
+
+Warning: Missing arginfo for RRDCreator::save() in Unknown on line 0
+string(31) "can't parse argument 'badParam'"
+bool(false)

@@ -1,0 +1,16 @@
+rrd.lo: /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -c /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd.c -o rrd.lo 
+rrd_graph.lo: /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_graph.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -c /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_graph.c -o rrd_graph.lo 
+rrd_create.lo: /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_create.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -c /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_create.c -o rrd_create.lo 
+rrd_update.lo: /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_update.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -c /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_update.c -o rrd_update.lo 
+rrd_info.lo: /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_info.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -c /Users/jacquestredoux/PhpstormProjects/mikmon/rrd-2.0.1/rrd_info.c -o rrd_info.lo 
+$(phplibdir)/rrd.la: ./rrd.la
+	$(LIBTOOL) --mode=install cp ./rrd.la $(phplibdir)
+
+./rrd.la: $(shared_objects_rrd) $(RRD_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) -shared $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS)  -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_rrd) $(RRD_SHARED_LIBADD)
+

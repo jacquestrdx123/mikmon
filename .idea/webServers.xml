@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d95bc146-c1f2-49c9-b47c-83f9ea5d1ba8" name="VM">
+        <fileTransfer rootFolder="/nfs/home/websites/mikmon" accessType="SFTP" host="pve.heartbeatnetworks.com" port="2202" sshConfigId="e498f363-c32e-4d57-bfa9-cb78fa972658" sshConfig="jq@pve.heartbeatnetworks.com:2202 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="25fdb77d-d435-48fd-8927-a15e3dc1330b" name="VMServer">
+        <fileTransfer accessType="SFTP" port="22" sshConfigId="3a7fca0a-503a-4be3-a789-963daf60ea3b" sshConfig="VMServer">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
