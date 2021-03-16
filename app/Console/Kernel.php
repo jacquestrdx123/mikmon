@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('PollDevices')->everyMinute()->runInBackground();
+        //$schedule->command('PollDevices')->everyMinute()->runInBackground();
         $schedule->command('QueuePingJob')->everyMinute();
         $schedule->command('QueueHistoricalPingJob')->everyMinute();
         $schedule->command('QueueUpdateLocationCountersJob')->everyMinute();
