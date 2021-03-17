@@ -49,16 +49,6 @@
                             <div class="card-header">Recent Events</div>
                             <ul>
                                 @foreach($events as $event)
-                                    @if( ($event->current_status > $event->previous_status) and ($event->current_status < 4))
-                                        <li style="color:cornflowerblue">
-                                            {!! $event->getRemoteObject()->ip !!} became more Stable
-                                        </li>
-                                    @endif
-                                    @if( ($event->current_status < $event->previous_status) and ($event->current_status > 1))
-                                       <li style="color:orange">
-                                            {!! $event->getRemoteObject()->ip !!} became less Stable
-                                       </li>
-                                    @endif
                                     @if( ($event->current_status == 4))
                                         <li style="color:green">
                                             {!! $event->getRemoteObject()->ip !!} came back Online
