@@ -279,7 +279,7 @@ class MikrotikLibrary
             $system_caps = $neighbor['system_caps'] ?? "None" ;
             $system_caps_enabled = $neighbor['system_caps_enabled'] ?? "None" ;
             $neighbor = Neighbor::updateOrCreate(
-                ['device_id' => $device->id, 'address' => $address4],
+                ['device_id' => $device->id, 'address4' => $address4],
                 [
                     "interface" => $interface,
                     "address" => $address,
