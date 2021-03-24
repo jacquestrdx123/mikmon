@@ -223,9 +223,9 @@ class DevicesSeeder extends Seeder
                 'devicetype' => 'mikrotik',
                 'created_at' => '2020-01-01 10:10:10',
                 'updated_at' => '2020-01-01 10:10:10',
-                'snmp_community' => 'public',
-                'username' => 'admin',
-                'password' => 'ittxle4K00m',
+                'snmp_community' => 'barkomonitor',
+                'username' => 'B@rkoM0n1t0R',
+                'password' => 'B@rkoM0n1t0ROp3r@t0R!',
                 'location_id' => $x
             ]);
             $x++;
