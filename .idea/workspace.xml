@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="Fixed Providers">
+    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Libraries/MikrotikLibrary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Libraries/MikrotikLibrary.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DeviceinterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeviceinterfaceController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +191,7 @@
       <workItem from="1612767770421" duration="30889000" />
       <workItem from="1613636406974" duration="1621000" />
       <workItem from="1615883890623" duration="4059000" />
-      <workItem from="1616566082433" duration="717000" />
+      <workItem from="1616566082433" duration="1207000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed Providers">
       <created>1615885263848</created>
@@ -263,7 +263,28 @@
       <option name="project" value="LOCAL" />
       <updated>1616566441122</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed Providers">
+      <created>1617003805232</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617003805233</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixed Providers">
+      <created>1617012172210</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617012172210</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixed Providers">
+      <created>1617012251940</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617012251940</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,10 +307,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1612950306105" />
-    <state x="292" y="0" key="CommitChangelistDialog2" timestamp="1616566440704">
+    <state x="292" y="0" key="CommitChangelistDialog2" timestamp="1617012251743">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1616566440704" />
+    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1617012251743" />
     <state x="100" y="100" width="1240" height="700" key="DirDiffDialog" timestamp="1612861085745">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
@@ -308,10 +329,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1612679282176" />
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1616566443368">
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1617012253507">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616566443368" />
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1617012253507" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1612515829886">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -324,10 +345,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="625" y="107" width="405" height="685" key="ftp.server.browser/0.0.1440.900@0.0.1440.900" timestamp="1612681319703" />
-    <state x="589" y="333" key="publish.login" timestamp="1616566424942">
+    <state x="589" y="312" key="publish.login" timestamp="1617012440881">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="589" y="333" key="publish.login/0.0.1440.900@0.0.1440.900" timestamp="1616566424942" />
+    <state x="589" y="312" key="publish.login/0.0.1440.900@0.0.1440.900" timestamp="1617012440881" />
     <state x="589" y="333" key="publish.login/0.23.1440.811@0.23.1440.811" timestamp="1615897529034" />
   </component>
 </project>
