@@ -194,7 +194,7 @@ class MikrotikLibrary
             $options = array(
                 '--step', '300',
                 "--start", "-1 day",
-                "RRA:LAST:0.5:1:120000"
+                "RRA:MAX:0.5:1:120000"
             );
             if(!\rrd_create($rrdFile,$options)){
                 echo rrd_error();
