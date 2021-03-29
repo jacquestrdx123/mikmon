@@ -273,7 +273,7 @@ class InterfaceLibrary
                         $running = 0;
                     }
                     $time = time();
-                    \Log::info("Updating $dinterface->id $rrdFile with tx value-".trim($data['txvalue'])."-\n");
+                    echo ("Updating $dinterface->id $rrdFile with tx value-".trim($data['txvalue'])."-\n");
                     $updator = new \RRDUpdater($rrdFile);
                     $updator->update(array(
                         "rxvalue" => trim($data["rxvalue"]),
