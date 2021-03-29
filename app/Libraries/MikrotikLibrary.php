@@ -78,8 +78,8 @@ class MikrotikLibrary
     public static function storeOrCreateRRD($data){
         $time = time();
         $files = [
-            '/Users/jacquestredoux/PhpstormProjects/mikmon/storage/rrd/'.$data['device_id'],
-            "/Users/jacquestredoux/PhpstormProjects/mikmon/storage/rrd/".$data['device_id']."/interfaces"
+            '/var/www/html/mikmon/storage/rrd/'.$data['device_id'],
+            "/var/www/html/mikmon/storage/rrd/".$data['device_id']."/interfaces"
             ];
         foreach($files as $file){
             if(!file_exists($file)){

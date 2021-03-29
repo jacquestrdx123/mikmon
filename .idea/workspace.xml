@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
+    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="Fixed Providers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DeviceinterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeviceinterfaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Libraries/InterfaceLibrary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Libraries/InterfaceLibrary.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Libraries/MikrotikLibrary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Libraries/MikrotikLibrary.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Libraries/PingLibrary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Libraries/PingLibrary.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +190,8 @@
       <workItem from="1612681247103" duration="6745000" />
       <workItem from="1612767770421" duration="30889000" />
       <workItem from="1613636406974" duration="1621000" />
-      <workItem from="1615883890623" duration="1528000" />
+      <workItem from="1615883890623" duration="4059000" />
+      <workItem from="1616566082433" duration="717000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed Providers">
       <created>1615885263848</created>
@@ -210,7 +207,63 @@
       <option name="project" value="LOCAL" />
       <updated>1615885980601</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed Providers">
+      <created>1615888718761</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615888718761</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed Providers">
+      <created>1615897641706</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615897641707</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed Providers">
+      <created>1615900088088</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615900088088</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed Providers">
+      <created>1615962860383</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1615962860384</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixed Providers">
+      <created>1616075940395</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616075940396</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixed Providers">
+      <created>1616482673962</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1616482673965</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed Providers">
+      <created>1616482811657</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1616482811657</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed Providers">
+      <created>1616566441122</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616566441122</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,10 +286,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1612950306105" />
-    <state x="292" y="0" key="CommitChangelistDialog2" timestamp="1615885980418">
+    <state x="292" y="0" key="CommitChangelistDialog2" timestamp="1616566440704">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1615885980418" />
+    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1616566440704" />
     <state x="100" y="100" width="1240" height="700" key="DirDiffDialog" timestamp="1612861085745">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
@@ -255,10 +308,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1612679282176" />
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1615888703129">
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1616566443368">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615888703129" />
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616566443368" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1612515829886">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -271,9 +324,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="625" y="107" width="405" height="685" key="ftp.server.browser/0.0.1440.900@0.0.1440.900" timestamp="1612681319703" />
-    <state x="589" y="333" key="publish.login" timestamp="1615885977352">
+    <state x="589" y="333" key="publish.login" timestamp="1616566424942">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="589" y="333" key="publish.login/0.0.1440.900@0.0.1440.900" timestamp="1615885977352" />
+    <state x="589" y="333" key="publish.login/0.0.1440.900@0.0.1440.900" timestamp="1616566424942" />
+    <state x="589" y="333" key="publish.login/0.23.1440.811@0.23.1440.811" timestamp="1615897529034" />
   </component>
 </project>
