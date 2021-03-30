@@ -259,7 +259,7 @@ class InterfaceLibrary
                         "DS:ifHCInBroadPkts:GAUGE:900:U:U",
                         "DS:ifHOutBroadPkts:GAUGE:900:U:U",
                         "DS:Availabilty:GAUGE:900:U:U",
-                        "RRA:LAST:0.5:1:120000"
+                        "RRA:AVERAGE:0.5:1:120000"
                     );
                     echo "CREATING RRD ".trim($device->id)."/".trim($key).".rrd \n";
                     if(!\rrd_create($rrdFile,$options)){
