@@ -34,13 +34,13 @@ class MikrotikLibrary
             $results["default_gateways"] = MikrotikLibrary::getDefaultGateways($api);
             $results["ip_adresses"] = MikrotikLibrary::getIPAddresses($api);
             $api->disconnect();
+            $results['snmp_sys_info'] = MikrotikLibrary::getSNMPSystemValues($device);
+            MikrotikLibrary::updateSystemInfo($results,$device);
+            MikrotikLibrary::updateOrCreateDHCP($results['dhcp_leases'],$device);
+            MikrotikLibrary::updateOrCreateIpNeighbors($results['ip_neighbours'],$device);
+            MikrotikLibrary::updateOrCreateDefaultGateways($results['default_gateways'],$device);
+            MikrotikLibrary::updateOrCreateIPAddresses($results['ip_adresses'],$device);
         }
-        $results['snmp_sys_info'] = MikrotikLibrary::getSNMPSystemValues($device);
-        MikrotikLibrary::updateSystemInfo($results,$device);
-        MikrotikLibrary::updateOrCreateDHCP($results['dhcp_leases'],$device);
-        MikrotikLibrary::updateOrCreateIpNeighbors($results['ip_neighbours'],$device);
-        MikrotikLibrary::updateOrCreateDefaultGateways($results['default_gateways'],$device);
-        MikrotikLibrary::updateOrCreateIPAddresses($results['ip_adresses'],$device);
     }
 
     public static function getIPAddresses($routeros_api){
