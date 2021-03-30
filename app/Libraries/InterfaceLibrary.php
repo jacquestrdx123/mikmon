@@ -244,7 +244,7 @@ class InterfaceLibrary
                 $rrdFile = $files['1']."/".$key.".rrd";
 //                InfluxLibrary::writeToDB("dte", "interfaces", $data, $value);
                 if(!file_exists($rrdFile)){
-                    echo "NO RRD FOUND \n";
+                    Log::info("NO RRD FOUND for interface $key on device ".$device->id);
                     $options = array(
                         '--step', '300',
                         "--start", "-1 day",
@@ -261,7 +261,7 @@ class InterfaceLibrary
                         "DS:Availabilty:GAUGE:900:U:U",
                         "RRA:AVERAGE:0.5:1:120000"
                     );
-                    echo "CREATING RRD ".trim($device->id)."/".trim($key).".rrd \n";
+                    Log::info("CREATING RRD ".trim($device->id)."/".trim($key).".rrd");
                     if(!\rrd_create($rrdFile,$options)){
                         echo rrd_error();
                     }
@@ -273,7 +273,7 @@ class InterfaceLibrary
                         $running = 0;
                     }
                     $time = time();
-                    echo ("Updating $dinterface->id $rrdFile with tx value-".trim($data['txvalue'])."-\n");
+                    Log::info("Updating ".$device->id." ".$dinterface->id." $rrdFile with tx value-".trim($data['txvalue'])."-\n");
                     $updator = new \RRDUpdater($rrdFile);
                     $updator->update(array(
                         "rxvalue" => trim($data["rxvalue"]),

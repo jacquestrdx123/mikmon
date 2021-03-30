@@ -192,7 +192,7 @@ class MikrotikLibrary
         }
         $rrdFile = $files['1']."/".$device->id.".rrd";
         if(!file_exists($rrdFile)){
-            echo "NO RRD FOUND \n";
+            Log::info( "NO RRD FOUND for ".$device->id);
             $options = array(
                 '--step', '300',
                 "--start", "-1 day",
@@ -321,8 +321,6 @@ class MikrotikLibrary
                 "device_id" => $device->id
             ]
         );
-
-
         return $deviceinterface;
     }
 
