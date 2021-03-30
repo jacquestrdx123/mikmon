@@ -181,7 +181,7 @@ class PingLibrary
                 if(!\rrd_create("/var/www/html/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd",$options)){
                     \Log::info(rrd_error());
                 }else{
-//                        echo "RRD CREATED ".$row['ip']."\n";
+                        Log::info( "RRD CREATED ".$row['ip']);
                 }
 
             }else{
@@ -294,7 +294,7 @@ class PingLibrary
     public static function store1DayUptimeRRD($row){
         $time = time();
         if(!file_exists("/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd")){
-            echo "NO uptime RRD FOUND for  ".$row['ip']." \n";
+            Log::info( "NO uptime RRD FOUND for  ".$row['ip']);
             $options = array(
                 '--step','86400',
                 "--start", "-1 day",
@@ -303,7 +303,7 @@ class PingLibrary
             );
 
             if(!\rrd_create("/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd",$options)){
-                echo rrd_error();
+                Log::info(rrd_error());
             }else{
                 \Log::info( "RRD CREATED ".$row['ip']);
             }

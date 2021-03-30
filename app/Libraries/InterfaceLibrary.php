@@ -19,7 +19,7 @@ class InterfaceLibrary
             InterfaceLibrary::CalculateThroughput($device);
         }catch (\Exception $e){
         }
-        echo "Interfaces Done for $device->name \n";
+        Log::info( "Interfaces Done for $device->description");
         //$this->CalculateThroughput($device);
     }
 
@@ -263,7 +263,7 @@ class InterfaceLibrary
                     );
                     Log::info("CREATING RRD ".trim($device->id)."/".trim($key).".rrd");
                     if(!\rrd_create($rrdFile,$options)){
-                        echo rrd_error();
+                        Log::info( rrd_error());
                     }
                 }else{
                     $dinterface = Deviceinterface::where('default_name', '=', $key)->where('device_id',$device->id)->first();
@@ -297,7 +297,7 @@ class InterfaceLibrary
 
     public static function StoreInterfaces($device){
         $interfaceresults = array();
-        echo "Starting new Interfaces";
+        Log::info( "Starting interfaces for $device->description");
         try {
             InterfaceLibrary::storeInterfacesINDB($device);
         }catch (\Exception $e){
@@ -485,7 +485,7 @@ class InterfaceLibrary
                 }
             }
         }
-        echo "\n Interfaces Done \n";
+        Log::info("Interfaces Done for $device->description");
     }
 
     public static function getType($id){
