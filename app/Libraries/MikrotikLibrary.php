@@ -15,11 +15,13 @@ class MikrotikLibrary
 {
 
     public static function PollDevice($device){
-        \Log::info('Polling '.$device->ip." API");
-        MikrotikLibrary::pollViaAPI($device);
-        \Log::info('Polling '.$device->ip." SNMP");
-        MikrotikLibrary::pollViaSNMP($device);
-        \Log::info('Done Polling '.$device->ip."");
+        if($device->id==105){
+            \Log::info('Polling '.$device->ip." API");
+            MikrotikLibrary::pollViaAPI($device);
+            \Log::info('Polling '.$device->ip." SNMP");
+            MikrotikLibrary::pollViaSNMP($device);
+            \Log::info('Done Polling '.$device->ip."");
+        }
     }
 
     public static function pollViaAPI($device){

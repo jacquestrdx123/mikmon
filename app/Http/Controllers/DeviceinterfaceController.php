@@ -29,7 +29,7 @@ class DeviceinterfaceController extends Controller
             $finals = array();
             $rrdFile =  "/var/www/html/mikmon/storage/rrd/".$dinterface->device_id."/interfaces/".$dinterface->default_name.".rrd";
             try {
-                $result = \rrd_fetch($rrdFile, array('LAST', "--resolution", 60, "--start", (time() - 186400), "--end", (time() - 350)));
+                $result = \rrd_fetch($rrdFile, array('AVERAGE', "--resolution", 60, "--start", (time() - 186400), "--end", (time() - 350)));
                 if(isset($result['data'])) {
 
                     foreach ($result["data"]["rxvalue"] as $key => $value) {
