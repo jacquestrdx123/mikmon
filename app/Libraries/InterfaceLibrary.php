@@ -19,7 +19,7 @@ class InterfaceLibrary
             InterfaceLibrary::CalculateThroughput($device);
         }catch (\Exception $e){
         }
-        Log::info( "Interfaces Done for $device->description");
+        \Log::info( "Interfaces Done for $device->description");
         //$this->CalculateThroughput($device);
     }
 
@@ -244,7 +244,7 @@ class InterfaceLibrary
                 $rrdFile = $files['1']."/".$key.".rrd";
 //                InfluxLibrary::writeToDB("dte", "interfaces", $data, $value);
                 if(!file_exists($rrdFile)){
-                    Log::info("NO RRD FOUND for interface $key on device ".$device->id);
+                    \Log::info("NO RRD FOUND for interface $key on device ".$device->id);
                     $options = array(
                         '--step', '300',
                         "--start", "-1 day",
@@ -261,9 +261,9 @@ class InterfaceLibrary
                         "DS:Availabilty:GAUGE:900:U:U",
                         "RRA:AVERAGE:0.5:1:120000"
                     );
-                    Log::info("CREATING RRD ".trim($device->id)."/".trim($key).".rrd");
+                    \Log::info("CREATING RRD ".trim($device->id)."/".trim($key).".rrd");
                     if(!\rrd_create($rrdFile,$options)){
-                        Log::info( rrd_error());
+                        \Log::info( rrd_error());
                     }
                 }else{
                     $dinterface = Deviceinterface::where('default_name', '=', $key)->where('device_id',$device->id)->first();
@@ -273,7 +273,7 @@ class InterfaceLibrary
                         $running = 0;
                     }
                     $time = time();
-                    Log::info("Updating ".$device->id." ".$dinterface->id." $rrdFile with tx value-".trim($data['txvalue'])."-\n");
+                    \Log::info("Updating ".$device->id." ".$dinterface->id." $rrdFile with tx value-".trim($data['txvalue'])."-\n");
                     $updator = new \RRDUpdater($rrdFile);
                     $updator->update(array(
                         "rxvalue" => trim($data["rxvalue"]),
@@ -297,7 +297,7 @@ class InterfaceLibrary
 
     public static function StoreInterfaces($device){
         $interfaceresults = array();
-        Log::info( "Starting interfaces for $device->description");
+        \Log::info( "Starting interfaces for $device->description");
         try {
             InterfaceLibrary::storeInterfacesINDB($device);
         }catch (\Exception $e){
@@ -485,7 +485,7 @@ class InterfaceLibrary
                 }
             }
         }
-        Log::info("Interfaces Done for $device->description");
+        \Log::info("Interfaces Done for $device->description");
     }
 
     public static function getType($id){

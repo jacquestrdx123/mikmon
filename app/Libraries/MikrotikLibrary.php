@@ -57,7 +57,7 @@ class MikrotikLibrary
 
     public static function getSNMPSystemValues($device){
         $time = time();
-        Log::info("Starting Polling for $device->ip at $time");
+        \Log::info("Starting Polling for $device->ip at $time");
         $oids = array(
             "1.3.6.1.2.1.25.2.3.1.6.65536" => "used_memory",
             "1.3.6.1.2.1.25.2.3.1.5.65536" => "total_memory",
@@ -192,7 +192,7 @@ class MikrotikLibrary
         }
         $rrdFile = $files['1']."/".$device->id.".rrd";
         if(!file_exists($rrdFile)){
-            Log::info( "NO RRD FOUND for ".$device->id);
+            \Log::info( "NO RRD FOUND for ".$device->id);
             $options = array(
                 '--step', '300',
                 "--start", "-1 day",
