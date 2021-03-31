@@ -124,6 +124,13 @@ class DeviceinterfaceController extends Controller
                             }
                         }
                     }
+                    foreach($finals as $key=>$array){
+                        foreach($array as $index=> $row){
+                            if( ($row > 1000) or ($row < 0)){
+                                unset($finals[$key][$index]);
+                            }
+                        }
+                    }
                     $throughputChart = (new LarapexChart)->setType('area')
                         ->setTitle('Throughput Stats for '.$dinterface->name)
                         ->setSubtitle('Click to zoom')
