@@ -6,6 +6,7 @@
       <sshConfig authType="PASSWORD" id="3a7fca0a-503a-4be3-a789-963daf60ea3b" port="22" customName="VMServer" nameFormat="CUSTOM">
         <option name="customName" value="VMServer" />
       </sshConfig>
+      <sshConfig host="netmon.barko.co.za" id="c0f01f75-42e9-47cc-a39d-4afa5644a9ff" keyPath="$USER_HOME$/Downloads/BarkoNetMon_key.pem" port="22" nameFormat="DESCRIPTIVE" username="azureadminuser" />
     </configs>
   </component>
 </project>

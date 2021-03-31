@@ -16,6 +16,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="e6bad998-5545-4a5c-83c6-a95f8e03c564" name="netmon.barko.co.za" url="http://netmon.barko.co.za">
+        <fileTransfer rootFolder="/var/www/html/mikmon" accessType="SFTP" host="netmon.barko.co.za" port="22" sshConfigId="c0f01f75-42e9-47cc-a39d-4afa5644a9ff" sshConfig="azureadminuser@netmon.barko.co.za:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

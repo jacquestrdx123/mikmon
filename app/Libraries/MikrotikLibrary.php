@@ -231,6 +231,7 @@ class MikrotikLibrary
     public static function updateOrCreateDHCP($results,$device){
         $device_id = $device->id;
         foreach($results as $dhcp_lease){
+            $mac_address = $dhcp_lease['mac-address'] ?? "None";
             $hostname = $dhcp_lease['host-name'] ?? "None";
             $clientname = $dhcp_lease['client_id'] ?? "None";
             $active_clientname = $dhcp_lease['active-client-id'] ?? "None";
@@ -241,7 +242,7 @@ class MikrotikLibrary
             $status = $dhcp_lease['status'] ?? "None";
             $dynamic = $dhcp_lease['dynamic'] ?? "None";
             $dchplease = Dhcplease::updateOrCreate(
-                ['device_id' => $device_id, 'mac_address' => $dhcp_lease['mac-address']],
+                ['device_id' => $device_id, 'mac_address' => $mac_address],
                 [
                         "address" => $dhcp_lease['address'],
                         "mac_address" => $dhcp_lease['mac-address'],

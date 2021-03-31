@@ -5,12 +5,19 @@
       <paths name="VM">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
             <excludedPath path="/nfs/home/websites/vendor" />
             <excludedPath path="/nfs/home/websites/node_modules" />
           </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="netmon.barko.co.za">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
         </serverdata>
       </paths>
     </serverData>
