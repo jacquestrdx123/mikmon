@@ -81,6 +81,10 @@ class DeviceinterfaceController extends Controller
                         $formatted_timestamps[] = date("F-j-Y g:i a", $value);
                     }
 
+                    foreach ($labels as $value) {
+                        $formatted_timestamps_throughput[] = date("F-j-Y g:i a", $value);
+                    }
+
 
                     foreach ($array['ifInErrors'] as $key => $value) {
                         if (isset($array['ifInErrors'][$key + 1])) {
@@ -94,19 +98,22 @@ class DeviceinterfaceController extends Controller
                         }
                     }
 
-
                     foreach ($array['rxvalue'] as $key => $value) {
                         if (isset($array['rxvalue'][$key + 1])) {
                             if (($array['rxvalue'][$key + 1] == 0) or ($value == 0) or ($array['rxvalue'][$key + 1] == $value)) {
                                 $finals['rxvalue'][] = 0;
-                            } elseif(($array['rxvalue'][$key] - $array['rxvalue'][$key + 1]) > 0) {
-                                $rxvalue = 4147412756088 - $array['rxvalue'][$key] + $array['rxvalue'][$key+1];
-                                $finals['rxvalue'][] = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
                             }else{
                                 $rxvalue = $array['rxvalue'][$key + 1] - $value;
-                                $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
-                                $finals['rxvalue'][] = $final;
-
+                                if($rxvalue<0){
+//                                    $rxvalue = 4147412756088 - $array['txvalue'][$key] + $array['txvalue'][$key+1];
+//                                    $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+//                                    $finals['rxvalue'][] = $final;
+                                    $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                    $finals['rxvalue'][] = $final;
+                                }else{
+                                    $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                    $finals['rxvalue'][] = $final;
+                                }
                             }
                         }
                     }
@@ -115,22 +122,16 @@ class DeviceinterfaceController extends Controller
                             if (($array['txvalue'][$key + 1] == 0) or ($value == 0) or ($array['txvalue'][$key + 1] == $value)) {
                                 $finals['txvalue'][] = 0;
                             } elseif(($array['txvalue'][$key] - $array['txvalue'][$key + 1]) > 0) {
-                                $rxvalue = 4147412756088 - $array['txvalue'][$key] + $array['txvalue'][$key+1];
-                                $finals['txvalue'][] = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                $txvalue = 4147412756088 - $array['txvalue'][$key] + $array['txvalue'][$key+1];
+                                $finals['txvalue'][] = round($txvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
                             }else{
-                                $rxvalue = $array['txvalue'][$key + 1] - $value;
-                                $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                $txvalue = $array['txvalue'][$key + 1] - $value;
+                                $final = round($txvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
                                 $finals['txvalue'][] = $final;
                             }
                         }
                     }
-                    foreach($finals as $key=>$array){
-                        foreach($array as $index=> $row){
-                            if( ($row > 1000) or ($row < 0)){
-                                unset($finals[$key][$index]);
-                            }
-                        }
-                    }
+
                     $throughputChart = (new LarapexChart)->setType('area')
                         ->setTitle('Throughput Stats for '.$dinterface->name)
                         ->setSubtitle('Click to zoom')
