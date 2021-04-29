@@ -272,7 +272,6 @@ class InterfaceLibrary
                     }else{
                         $running = 0;
                     }
-                    dd($data);
                     $time = time();
                     \Log::info("Updating ".$device->id." ".$dinterface->id." $rrdFile with tx value-".trim($data['txvalue'])."-\n");
                     $updator = new \RRDUpdater($rrdFile);
@@ -292,6 +291,7 @@ class InterfaceLibrary
                 }
             }
         }catch (\Exception $e){
+            dd($e);
         }
 
     }
