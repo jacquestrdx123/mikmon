@@ -31,7 +31,7 @@ class DeviceinterfaceController extends Controller
             try {
                 $result = \rrd_fetch($rrdFile, array('AVERAGE', "--resolution", 60, "--start", (time() - 186400), "--end", (time() - 350)));
                 if(isset($result['data'])) {
-
+                dd($result);
                     foreach ($result["data"]["rxvalue"] as $key => $value) {
                         $labels[] = $key;
                     }
