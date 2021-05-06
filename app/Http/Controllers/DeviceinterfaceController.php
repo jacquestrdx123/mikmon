@@ -108,6 +108,9 @@ class DeviceinterfaceController extends Controller
 //                                    $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
 //                                    $finals['rxvalue'][] = $final;
                                     $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                    if(($final > 1000) or ($final < 0)){
+                                        $final=0;
+                                    }
                                     $finals['rxvalue'][] = $final;
                                 }else{
                                     $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
@@ -122,10 +125,18 @@ class DeviceinterfaceController extends Controller
                                 $finals['txvalue'][] = 0;
                             } elseif(($array['txvalue'][$key] - $array['txvalue'][$key + 1]) > 0) {
                                 $txvalue = 4147412756088 - $array['txvalue'][$key] + $array['txvalue'][$key+1];
-                                $finals['txvalue'][] = round($txvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                $final = round($txvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                if(($final > 1000) or ($final < 0)){
+                                    $final=0;
+                                }
+                                $finals['txvalue'][] = $final;
+
                             }else{
                                 $txvalue = $array['txvalue'][$key + 1] - $value;
                                 $final = round($txvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                if(($final > 1000) or ($final < 0)){
+                                    $final=0;
+                                }
                                 $finals['txvalue'][] = $final;
                             }
                         }
