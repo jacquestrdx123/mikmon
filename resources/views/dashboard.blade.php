@@ -28,9 +28,11 @@
                                 <div class="card-header">Offline Devices</div>
                                 <ul>
                                     @foreach($offline_devices as $offline_device)
-                                        <a href="/device/{!! $offline_device->id !!}">
-                                            {!! $offline_device->description !!}
-                                        </a>
+                                        <li>
+                                            <a href="/device/{!! $offline_device->id !!}">
+                                                {!! $offline_device->description !!}
+                                            </a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
