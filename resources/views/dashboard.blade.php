@@ -37,15 +37,10 @@
                                             <div class="mt-3">
                                                 <ul class="list list-inline">
                                                     @foreach($offline_devices as $offline_device)
-                                                        <li>
-                                                            <card>
-
-                                                            </card>
-                                                        </li>
                                                         <li class="d-flex justify-content-between">
                                                             <div class="d-flex flex-row align-items-center"><i class="fa fa-check-circle checkicon"></i>
                                                                 <div class="ml-2">
-                                                                    <h6 class="mb-0">{!! $device->location->description !!}</h6>
+                                                                    <h6 class="mb-0">{!! $offline_device->location->description !!}</h6>
                                                                     <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                                         <a href="/device/{!! $offline_device->id !!}">
                                                                             {!! $offline_device->description !!}
