@@ -25,63 +25,47 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-header">Offline Devices</div>
-                                <div class="container mt-5">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="mt-3">
-                                                <ul class="list list-inline">
-                                                    @foreach($offline_devices as $offline_device)
-                                                        <li class="d-flex justify-content-between">
-                                                            <div class="d-flex flex-row align-items-center"><i class="fa fa-check-circle checkicon"></i>
-                                                                <div class="ml-2">
-                                                                    <h6 class="mb-0">{!! $offline_device->location->description !!}</h6>
-                                                                    <div class="d-flex flex-row mt-1 text-black-50 date-time">
-                                                                        <li>
-                                                                            <a href="/device/{!! $offline_device->id !!}">
-                                                                                {!! $offline_device->description !!}
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            Offline for x Minutes
-                                                                        </li>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    @endforeach
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
+                                <div class="card-header border">Offline Devices</div>
+                                <ul class="list-group-flush">
+                                    @if (!$offline_devices->isEmpty())
+                                    @foreach($offline_devices as $offline_device)
+                                        <li class="list-group-item list-group-item-danger">
+                                            <a href="/device/{!! $offline_device->id !!}">
+                                                {!! $offline_device->description !!} - Offline for {!! $offline_device->getDownTime() !!}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                    @else
+                                        <li>
+                                            No Offline Devices!!
+                                        </li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-header">Something here </div>
+                                <div class="card-header border">Something here </div>
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card">
                         <div class="card-body">
-                            <div class="card-header">Recent Events</div>
-                            <ul>
+                            <div class="card-header border">Recent Events</div>
+
+                            <ul class="list-group-flush">
                                 @foreach($events as $event)
                                     @if( ($event->current_status == 4))
-                                        <li style="color:green">
+                                        <li class="list-group-item list-group-item-success">
                                             {!! $event->getRemoteObject()->ip !!} came back Online
                                         </li>
                                     @endif
                                     @if( ($event->current_status == 1))
-                                        <li style="color:red">
+                                        <li class="list-group-item list-group-item-danger">
                                             {!! $event->getRemoteObject()->ip !!} went Offline
                                         </li>
                                     @endif

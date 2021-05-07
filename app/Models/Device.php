@@ -56,6 +56,16 @@ class Device extends Model
         return $this->hasMany('App\Models\Gateway');
     }
 
+    public function getDownTime(){
+        return $this->secondsToTime(strtotime($this->last_offline)-strtotime('now'));
+    }
+
+    public function  secondsToTime($seconds) {
+    $dtF = new \DateTime('@0');
+    $dtT = new \DateTime("@$seconds");
+    return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
+}
+
     public static function PollDeviceById($id){
         $device = Device::find($id);
         if($device->devicetype == "mikrotik"){
