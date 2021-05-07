@@ -29,7 +29,7 @@
                                 <ul class="list-group-flush">
                                     @if (!$offline_devices->isEmpty())
                                     @foreach($offline_devices as $offline_device)
-                                        <li class="list-group-item list-group-item-danger">
+                                        <li class="list-group-item list-group-item-flush">
                                             <a href="/device/{!! $offline_device->id !!}">
                                                 {!! $offline_device->description !!} - Offline for {!! $offline_device->getDownTime() !!}
                                             </a>
