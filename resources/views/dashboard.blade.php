@@ -47,8 +47,16 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-header border">Something here </div>
-
+                                <div class="card-header border">Main Link Down </div>
+                                <ul class="list-group-flush">
+                                    @foreach($events as $event)
+                                        @if( ($event->current_status == 4))
+                                            <li class="list-group-item list-group-item-flush">
+                                                {!! $event->getRemoteObject()->description !!} came back Online at {!! $event->created_at !!}
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     </div>
