@@ -29,11 +29,6 @@
                                 <div class="container mt-5">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="d-flex justify-content-between align-items-center activity">
-                                                <div><i class="fa fa-clock-o"></i><span class="ml-2">11h 25m</span></div>
-                                                <div><span class="activity-done">Done Activities(4)</span></div>
-                                                <div class="icons"><i class="fa fa-search"></i><i class="fa fa-ellipsis-h"></i></div>
-                                            </div>
                                             <div class="mt-3">
                                                 <ul class="list list-inline">
                                                     @foreach($offline_devices as $offline_device)
@@ -42,9 +37,15 @@
                                                                 <div class="ml-2">
                                                                     <h6 class="mb-0">{!! $offline_device->location->description !!}</h6>
                                                                     <div class="d-flex flex-row mt-1 text-black-50 date-time">
-                                                                        <a href="/device/{!! $offline_device->id !!}">
-                                                                            {!! $offline_device->description !!}
-                                                                        </a>
+                                                                        <li>
+                                                                            <a href="/device/{!! $offline_device->id !!}">
+                                                                                {!! $offline_device->description !!}
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            Offline for x Minutes
+                                                                        </li>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
