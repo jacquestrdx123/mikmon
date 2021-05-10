@@ -27,7 +27,7 @@ class DeviceinterfaceController extends Controller
             $end = time();
             $packets_array = array();
             $finals = array();
-            $rrdFile =  "/var/www/html/mikmon/storage/rrd/".$dinterface->device_id."/interfaces/".$dinterface->default_name.".rrd";
+            $rrdFile =  config('rrd.storage_path')."/".$dinterface->device_id."/interfaces/".$dinterface->default_name.".rrd";
             try {
                 $result = \rrd_fetch($rrdFile, array('AVERAGE', "--resolution", 300, "--start", (time() - 186400), "--end", (time() - 350)));
                 if(isset($result['data'])) {

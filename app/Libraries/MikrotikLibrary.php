@@ -78,8 +78,8 @@ class MikrotikLibrary
     public static function storeOrCreateRRD($data){
         $time = time();
         $files = [
-            '/var/www/html/mikmon/storage/rrd/'.$data['device_id'],
-            "/var/www/html/mikmon/storage/rrd/".$data['device_id']."/interfaces"
+            config('rrd.storage_path').$data['device_id'],
+            config('rrd.storage_path')."/".$data['device_id']."/interfaces"
             ];
         foreach($files as $file){
             if(!file_exists($file)){
@@ -180,8 +180,8 @@ class MikrotikLibrary
     public static function storeSystemInfo($results,$device){
         $time = time();
         $files = [
-            '/var/www/html/mikmon/storage/rrd/'.$device->id,
-            "/var/www/html/mikmon/storage/rrd/".$device->id."/sysinfo"
+            config('rrd.storage_path').$device->id,
+            config('rrd.storage_path')."/".$device->id."/sysinfo"
         ];
         foreach($files as $file){
             if(!file_exists($file)){

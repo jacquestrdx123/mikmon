@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/rrd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,18 +157,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Livewire" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/app/Http/Livewire" />
       <recent name="$PROJECT_DIR$/resources/views/location" />
       <recent name="$PROJECT_DIR$/resources/views/ip" />
       <recent name="$PROJECT_DIR$/resources/views/device" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -198,14 +198,7 @@
       <workItem from="1619162725920" duration="434000" />
       <workItem from="1619595929619" duration="33000" />
       <workItem from="1619685526400" duration="1104000" />
-      <workItem from="1620127845120" duration="7667000" />
-    </task>
-    <task id="LOCAL-00004" summary="Fixed Providers">
-      <created>1615897641706</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1615897641707</updated>
+      <workItem from="1620127845120" duration="8133000" />
     </task>
     <task id="LOCAL-00005" summary="Fixed Providers">
       <created>1615900088088</created>
@@ -543,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620633919745</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Fixed Providers">
+      <created>1620634028852</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1620634028852</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,10 +570,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1612950306105" />
-    <state x="292" y="0" width="846" height="812" key="CommitChangelistDialog2" timestamp="1620633919530">
+    <state x="292" y="0" width="846" height="812" key="CommitChangelistDialog2" timestamp="1620634028700">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1620633919530" />
+    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1620634028700" />
     <state x="292" y="23" width="846" height="812" key="CommitChangelistDialog2/0.23.1440.812@0.23.1440.812" timestamp="1620633567480" />
     <state x="100" y="100" width="1240" height="700" key="DirDiffDialog" timestamp="1612861085745">
       <screen x="0" y="23" width="1440" height="816" />
@@ -593,10 +593,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1612679282176" />
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1620633926913">
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1620634030261">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1620633926913" />
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1620634030261" />
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.812@0.23.1440.812" timestamp="1620633571555" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620379975425">
       <screen x="0" y="0" width="1440" height="900" />
@@ -606,10 +606,10 @@
       <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="516" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.812@0.23.1440.812" timestamp="1620380112342" />
-    <state x="195" y="56" width="596" height="580" key="find.popup" timestamp="1620382864078">
+    <state x="195" y="56" width="596" height="580" key="find.popup" timestamp="1620644980556">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="195" y="56" width="596" height="580" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1620382864078" />
+    <state x="195" y="56" width="596" height="580" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1620644980556" />
     <state x="625" y="107" width="405" height="685" key="ftp.server.browser" timestamp="1612681319703">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

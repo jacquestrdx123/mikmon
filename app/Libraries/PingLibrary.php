@@ -164,7 +164,7 @@ class PingLibrary
         foreach ($data as $key=> $row){
 
             $time = time();
-            if(!file_exists("/var/www/html/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd")){
+            if(!file_exists(config('rrd.storage_path')."/pings/".trim($row["ip"]).".rrd")){
                 \Log::info( "NO RRD FOUND");
                 $options = array(
                     '--step','60',
@@ -178,14 +178,14 @@ class PingLibrary
                     "RRA:AVERAGE:0.5:60:20000"
                 );
 
-                if(!\rrd_create("/var/www/html/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd",$options)){
+                if(!\rrd_create(config('rrd.storage_path')."/pings/".trim($row["ip"]).".rrd",$options)){
                     \Log::info(rrd_error());
                 }else{
                         \Log::info( "RRD CREATED ".$row['ip']);
                 }
 
             }else{
-                $rrdFile ="/var/www/html/mikmon/storage/rrd/pings/".trim($row["ip"]).".rrd";
+                $rrdFile =config('rrd.storage_path')."/pings/".trim($row["ip"]).".rrd";
                 //\Log::info("Updating RRD for $ip");
                 $updator = new \RRDUpdater($rrdFile);
                 $updator->update( array(
@@ -293,7 +293,7 @@ class PingLibrary
 
     public static function store1DayUptimeRRD($row){
         $time = time();
-        if(!file_exists("/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd")){
+        if(!file_exists(config('rrd.storage_path')."/pings/uptime/1day/".trim($row["ip"]).".rrd")){
             \Log::info( "NO uptime RRD FOUND for  ".$row['ip']);
             $options = array(
                 '--step','86400',
@@ -302,14 +302,14 @@ class PingLibrary
                 'RRA:AVERAGE:0.5:1:365'
             );
 
-            if(!\rrd_create("/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd",$options)){
+            if(!\rrd_create(config('rrd.storage_path')."/pings/uptime/1day/".trim($row["ip"]).".rrd",$options)){
                 \Log::info(rrd_error());
             }else{
                 \Log::info( "RRD CREATED ".$row['ip']);
             }
 
         }else{
-            $rrdFile ="/var/www/html/mikmon/storage/rrd/pings/uptime/1day/".trim($row["ip"]).".rrd";
+            $rrdFile =config('rrd.storage_path')."/pings/uptime/1day/".trim($row["ip"]).".rrd";
             \Log::info("Updating 1 day uptime RRD for ".$row['ip']);
             $row['packet_loss'] = preg_replace('/\,/','',$row['packet_loss']);
             $updator = new \RRDUpdater($rrdFile);

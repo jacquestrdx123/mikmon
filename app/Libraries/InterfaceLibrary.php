@@ -233,8 +233,8 @@ class InterfaceLibrary
                 $value = 1;
 
                 $files = [
-                    '/var/www/html/mikmon/storage/rrd/'.$device->id,
-                    "/var/www/html/mikmon/storage/rrd/".$device->id."/interfaces"
+                    config('rrd.storage_path').$device->id,
+                    config('rrd.storage_path')."/".$device->id."/interfaces"
                 ];
                 foreach($files as $file){
                     if(!file_exists($file)){
