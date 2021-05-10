@@ -18,5 +18,8 @@ class Gateway extends Model
         'internet'
     ];
 
+    public function device(){
+        return $this->belongsTo('App/Models/Device');
+    }
 
 }
