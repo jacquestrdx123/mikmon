@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use App\Models\Event;
+use App\Models\Gateway;
 use App\Models\Location;
 use Illuminate\Http\Request;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -47,7 +48,8 @@ class DeviceController extends Controller
     public function getDashBoard(){
         $offline_devices = Device::where('status','1')->get();
         $events = Event::where('created_at','>',date("Y/m/d"))->take('20')->orderby('created_at','desc')->get();
-        return view('dashboard',compact('offline_devices','events'));
+        $down_main_links = Gateway::where('default','=','1')->with('devices')->get();
+        return view('dashboard',compact('offline_devices','events','down_main_links'));
     }
 
     public function create(){

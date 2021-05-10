@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+
     <div class="py-12">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="row col-md-12">
@@ -49,12 +50,10 @@
                             <div class="card-body">
                                 <div class="card-header border">Main Link Down </div>
                                 <ul class="list-group-flush">
-                                    @foreach($events as $event)
-                                        @if( ($event->current_status == 4))
+                                    @foreach($down_main_links as $down_main_link)
                                             <li class="list-group-item list-group-item-flush">
-                                                {!! $event->getRemoteObject()->description !!} came back Online at {!! $event->created_at !!}
+                                                {!! $down_main_link->device->description !!} - {!! $down_main_link->status !!}
                                             </li>
-                                        @endif
                                     @endforeach
                                 </ul>
                             </div>

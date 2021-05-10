@@ -505,6 +505,7 @@ class InterfaceLibrary
         return "Other";
     }
 
+
     public static function hexToStr($hex){
         $hex = preg_replace('/ /',':',$hex);
         $hex = substr($hex, 0, -1);
