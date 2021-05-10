@@ -48,7 +48,7 @@ class DeviceController extends Controller
     public function getDashBoard(){
         $offline_devices = Device::where('status','1')->get();
         $events = Event::where('created_at','>',date("Y/m/d"))->take('20')->orderby('created_at','desc')->get();
-        $down_main_links = Gateway::where('default','=','1')->with('device')->get();
+        $down_main_links = Gateway::where('default','=','1')->where('active','false')->with('device')->get();
         return view('dashboard',compact('offline_devices','events','down_main_links'));
     }
 
