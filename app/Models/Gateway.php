@@ -19,7 +19,7 @@ class Gateway extends Model
     ];
 
     public function device(){
-        return $this->belongsTo('App/Models/Device');
+        return $this->belongsTo(Device::class);
     }
 
 }
