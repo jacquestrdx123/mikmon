@@ -2,21 +2,18 @@
 
 namespace App\Providers;
 
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Facades\Route;
+use Horizon;
+use Illuminate\Support\ServiceProvider;
 
 class HorizonServiceProvider extends ServiceProvider
 {
-    protected function gate()
+    /**
+     * Bootstrap the application services.
+     */
+    public function boot(): void
     {
-        Gate::define('viewHorizon', function ($user) {
-            return in_array($user->email, [
-                'jacques.trdx@gmail.com',
-            ]);
-        });
+        if (! app()->environment('local')) {
+            Horizon::auth(fn ($request) => auth()->check() && auth()->user()->isAdmin());
+        }
     }
 }
-?>
