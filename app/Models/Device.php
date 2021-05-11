@@ -97,7 +97,7 @@ class Device extends Model
 
     public static function findHourlyLatencySpikes(){
         $devices = Device::get();
-
+        $array = array();
         foreach($devices as $device) {
             if ($device->ping == "1") {
                 $rrdFile = config('rrd.storage_path')."/pings/". trim($device->ip) . ".rrd";
