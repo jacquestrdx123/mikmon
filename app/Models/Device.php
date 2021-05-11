@@ -99,7 +99,7 @@ class Device extends Model
         $devices = Device::get();
         $array = array();
         foreach($devices as $device) {
-            if ($device->ping == "1") {
+            if ($device->status == "4") {
                 $rrdFile = config('rrd.storage_path')."/pings/". trim($device->ip) . ".rrd";
                 $result = \rrd_fetch($rrdFile, array(config('rrd.ds'), "--resolution", config("rrd.step"), "--start", (time() - 86400), "--end", (time() - 350)));
                 if (isset($result['data'])) {
