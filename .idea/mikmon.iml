@@ -10,6 +10,9 @@
       <excludeFolder url="file://$MODULE_DIR$/phpredis/.libs" />
       <excludeFolder url="file://$MODULE_DIR$/phpredis/autom4te.cache" />
       <excludeFolder url="file://$MODULE_DIR$/phpredis/build" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/28" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/90" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bacon/bacon-qr-code" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
