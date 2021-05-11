@@ -178,6 +178,8 @@ class PingLibrary
                     "RRA:AVERAGE:0.5:60:20000"
                 );
 
+                \Log::info("Creating ".config('rrd.storage_path')."/pings/".trim($row["ip"]).".rrd");
+
                 if(!\rrd_create(config('rrd.storage_path')."/pings/".trim($row["ip"]).".rrd",$options)){
                     \Log::info(rrd_error());
                 }else{
@@ -301,7 +303,7 @@ class PingLibrary
                 'DS:uptime:GAUGE:43200:U:U',
                 'RRA:AVERAGE:0.5:1:365'
             );
-
+            \Log::info("Creating ".config('rrd.storage_path')."/pings/uptime/1day/".trim($row["ip"]).".rrd");
             if(!\rrd_create(config('rrd.storage_path')."/pings/uptime/1day/".trim($row["ip"]).".rrd",$options)){
                 \Log::info(rrd_error());
             }else{
