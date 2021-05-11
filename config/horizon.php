@@ -151,7 +151,7 @@ return [
     |
     */
 
-    'memory_limit' => 64,
+    'memory_limit' => 8192,
 
     /*
     |--------------------------------------------------------------------------
@@ -170,7 +170,7 @@ return [
             'queue' => ['default'],
             'balance' => 'auto',
             'maxProcesses' => 50,
-            'memory' => 4100,
+            'memory' => 8192,
             'tries' => 1,
             'nice' => 0,
         ],
