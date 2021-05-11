@@ -165,4 +165,9 @@ class DeviceController extends Controller
         return $events;
     }
 
+    public function showWarningLatencies(){
+        $latencies = Device::findHourlyLatencySpikes();
+        return view('device.highlatencies',compact('latencies'));
+    }
+
 }

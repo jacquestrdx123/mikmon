@@ -95,4 +95,84 @@ class Device extends Model
         }
     }
 
+    public static function findHourlyLatencySpikes(){
+        $devices = Device::get();
+
+        foreach($devices as $device) {
+            if ($device->ping == "1") {
+                $rrdFile = config('rrd.storage_path')."/pings/". trim($device->ip) . ".rrd";
+                $result = \rrd_fetch($rrdFile, array(config('rrd.ds'), "--resolution", config("rrd.step"), "--start", (time() - 86400), "--end", (time() - 350)));
+                if (isset($result['data'])) {
+
+                    $stats = array();
+                    foreach ($result['data']['avg'] as $key => $datum) {
+                        $values = array(
+                            "time" => $key,
+                            "value" => $datum
+                        );
+                        $stats[] = $values;
+                    }
+                    if (isset($stats)) {
+                        foreach ($stats as $stat) {
+
+                            if ($stat['value'] > 100) {
+                                $array[$device->location->name][$device->name][] = array(
+                                    "url" => "<a href='/device/" . $device->id . "'>OPEN DEVICE</a>",
+                                    "type" => "High Latency",
+                                    "year" => date("Y-m-d H:i:s", $stat['time']),
+                                    "ip" => $device->ip,
+                                    "value" => $stat['value'] . " ms"
+                                );
+                            }
+                        }
+                    }
+                    $stats = array();
+                    foreach ($result['data']['packet_loss'] as $key => $datum) {
+                        $values = array(
+                            "time" => $key,
+                            "value" => $datum
+                        );
+                        $stats[] = $values;
+                    }
+                    if (isset($stats)) {
+                        foreach ($stats as $stat) {
+
+                            if (($stat['value'] > 10) and($stat['value'] < 100)) {
+                                $array[$device->location->name][$device->name][] = array(
+                                    "url" => "<a href='/device/" . $device->id . "'>OPEN DEVICE</a>",
+                                    "type" => "High packet loss",
+                                    "year" => date("Y-m-d H:i:s", $stat['time']),
+                                    "ip" => $device->ip,
+                                    "value" => $stat['value'] . " %"
+                                );
+                            }
+                        }
+                    }
+                    foreach ($result['data']['jitter'] as $key => $datum) {
+                        $values = array(
+                            "time" => $key,
+                            "value" => $datum
+                        );
+                        $stats[] = $values;
+                    }
+                    if (isset($stats)) {
+                        foreach ($stats as $stat) {
+
+                            if ($stat['value'] > "100") {
+                                $array[$device->location->name][$device->name][] = array(
+                                    "url" => "<a href='/device/" . $device->id . "'>OPEN DEVICE</a>",
+                                    "type" => "High jitter",
+                                    "year" => date("Y-m-d H:i:s", $stat['time']),
+                                    "ip" => $device->ip,
+                                    "value" => $stat['value'] . " ms"
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $array;
+    }
+
 }

@@ -43,7 +43,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/location','App\Http\Contr
     ->name('location');
 Route::middleware(['auth:sanctum', 'verified'])->get('/location/{id}','App\Http\Controllers\LocationController@show')
     ->name('location.show');
-
+Route::middleware(['auth:sanctum', 'verified'])->get('/devices/warning_latencies','App\Http\Controllers\DeviceController@showWarningLatencies')
+    ->name('device.showWarningLatencies');
 Route::get('/deviceinterface/{id}','App\Http\Controllers\DeviceinterfaceController@index');
 Route::get('/deviceinterface/graph/{id}','App\Http\Controllers\DeviceinterfaceController@show');
 
