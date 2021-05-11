@@ -242,6 +242,7 @@ class InterfaceLibrary
                     }
                 }
                 $rrdFile = $files['1']."/".$key.".rrd";
+                dd($rrdFile);
 //                InfluxLibrary::writeToDB("dte", "interfaces", $data, $value);
                 if(!file_exists($rrdFile)){
                     \Log::info("NO RRD FOUND for interface $key on device ".$device->id);
