@@ -7,8 +7,7 @@ use App\Models\Event;
 use App\Models\Gateway;
 use App\Models\Location;
 use Illuminate\Http\Request;
-use ArielMejiaDev\LarapexCharts\LarapexChart;
-
+use ArielMejiaDev\LarapexCharts\Facades\LarapexChart;
 
 class DeviceController extends Controller
 {
@@ -94,7 +93,7 @@ class DeviceController extends Controller
             foreach($array["packet_loss"] as $packet_loss){
                 $array["availability"][] = 100 - $packet_loss;
             }
-            $ping_chart = (new \LarapexChart)->setType('line')
+            $ping_chart = (new LarapexChart)->setType('line')
                 ->setTitle('Latency Stats for '.$device->description)
                 ->setSubtitle('Click to zoom')
                 ->setColors($colorarray)
@@ -124,7 +123,7 @@ class DeviceController extends Controller
                         'data'  =>  $array["packet_loss"]
                     ]
                 ]);
-            $availability_chart = (new \LarapexChart)->setType('area')
+            $availability_chart = (new LarapexChart)->setType('area')
                 ->setTitle('Availability Stats for '.$device->description)
                 ->setSubtitle('Click to zoom')
                 ->setColors($colorarray)
@@ -139,7 +138,7 @@ class DeviceController extends Controller
                     ],
                 ]);
         }else{
-            $ping_chart = (new \LarapexChart)->setType('area');
+            $ping_chart = (new LarapexChart)->setType('area');
         }
         if((isset($availability_chart)) AND (isset($ping_chart))){
             return view('device.latency',compact('device','ping_chart','availability_chart'));
