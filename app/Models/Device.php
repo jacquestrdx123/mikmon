@@ -115,7 +115,7 @@ class Device extends Model
                         foreach ($stats as $stat) {
 
                             if ($stat['value'] > 100) {
-                                $array[$device->location->name][$device->name][] = array(
+                                $array[$device->location->description][$device->description][] = array(
                                     "url" => "<a href='/device/" . $device->id . "'>OPEN DEVICE</a>",
                                     "type" => "High Latency",
                                     "year" => date("Y-m-d H:i:s", $stat['time']),
@@ -137,7 +137,7 @@ class Device extends Model
                         foreach ($stats as $stat) {
 
                             if (($stat['value'] > 10) and($stat['value'] < 100)) {
-                                $array[$device->location->name][$device->name][] = array(
+                                $array[$device->location->description][$device->description][] = array(
                                     "url" => "<a href='/device/" . $device->id . "'>OPEN DEVICE</a>",
                                     "type" => "High packet loss",
                                     "year" => date("Y-m-d H:i:s", $stat['time']),
@@ -158,7 +158,7 @@ class Device extends Model
                         foreach ($stats as $stat) {
 
                             if ($stat['value'] > "100") {
-                                $array[$device->location->name][$device->name][] = array(
+                                $array[$device->location->description][$device->description][] = array(
                                     "url" => "<a href='/device/" . $device->id . "'>OPEN DEVICE</a>",
                                     "type" => "High jitter",
                                     "year" => date("Y-m-d H:i:s", $stat['time']),
@@ -171,7 +171,6 @@ class Device extends Model
                 }
             }
         }
-        dd($array);
         return $array;
     }
 
