@@ -120,7 +120,7 @@ class Device extends Model
                                     "type" => "High Latency",
                                     "year" => date("Y-m-d H:i:s", $stat['time']),
                                     "ip" => $device->ip,
-                                    "value" => $stat['value'] . " ms"
+                                    "value" => round($stat['value'],2) . " ms"
                                 );
                             }
                         }
@@ -142,7 +142,7 @@ class Device extends Model
                                     "type" => "High packet loss",
                                     "year" => date("Y-m-d H:i:s", $stat['time']),
                                     "ip" => $device->ip,
-                                    "value" => $stat['value'] . " %"
+                                    "value" => round($stat['value'],2) . " %"
                                 );
                             }
                         }
@@ -163,7 +163,7 @@ class Device extends Model
                                     "type" => "High jitter",
                                     "year" => date("Y-m-d H:i:s", $stat['time']),
                                     "ip" => $device->ip,
-                                    "value" => $stat['value'] . " ms"
+                                    "value" => round($stat['value'],2) . " ms"
                                 );
                             }
                         }
