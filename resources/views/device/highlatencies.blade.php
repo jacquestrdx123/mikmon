@@ -13,13 +13,14 @@
                         <div class="panel-body">
                             @foreach($latencies as $index => $array)
                                 <button class="btn btn-default collapsible">
-                                        <strong> Latency Events for {!! $index !!} :  &nbsp &nbsp {{sizeof($array[$index])}}  </strong>
+                                        <strong> Latency Events for {!! $index !!} :  &nbsp &nbsp  </strong>
                                 </button>
                                 <div class="content">
                                     <ul class="nav navbar-default">
                                     <li>
                                         <table class ="table table-bordered table-hover">
                                             @foreach($array as $key => $latency)
+                                                {!! dd($array) !!}
                                                 @foreach($latency as $value)
                                                     <tr>
                                                         <td>{!! $key !!}</td>
