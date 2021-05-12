@@ -7,7 +7,7 @@ use App\Models\Event;
 use App\Models\Gateway;
 use App\Models\Location;
 use Illuminate\Http\Request;
-use ArielMejiaDev\LarapexCharts\Facades\LarapexChart;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class DeviceController extends Controller
 {
