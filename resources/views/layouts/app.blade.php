@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        @stack('head')
         <style>
             [x-cloak] {
                 display: none;
@@ -22,6 +21,7 @@
             }
         </style>
         @livewireStyles
+        @stack('head')
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>

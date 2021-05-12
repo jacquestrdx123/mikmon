@@ -81,8 +81,10 @@
                     var content = this.nextElementSibling;
                     if (content.style.maxHeight){
                         content.style.maxHeight = null;
+                        console.log("Hiding Something");
                     } else {
                         content.style.maxHeight = content.scrollHeight + "px";
+                        console.log("Showing Something");
                     }
                 });
             }
