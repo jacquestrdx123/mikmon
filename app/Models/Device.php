@@ -171,6 +171,7 @@ class Device extends Model
                 }
             }
         }
+        dd($array);
         return $array;
     }
 
