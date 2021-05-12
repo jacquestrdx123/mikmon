@@ -142,7 +142,7 @@ class DeviceinterfaceController extends Controller
                         }
                     }
 
-                    $throughputChart = (new LarapexChart)->setType('area')
+                    $throughputChart = (new \LarapexChart)->setType('area')
                         ->setTitle('Throughput Stats for '.$dinterface->name)
                         ->setSubtitle('Click to zoom')
                         ->setColors($colorarray)
@@ -162,7 +162,7 @@ class DeviceinterfaceController extends Controller
 
                         ]);
 
-                    $interfaceErrorsChart = (new LarapexChart)->setType('line')
+                    $interfaceErrorsChart = (new \LarapexChart)->setType('line')
                         ->setTitle('Error Stats for '.$dinterface->name)
                         ->setSubtitle('Click to zoom')
                         ->setColors($colorarray)
@@ -181,7 +181,7 @@ class DeviceinterfaceController extends Controller
                             ],
                         ]);
 
-                    $interfaceUptimeChart = (new LarapexChart)->setType('bar')
+                    $interfaceUptimeChart = (new \LarapexChart)->setType('bar')
                         ->setTitle('Uptime Stats for '.$dinterface->name)
                         ->setSubtitle('Click to zoom')
                         ->setColors($colorarray)
