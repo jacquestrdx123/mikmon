@@ -20,7 +20,7 @@
                                     <li>
                                         <table class ="table table-bordered table-hover">
                                             @foreach($array as $key => $latency)
-                                                {!! dd($array) !!}
+                                                {!! dd(reset($array)) !!}
                                                 @foreach($latency as $value)
                                                     <tr>
                                                         <td>{!! $key !!}</td>
