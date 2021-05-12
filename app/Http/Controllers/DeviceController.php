@@ -93,7 +93,7 @@ class DeviceController extends Controller
             foreach($array["packet_loss"] as $packet_loss){
                 $array["availability"][] = 100 - $packet_loss;
             }
-            $ping_chart = (new LarapexChart)->setType('line')
+            $ping_chart = (new LarapexChart)->lineChart()
                 ->setTitle('Latency Stats for '.$device->description)
                 ->setSubtitle('Click to zoom')
                 ->setColors($colorarray)
