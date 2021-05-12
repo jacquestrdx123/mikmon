@@ -13,7 +13,7 @@
                         <div class="panel-body">
                             @foreach($latencies as $index => $array)
                                 <button class="btn btn-default collapsible">
-                                        <strong> Latency Events for {!! $index !!} : {{sizeof($array)}} :  &nbsp &nbsp </strong>
+                                        <strong> Latency Events for {!! $index !!} :  &nbsp &nbsp {{sizeof($array)}}  </strong>
                                 </button>
                                 <div class="content">
                                     <ul class="nav navbar-default">
