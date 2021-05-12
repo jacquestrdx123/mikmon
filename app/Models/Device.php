@@ -103,7 +103,6 @@ class Device extends Model
                 $rrdFile = config('rrd.storage_path')."/pings/". trim($device->ip) . ".rrd";
                 $result = \rrd_fetch($rrdFile, array('AVERAGE', "--resolution", '60', "--start", (time() - 86400), "--end", (time() - 350)));
                 if (isset($result['data'])) {
-                dd($result);
                     $stats = array();
                     foreach ($result['data']['avg'] as $key => $datum) {
                         $values = array(
