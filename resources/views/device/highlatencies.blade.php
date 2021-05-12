@@ -15,7 +15,6 @@
                                 <button class="btn btn-default collapsible">
                                         <strong> Latency Events for {!! $index !!} : {{sizeof($array)}} :  &nbsp &nbsp </strong>
                                 </button>
-                                <h2> {!! $index !!}</h2>
                                 <table class ="table table-bordered table-hover">
                                     @foreach($array as $key => $latency)
                                         @foreach($latency as $value)
