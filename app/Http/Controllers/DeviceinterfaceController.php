@@ -30,6 +30,7 @@ class DeviceinterfaceController extends Controller
             $rrdFile =  config('rrd.storage_path')."/".$dinterface->device_id."/interfaces/".$dinterface->default_name.".rrd";
             try {
                 $result = \rrd_fetch($rrdFile, array('AVERAGE', "--resolution", 300, "--start", (time() - 186400), "--end", (time() - 350)));
+                dd($result);
                 if(isset($result['data'])) {
                     foreach ($result["data"]["rxvalue"] as $key => $value) {
                         $labels[] = $key;
