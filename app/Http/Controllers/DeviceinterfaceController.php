@@ -142,7 +142,7 @@ class DeviceinterfaceController extends Controller
                         }
                     }
 
-                    $throughputChart = (new \LarapexChart)->areaChart()
+                    $throughputChart = (new \LarapexChart)->lineChart()
                         ->setTitle('Throughput Stats for '.$dinterface->name)
                         ->setSubtitle('Click to zoom')
                         ->setColors($colorarray)
