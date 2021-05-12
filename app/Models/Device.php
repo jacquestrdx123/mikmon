@@ -101,8 +101,7 @@ class Device extends Model
         foreach($devices as $device) {
             if ($device->status == "4") {
                 $rrdFile = config('rrd.storage_path')."/pings/". trim($device->ip) . ".rrd";
-                dd($rrdFile);
-                $result = \rrd_fetch($rrdFile, array(config('rrd.ds'), "--resolution", config("rrd.step"), "--start", (time() - 86400), "--end", (time() - 350)));
+                $result = \rrd_fetch($rrdFile, array('AVERAGE', "--resolution", '60', "--start", (time() - 86400), "--end", (time() - 350)));
                 if (isset($result['data'])) {
                 dd($result);
                     $stats = array();
