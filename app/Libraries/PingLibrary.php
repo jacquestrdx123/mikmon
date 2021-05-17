@@ -283,6 +283,14 @@ class PingLibrary
         if($device->status == 4){
             $device->current_status = "Online";
         }
+        if(isset($event)){
+            if($event->current_status == '1'){
+                $device->last_offline = $event->created_at;
+            }
+            if($event->current_status == '4'){
+                $device->last_online = $event->created_at;
+            }
+        }
         if($device->status == 1){
             $device->current_status = "Offline";
         }
