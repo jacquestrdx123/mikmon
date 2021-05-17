@@ -31,11 +31,8 @@ class EventsDatatable extends LivewireDatatable
         return [
             NumberColumn::name('id')
                 ->label('ID'),
-            DateColumn::name('created_at')
-                ->label('Timestamp')
-                ->format(function($value) {
-                    return timezone()->convertToLocal($value);
-            }),
+            Column::name('created_at')
+                ->label('Timestamp'),
             Column::callback(['events.previous_status', 'events.current_status'], function ($previous_status, $current_status) {
                 return view('table-events-status', ['previous_status' => $previous_status, 'current_status' => $current_status]);
             })
