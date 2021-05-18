@@ -19,7 +19,7 @@
                                     <ul class="nav navbar-default">
                                     <li>
                                         <table class ="table table-bordered table-hover">
-                                            @if(sizeof(reset($array) > 10))
+                                            @if(sizeof(($array) > 10))
                                                 @foreach($array as $key => $latency)
                                                     @foreach($latency as $value)
                                                         <tr style="color:red">
