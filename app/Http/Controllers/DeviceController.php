@@ -165,11 +165,7 @@ class DeviceController extends Controller
     }
 
     public function showWarningLatencies(){
-        function sortByLength($a,$b){
-            return strlen($b)-strlen($a);
-        }
         $latencies = Device::findHourlyLatencySpikes();
-        usort($latencies,'sortByLength');
         return view('device.highlatencies',compact('latencies'));
     }
 
