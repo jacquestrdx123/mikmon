@@ -19,18 +19,21 @@
                                     <ul class="nav navbar-default">
                                     <li>
                                         <table class ="table table-bordered table-hover">
-                                            @foreach($array as $key => $latency)
-                                                @foreach($latency as $value)
-                                                    <tr>
-                                                        <td>{!! $key !!}</td>
-                                                        <td>{!! $value['url'] !!}</td>
-                                                        <td>{!! $value['type'] !!}</td>
-                                                        <td>{!! $value['year'] !!}</td>
-                                                        <td>{!! $value['ip'] !!}</td>
-                                                        <td>{!! $value['value'] !!}</td>
-                                                    </tr>
+                                            @if(sizeof(reset($array) > 10))
+                                                @foreach($array as $key => $latency)
+                                                    @foreach($latency as $value)
+                                                        <tr style="color:red">
+                                                            <td>{!! $key !!}</td>
+                                                            <td>{!! $value['url'] !!}</td>
+                                                            <td>{!! $value['type'] !!}</td>
+                                                            <td>{!! $value['year'] !!}</td>
+                                                            <td>{!! $value['ip'] !!}</td>
+                                                            <td>{!! $value['value'] !!}</td>
+                                                        </tr>
+                                                    @endforeach
                                                 @endforeach
-                                            @endforeach
+                                            @else
+                                            @endif
                                         </table>
                                     </li>
                                 </div>
