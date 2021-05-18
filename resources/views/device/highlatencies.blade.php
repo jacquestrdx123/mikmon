@@ -15,7 +15,7 @@
                                 <?php
                                 $size = sizeof(reset($array));
                                 ?>
-                                @if($size >= 50)
+                                @if($size >= 100)
                                 <button class="btn btn-default collapsible">
                                         <strong> Latency Events for {!! $index !!} &nbsp &nbsp : &nbsp &nbsp{!! $size !!}   </strong>
                                 </button>
@@ -46,7 +46,38 @@
                                     <?php
                                     $size = sizeof(reset($array));
                                     ?>
-                                    @if( ($size < 50) and ($size >= 20))
+                                    @if( ($size < 100) and ($size >= 50))
+                                        <button class="btn btn-default collapsible">
+                                            <strong> Latency Events for {!! $index !!} &nbsp &nbsp : &nbsp &nbsp{!! $size !!}   </strong>
+                                        </button>
+                                        <div class="content">
+                                            <ul class="nav navbar-default">
+                                                <li>
+                                                    <table class ="table table-bordered table-hover">
+                                                        @foreach($array as $key => $latency)
+                                                            @foreach($latency as $value)
+                                                                <tr style="color:red">
+                                                                    <td>{!! $key !!}</td>
+                                                                    <td>{!! $value['url'] !!}</td>
+                                                                    <td>{!! $value['type'] !!}</td>
+                                                                    <td>{!! $value['year'] !!}</td>
+                                                                    <td>{!! $value['ip'] !!}</td>
+                                                                    <td>{!! $value['value'] !!}</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @endforeach
+                                                    </table>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    @else
+                                    @endif
+                                @endforeach
+                                @foreach($latencies as $index => $array)
+                                    <?php
+                                    $size = sizeof(reset($array));
+                                    ?>
+                                    @if( ($size < 50) AND ($size >= 20))
                                         <button class="btn btn-default collapsible">
                                             <strong> Latency Events for {!! $index !!} &nbsp &nbsp : &nbsp &nbsp{!! $size !!}   </strong>
                                         </button>
