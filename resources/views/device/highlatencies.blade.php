@@ -13,9 +13,9 @@
                         <div class="panel-body">
                             @foreach($latencies as $index => $array)
                                 <button class="btn btn-default collapsible">
-                                        @php()
+                                        <?php
                                             $size = sizeof(reset($array));
-                                        @endphp
+                                        ?>
                                         <strong> Latency Events for {!! $index !!} &nbsp &nbsp : &nbsp &nbsp{!! $size !!}   </strong>
                                 </button>
                                 <div class="content">
