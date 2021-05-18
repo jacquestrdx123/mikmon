@@ -19,7 +19,7 @@
                                     <ul class="nav navbar-default">
                                     <li>
                                         <table class ="table table-bordered table-hover">
-                                            @if(sizeof(current($array) > 10))
+                                            {!! dd($array) !!}
                                                 @foreach($array as $key => $latency)
                                                     @foreach($latency as $value)
                                                         <tr style="color:red">
@@ -32,8 +32,6 @@
                                                         </tr>
                                                     @endforeach
                                                 @endforeach
-                                            @else
-                                            @endif
                                         </table>
                                     </li>
                                 </div>
