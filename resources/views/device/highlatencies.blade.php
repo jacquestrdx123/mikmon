@@ -13,13 +13,16 @@
                         <div class="panel-body">
                             @foreach($latencies as $index => $array)
                                 <button class="btn btn-default collapsible">
-                                        <strong> Latency Events for {!! $index !!} &nbsp &nbsp : &nbsp &nbsp{!! sizeof(reset($array)) !!}   </strong>
+                                        @php()
+                                            $size = sizeof(reset($array));
+                                        @endphp
+                                        <strong> Latency Events for {!! $index !!} &nbsp &nbsp : &nbsp &nbsp{!! $size !!}   </strong>
                                 </button>
                                 <div class="content">
                                     <ul class="nav navbar-default">
                                     <li>
+                                        @if($size > 20)
                                         <table class ="table table-bordered table-hover">
-                                            {!! dd(sizeof($array[$index])) !!}
                                                 @foreach($array as $key => $latency)
                                                     @foreach($latency as $value)
                                                         <tr style="color:red">
@@ -33,6 +36,8 @@
                                                     @endforeach
                                                 @endforeach
                                         </table>
+                                        @else
+                                        @endif
                                     </li>
                                 </div>
                             @endforeach
