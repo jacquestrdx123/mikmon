@@ -19,7 +19,7 @@
                                     <ul class="nav navbar-default">
                                     <li>
                                         <table class ="table table-bordered table-hover">
-                                            {!! dd(sizeof($array[$index]) !!}
+                                            {!! dd(sizeof($array[$index])) !!}
                                                 @foreach($array as $key => $latency)
                                                     @foreach($latency as $value)
                                                         <tr style="color:red">
