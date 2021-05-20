@@ -21,7 +21,7 @@ class Deviceinterfacetop20Datatable extends LivewireDatatable
 
     public function builder()
     {
-        return Deviceinterface::query()->orderBy('txspeed','DESC')->take('20');
+        return Deviceinterface::query()->with('device')->distinct('device_id')->orderBy('txspeed','DESC')->take('20');
     }
 
     public function columns()
@@ -30,6 +30,10 @@ class Deviceinterfacetop20Datatable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
             ->linkTo('deviceinterface/graph'),
+            Column::callback(['devices.id', 'devices.description'], function ($id, $description) {
+                return view('table-devices-show', ['id' => $id, 'description' => $description]);
+            })
+            ->Label('Device'),
             Column::callback(['name'], function ($name) {
                 $name = preg_replace('/\</','',$name);
                 $name = preg_replace('/\>/','',$name);
