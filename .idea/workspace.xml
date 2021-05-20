@@ -17,6 +17,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/Http/Livewire/Deviceinterfacetop20Datatable.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
@@ -204,21 +207,7 @@
       <workItem from="1620982115108" duration="1804000" />
       <workItem from="1621321431539" duration="2351000" />
       <workItem from="1621330920743" duration="1995000" />
-      <workItem from="1621442611027" duration="5453000" />
-    </task>
-    <task id="LOCAL-00096" summary="Fixed Providers">
-      <created>1620805775640</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1620805775640</updated>
-    </task>
-    <task id="LOCAL-00097" summary="Fixed Providers">
-      <created>1620805869044</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1620805869044</updated>
+      <workItem from="1621442611027" duration="5586000" />
     </task>
     <task id="LOCAL-00098" summary="Fixed Providers">
       <created>1620805958379</created>
@@ -549,7 +538,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621496855438</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Fixed Providers">
+      <created>1621497407475</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1621497407475</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Fixed Providers">
+      <created>1621497455926</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1621497455926</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,10 +579,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1621492474241" />
-    <state x="292" y="0" width="846" height="812" key="CommitChangelistDialog2" timestamp="1621496855232">
+    <state x="292" y="0" width="846" height="812" key="CommitChangelistDialog2" timestamp="1621497455704">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1621496855232" />
+    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1621497455704" />
     <state x="292" y="23" width="846" height="812" key="CommitChangelistDialog2/0.23.1440.812@0.23.1440.812" timestamp="1620633567480" />
     <state x="100" y="100" width="1240" height="700" key="DirDiffDialog" timestamp="1612861085745">
       <screen x="0" y="23" width="1440" height="816" />
@@ -599,10 +602,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1620724398874" />
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1621496856964">
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1621497457043">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1621496856964" />
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1621497457043" />
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.812@0.23.1440.812" timestamp="1620633571555" />
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.814@0.23.1440.814" timestamp="1620720192076" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1620726240421">
