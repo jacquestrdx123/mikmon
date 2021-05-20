@@ -43,11 +43,11 @@ class Deviceinterfacetop20Datatable extends LivewireDatatable
                 ->label('Type')
                 ->searchable()
                 ->filterable(),
-            Column::number('txspeed')
+            NumberColumn::name('txspeed')
                 ->label('TX Speed'),
-            Column::number('rxspeed')
+            NumberColumn::name('rxspeed')
                 ->label('RX Speed'),
-            Column::name('threshhold')
+            NumberColumn::name('threshhold')
                 ->label('Threshold')
                 ->editable(),
 
