@@ -523,6 +523,7 @@ class InterfaceLibrary
                 $array = array();
                 $rrdFile = config('rrd.storage_path') .'/'. trim($interface->device_id) . "/interfaces/" . trim($interface->default_name) . ".rrd";
                 $result = rrd_fetch($rrdFile, array(config('rrd.ds'), "--resolution" , config("rrd.step"), "--start", (time() - 5000), "--end", time() - 300));
+                dd($result);
                 if($result){
                     foreach ($result["data"]["rxvalue"] as $key => $value) {
                         $labels[] = $key;
@@ -570,7 +571,6 @@ class InterfaceLibrary
                             }
                         }
                     }
-                    dd($finals);
                     foreach ($finals['txvalue'] as $key => $value) {
                         if ($key < sizeof($finals['txvalue'])) {
                             if (is_finite($value)) {
@@ -615,7 +615,7 @@ class InterfaceLibrary
                 }
 
             }catch (\Exception $e){
-                echo $e;
+                dd($e);
             }
         }
 
