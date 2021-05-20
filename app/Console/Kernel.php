@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('PollDevices')->everyMinute()->runInBackground();
         $schedule->command('QueuePingJob')->everyMinute();
+        $schedule->command('SyncInterfaces')->everyMinute();
         $schedule->command('QueueHistoricalPingJob')->everyMinute();
         $schedule->command('QueueUpdateLocationCountersJob')->everyMinute();
     }

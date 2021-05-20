@@ -514,7 +514,7 @@ class InterfaceLibrary
         return $hex;
     }
 
-    public function syncInterfaces($device)
+    public static function syncInterfaces($device)
     {
         $interfaces = Deviceinterface::where('device_id', $device->id)->where('type', '!=', "Null0")->get();
         foreach ($interfaces as $interface) {
