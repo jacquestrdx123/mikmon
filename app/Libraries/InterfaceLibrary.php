@@ -6,6 +6,8 @@
  * Time: 8:12 AM
  */
 namespace App\Libraries;
+use App\DInterface;
+use App\InterfaceWarning;
 use App\Models\Deviceinterface;
 
 class InterfaceLibrary
@@ -511,4 +513,112 @@ class InterfaceLibrary
         $hex = substr($hex, 0, -1);
         return $hex;
     }
+
+    public function syncInterfaces($device)
+    {
+        $interfaces = Deviceinterface::where('device_id', $device->id)->where('type', '!=', "Null0")->get();
+        foreach ($interfaces as $interface) {
+            try {
+                $finals = array();
+                $array = array();
+                $rrdFile = config('rrd.storage_path') .'/'. trim($interface->device_id) . "/interfaces/" . trim($interface->default_name) . ".rrd";
+                $result = rrd_fetch($rrdFile, array(config('rrd.ds'), "--resolution" , config("rrd.step"), "--start", (time() - 5000), "--end", time() - 300));
+                if($result){
+                    foreach ($result["data"]["rxvalue"] as $key => $value) {
+                        $labels[] = $key;
+                    }
+                    foreach ($result["data"]["rxvalue"] as $key => $value) {
+                        $array['rxvalue'][] = $value;
+                    }
+                    foreach ($result["data"]["Availabilty"] as $key => $value) {
+                        $array['availabilty'][] = $value;
+                    }
+                    foreach ($result["data"]["txvalue"] as $key => $value) {
+                        $array['txvalue'][] = $value;
+                    }
+                    foreach ($result["data"]["ifInErrors"] as $key => $value) {
+                        $array['ifInErrors'][] = $value;
+                    }
+                    foreach ($result["data"]["ifOutErrors"] as $key => $value) {
+                        $array['ifOutErrors'][] = $value;
+                    }
+                    foreach ($labels as $key => $value) {
+                        if (isset($labels[$key + 1])) {
+                            $array['timestamps'][] = $labels[$key + 1] - $value;
+                        }
+                    }
+                    foreach ($array['rxvalue'] as $key => $value) {
+                        if (isset($array['rxvalue'][$key + 1])) {
+                            if (($array['rxvalue'][$key + 1] == 0) or ($value == 0)) {
+                                $finals['rxvalue'][] = 0;
+                            } else {
+                                $rxvalue = $array['rxvalue'][$key + 1] - $value;
+                                $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                $finals['rxvalue'][] = $final;
+
+                            }
+                        }
+                    }
+
+                    foreach ($array['txvalue'] as $key => $value) {
+                        if (isset($array['txvalue'][$key + 1])) {
+                            if (($array['txvalue'][$key + 1] == 0) or ($value == 0)) {
+                                $finals['txvalue'][] = 0;
+                            } else {
+                                $rxvalue = $array['txvalue'][$key + 1] - $value;
+                                $finals['txvalue'][] = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                            }
+                        }
+                    }
+
+                    foreach ($finals['txvalue'] as $key => $value) {
+                        if ($key < sizeof($finals['txvalue'])) {
+                            if (is_finite($value)) {
+                                $txvalue = $value;
+                            } else {
+                                $txvalue = 0;
+                            }
+                        }
+                    }
+                    foreach ($finals['rxvalue'] as $key => $value) {
+                        if ($key < sizeof($finals['rxvalue'])) {
+                            if (is_finite($value)) {
+                                $rxvalue = $value;
+                            } else {
+                                $rxvalue = 0;
+                            }
+                        }
+                    }
+
+
+                    if ($interface->maxtxspeed < $txvalue) {
+                        $interface->maxtxspeed = $txvalue;
+                    }
+                    if ($interface->maxrxspeed < $rxvalue) {
+                        $interface->maxrxspeed = $rxvalue;
+                    }
+                    $interface->txspeed = $txvalue;
+                    $interface->rxspeed = $rxvalue;
+                    $interface->save();
+                    $date = new \DateTime;
+                    $date->modify('-30 minutes');
+                    $formatted_date = $date->format('Y-m-d H:i:s');
+                    if ($interface->threshhold == 0) {
+                    } else {
+                        if ($interface->created_at < $formatted_date) {
+                            echo $interface->device->name . " -- " . $interface->name . " using " . $interface->txspeed . " out of " . $interface->threshhold . "\n";
+                            echo $interface->device->name . " -- " . " using " . $interface->rxspeed . " out of " . $interface->threshhold . "\n";
+                        }
+                    }
+                }else{
+                    echo $interface->name."\n";
+                }
+
+            }catch (\Exception $e){
+                echo $e;
+            }
+        }
+
+    }
+
 }
