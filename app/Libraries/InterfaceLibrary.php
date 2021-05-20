@@ -570,7 +570,7 @@ class InterfaceLibrary
                             }
                         }
                     }
-
+                    dd($finals);
                     foreach ($finals['txvalue'] as $key => $value) {
                         if ($key < sizeof($finals['txvalue'])) {
                             if (is_finite($value)) {
