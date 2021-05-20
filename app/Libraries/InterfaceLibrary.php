@@ -520,7 +520,7 @@ class InterfaceLibrary
         foreach ($interfaces as $interface) {
                 $finals = array();
                 $array = array();
-                $rrdFile = config('rrd.storage_path') .'/'. trim($interface->device_id) . "/interfaces/" . trim($interface->default_name) . ".rrd";
+                $rrdFile = config('rrd.storage_path') . trim($interface->device_id) . "/interfaces/" . trim($interface->default_name) . ".rrd";
                 dd($rrdFile);
                 $result = rrd_fetch($rrdFile, array(config('rrd.ds'), "--resolution" , config("rrd.step"), "--start", (time() - 5000), "--end", time() - 300));
                 if($result){
