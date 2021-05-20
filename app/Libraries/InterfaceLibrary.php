@@ -521,8 +521,7 @@ class InterfaceLibrary
                 $finals = array();
                 $array = array();
                 $rrdFile = config('rrd.storage_path') . trim($interface->device_id) . "/interfaces/" . trim($interface->default_name) . ".rrd";
-                dd($rrdFile);
-                $result = rrd_fetch($rrdFile, array(config('rrd.ds'), "--resolution" , config("rrd.step"), "--start", (time() - 5000), "--end", time() - 300));
+                $result = rrd_fetch($rrdFile, array('AVERAGE', "--resolution" , '300', "--start", (time() - 5000), "--end", time() - 300));
                 if($result){
                     foreach ($result["data"]["rxvalue"] as $key => $value) {
                         $labels[] = $key;
