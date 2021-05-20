@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\InterfaceSyncJob;
 use App\Jobs\PollWorker;
 use App\Libraries\MikrotikLibrary;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
