@@ -20,6 +20,8 @@ class MikrotikLibrary
             \Log::info('Polling '.$device->ip." SNMP");
             MikrotikLibrary::pollViaSNMP($device);
             \Log::info('Done Polling '.$device->ip."");
+            $interfacelibrary = new InterfaceLibrary();
+            $interfacelibrary->syncInterfaces($device);
     }
 
     public static function pollViaAPI($device){
