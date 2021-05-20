@@ -40,10 +40,10 @@ class DeviceinterfaceDatatable extends LivewireDatatable
                 ->label('Type')
                 ->searchable()
                 ->filterable(),
-            Column::name('last_link_up_time')
-                ->label('Last Link Up'),
-            Column::name('last_link_down_time')
-                ->label('Last Link Down'),
+            Column::name('txspeed')
+                ->label('TX Speed'),
+            Column::name('rxspeed')
+                ->label('RX Speed'),
             Column::callback(['link_speed'], function ($link_speed) {
                 if($link_speed == 0){
                     return "Not Running";
