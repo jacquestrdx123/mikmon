@@ -27,12 +27,8 @@
                     <x-jet-nav-link href="{{ route('device.showWarningLatencies') }}"  :active="request()->routeIs('device.showWarningLatencies')">
                         {{ __('Latency Report') }}
                     </x-jet-nav-link>
-
                 </div>
             </div>
-        </div>
-    </div>
-
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
