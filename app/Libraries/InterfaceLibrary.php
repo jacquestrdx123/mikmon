@@ -518,7 +518,6 @@ class InterfaceLibrary
     {
         $interfaces = Deviceinterface::where('device_id', $device->id)->where('type', '!=', "Null0")->get();
         foreach ($interfaces as $interface) {
-            try {
                 $finals = array();
                 $array = array();
                 $rrdFile = config('rrd.storage_path') .'/'. trim($interface->device_id) . "/interfaces/" . trim($interface->default_name) . ".rrd";
@@ -613,10 +612,6 @@ class InterfaceLibrary
                 }else{
                     echo $interface->name."\n";
                 }
-
-            }catch (\Exception $e){
-                dd($e);
-            }
         }
 
     }
