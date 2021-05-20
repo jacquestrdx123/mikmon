@@ -19,6 +19,10 @@ class DeviceinterfaceController extends Controller
         return view('deviceinterface.index',compact('device'));
     }
 
+    public function top20(){
+        return view('deviceinterface.top20');
+    }
+
         public function show($id){
             $dinterface = Deviceinterface::find($id);
             $colorarray = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'];
