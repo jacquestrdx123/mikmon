@@ -21,7 +21,7 @@ class Deviceinterfacetop20Datatable extends LivewireDatatable
 
     public function builder()
     {
-        return Deviceinterface::query()->leftJoin('devices', 'devices.id', 'deviceinterfaces.device_id')->orderBy('txspeed','DESC')->take('20');
+        return Deviceinterface::query()->leftJoin('devices', 'devices.id', 'deviceinterfaces.device_id')->orderBy('txspeed','DESC')->limit('20');
     }
 
     public function columns()
