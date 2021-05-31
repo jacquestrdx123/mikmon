@@ -19,6 +19,7 @@ class CreateDeviceinterfacesTable extends Migration
             $table->string('default_name', 255)->default('0');
             $table->string('mac_address', 45)->default('none');
             $table->string('type', 255)->default('none');
+            $table->string('internet', 255)->default('0');
             $table->string('last_link_down_time', 45)->default(0);
             $table->string('last_link_up_time', 45)->default(0);
             $table->string('mtu', 45)->default(0);
