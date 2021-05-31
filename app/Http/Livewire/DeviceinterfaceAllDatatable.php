@@ -23,7 +23,7 @@ class DeviceinterfaceAllDatatable extends LivewireDatatable
     {
         return Deviceinterface::query()
             ->rightJoin('devices', 'devices.id', 'deviceinterfaces.device_id')
-            ->where('deviceinterfaces.name','like','%T%')
+            ->where('deviceinterfaces.internet','1')
             ->orderBy('txspeed','DESC');
     }
 
