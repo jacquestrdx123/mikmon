@@ -19,8 +19,8 @@ class DeviceinterfaceController extends Controller
         return view('deviceinterface.index',compact('device'));
     }
 
-    public function top20(){
-        return view('deviceinterface.top20');
+    public function showAll(){
+        return view('deviceinterface.interfacesall');
     }
 
         public function show($id){

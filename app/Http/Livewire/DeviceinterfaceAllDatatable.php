@@ -11,7 +11,7 @@ use Mediconesystems\LivewireDatatables\TimeColumn;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 
-class Deviceinterfacetop20Datatable extends LivewireDatatable
+class DeviceinterfaceAllDatatable extends LivewireDatatable
 {
 
     public $hideable = 'inline';

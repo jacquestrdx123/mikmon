@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/location/{id}','App\Http\
 Route::middleware(['auth:sanctum', 'verified'])->get('/devices/warning_latencies','App\Http\Controllers\DeviceController@showWarningLatencies')
     ->name('device.showWarningLatencies');
 Route::get('/deviceinterface/{id}','App\Http\Controllers\DeviceinterfaceController@index');
-Route::get('/deviceinterfaces/top20','App\Http\Controllers\DeviceinterfaceController@top20');
+Route::get('/deviceinterfaces/index','App\Http\Controllers\DeviceinterfaceController@showAll');
 Route::get('/deviceinterface/graph/{id}','App\Http\Controllers\DeviceinterfaceController@show');
 
 

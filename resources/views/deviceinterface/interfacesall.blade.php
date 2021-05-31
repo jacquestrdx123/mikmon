@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div>
-        @livewire('deviceinterfacetop20-datatable')
+        @livewire('deviceinterface-all-datatable')
     </div>
 
 </x-app-layout>
