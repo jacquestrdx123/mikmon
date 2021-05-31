@@ -23,6 +23,7 @@ class DeviceinterfaceAllDatatable extends LivewireDatatable
     {
         return Deviceinterface::query()
             ->rightJoin('devices', 'devices.id', 'deviceinterfaces.device_id')
+            ->rightJoin('locations', 'devices.location_id', 'locations.id')
             ->where('deviceinterfaces.internet','1')
             ->orderBy('txspeed','DESC');
     }
@@ -33,8 +34,8 @@ class DeviceinterfaceAllDatatable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
             ->linkTo('deviceinterface/graph'),
-            Column::callback(['devices.id', 'devices.description'], function ($id, $description) {
-                return view('table-devices-show', ['id' => $id, 'description' => $description]);
+            Column::callback(['locations.id', 'locations.description'], function ($id, $description) {
+                return view('table-locations-show', ['id' => $id, 'description' => $description]);
             })
             ->Label('Device'),
             Column::callback(['name'], function ($name) {
