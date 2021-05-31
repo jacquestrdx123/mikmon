@@ -27,6 +27,9 @@
                     <x-jet-nav-link href="{{ route('device.showWarningLatencies') }}"  :active="request()->routeIs('device.showWarningLatencies')">
                         {{ __('Latency Report') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('deviceinterfaces.all') }}"  :active="request()->routeIs('deviceinterfaces.all')">
+                        {{ __('Interface Report') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
