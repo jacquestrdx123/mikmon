@@ -21,7 +21,7 @@ class DeviceinterfaceAllDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Deviceinterface::query()->leftJoin('devices', 'devices.id', 'deviceinterfaces.device_id')->where('deviceinterfaces.name','like','%T%')->orderBy('txspeed','DESC')->get();
+        return Deviceinterface::query()->leftJoin('devices', 'devices.id', 'deviceinterfaces.device_id')->where('deviceinterfaces.name','like','%T%')->orderBy('txspeed','DESC')->all();
     }
 
     public function columns()
