@@ -21,6 +21,7 @@ class MikrotikLibrary
             MikrotikLibrary::pollViaSNMP($device);
             \Log::info('Done Polling '.$device->ip."");
             \Log::info('Syncing Interfaces for '.$device->ip."");
+            dd("JOUMA");
             $interfacelibrary = new InterfaceLibrary();
             $interfacelibrary->syncInterfaces($device);
             \Log::info('Done Syncing Interfaces for '.$device->ip."");
