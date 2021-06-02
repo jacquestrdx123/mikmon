@@ -15,7 +15,6 @@ class MikrotikLibrary
 {
 
     public static function PollDevice($device){
-            dd("JOUMA");
             \Log::info('Polling '.$device->ip." API");
             MikrotikLibrary::pollViaAPI($device);
             \Log::info('Polling '.$device->ip." SNMP");
