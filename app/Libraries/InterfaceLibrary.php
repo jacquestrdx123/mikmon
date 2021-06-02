@@ -586,7 +586,7 @@ class InterfaceLibrary
                                 $rxvalue = 0;
                             }
                         }
-                    }
+                    } 
 
 
                     if ($interface->maxtxspeed < $txvalue) {
