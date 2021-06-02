@@ -556,7 +556,7 @@ class InterfaceLibrary
                                 $finals['rxvalue'][] = $final;
 
                             }
-                        } 
+                        }
                     }
 
                     foreach ($array['txvalue'] as $key => $value) {
@@ -609,7 +609,7 @@ class InterfaceLibrary
                         }
                     }
                 }else{
-                    echo $interface->name."\n";
+                    \Log::info($interface->name." updated on SYNCJOB");
                 }
         }
 
