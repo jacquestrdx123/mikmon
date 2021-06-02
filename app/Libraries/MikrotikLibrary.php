@@ -15,13 +15,13 @@ class MikrotikLibrary
 {
 
     public static function PollDevice($device){
+            dd("JOUMA");
             \Log::info('Polling '.$device->ip." API");
             MikrotikLibrary::pollViaAPI($device);
             \Log::info('Polling '.$device->ip." SNMP");
             MikrotikLibrary::pollViaSNMP($device);
             \Log::info('Done Polling '.$device->ip."");
             \Log::info('Syncing Interfaces for '.$device->ip."");
-            dd("JOUMA");
             $interfacelibrary = new InterfaceLibrary();
             $interfacelibrary->syncInterfaces($device);
             \Log::info('Done Syncing Interfaces for '.$device->ip."");
