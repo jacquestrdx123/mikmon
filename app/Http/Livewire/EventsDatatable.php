@@ -23,7 +23,7 @@ class EventsDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Event::query()->where('type','device')->where('remote_id',$this->params);
+        return Event::query()->where('type','device')->where('device_id',$this->params);
     }
 
     public function columns()
