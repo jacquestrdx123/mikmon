@@ -45,12 +45,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/location/{id}','App\Http\
     ->name('location.show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/devices/warning_latencies','App\Http\Controllers\DeviceController@showWarningLatencies')
     ->name('device.showWarningLatencies');
-Route::get('/deviceinterface/{id}','App\Http\Controllers\DeviceinterfaceController@index');
-Route::get('/deviceinterfaces/index','App\Http\Controllers\DeviceinterfaceController@showAll')->name('deviceinterfaces.all');
-Route::get('/deviceinterface/graph/{id}','App\Http\Controllers\DeviceinterfaceController@show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterface/{id}','App\Http\Controllers\DeviceinterfaceController@index');
+Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterfaces/index','App\Http\Controllers\DeviceinterfaceController@showAll')->name('deviceinterfaces.all');
+Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterface/graph/{id}','App\Http\Controllers\DeviceinterfaceController@show');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/device/events','App\Http\Controllers\DeviceController@showEventReport');
 
-Route::get('/dashboard/onlinedevices','App\Http\Controllers\DeviceController@dashboardOnlineDevices');
-Route::get('/dashboard/offlinedevices','App\Http\Controllers\DeviceController@dashboardOfflineDevices');
-Route::get('/dashboard/unstabledevices','App\Http\Controllers\DeviceController@dashboardUnstableDevices');
-Route::get('/dashboard/events','App\Http\Controllers\DeviceController@dashboardEvents');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/onlinedevices','App\Http\Controllers\DeviceController@dashboardOnlineDevices');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/offlinedevices','App\Http\Controllers\DeviceController@dashboardOfflineDevices');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/unstabledevices','App\Http\Controllers\DeviceController@dashboardUnstableDevices');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/events','App\Http\Controllers\DeviceController@dashboardEvents');
