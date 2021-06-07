@@ -33,7 +33,7 @@ class DeviceEventsDatatable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
                 ->linkTo('device/'),
-            Column::callback(['name'], function ($name) {
+            Column::callback(['description'], function ($name) {
                 $name = preg_replace('/\</','',$name);
                 $name = preg_replace('/\>/','',$name);
                 return $name;
