@@ -41,10 +41,9 @@ class DeviceEventsDatatable extends LivewireDatatable
             Column::name('ip')
                 ->label('IP Address')
                 ->searchable(),
-            Column::callback(['id'], function ($id) {
-               return Device::getMonthEventCount($id);
-            })->label('Events this Month')
-                ->defaultSort(),
+            Column::name('events_count')
+                ->label('Events')
+                ->searchable(),
         ];
     }
 }
