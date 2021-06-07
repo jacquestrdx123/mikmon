@@ -43,7 +43,8 @@ class DeviceEventsDatatable extends LivewireDatatable
                 ->searchable(),
             Column::callback(['id'], function ($id) {
                return Device::getMonthEventCount($id);
-            })->label('Events this Month'),
+            })->label('Events this Month')
+                ->defaultSort(),
         ];
     }
 }
