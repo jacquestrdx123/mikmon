@@ -23,7 +23,7 @@ class DeviceEventsDatatable extends LivewireDatatable
     public function builder()
     {
         return Device::query()
-            ->rightJoin('events', 'devices.id', 'events.device_id')
+            ->leftJoin('events', 'devices.id', 'events.device_id')
             ->groupBy('devices.id');
     }
 
