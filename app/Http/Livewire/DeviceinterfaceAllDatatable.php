@@ -51,6 +51,10 @@ class DeviceinterfaceAllDatatable extends LivewireDatatable
                 ->label('TX Speed'),
             NumberColumn::name('rxspeed')
                 ->label('RX Speed'),
+            NumberColumn::name('maxtxspeed')
+                ->label('TX Speed'),
+            NumberColumn::name('maxrxspeed')
+                ->label('RX Speed'),
             NumberColumn::name('threshhold')
                 ->label('Threshold')
                 ->editable(),
