@@ -40,7 +40,6 @@ class DeviceEventsDatatable extends LivewireDatatable
                 ->label('IP Address')
                 ->searchable(),
             NumberColumn::name('events.id:count')
-                ->filterable()
                 ->label('Event Count'),
             Column::name('events.created_at')
                 ->filterable($this->events->pluck('created_at'))
