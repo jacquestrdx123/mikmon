@@ -22,7 +22,10 @@ class DeviceEventsDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Device::query()->leftJoin('events','devices.id','events.device_id')->where('events.created_at','>=',date('Y-m-d'));
+        return Device::query()
+            ->leftJoin('events','devices.id','events.device_id')
+            ->where('events.created_at','>=',date('Y-m-d'))
+            ->groupBy('devices.id');
     }
 
     public function columns()
