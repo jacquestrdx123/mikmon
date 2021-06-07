@@ -41,8 +41,6 @@ class DeviceEventsDatatable extends LivewireDatatable
             Column::name('ip')
                 ->label('IP Address')
                 ->searchable(),
-            NumberColumn::name('events')
-                ->label('Events Last 30 days'),
 
         ];
     }
