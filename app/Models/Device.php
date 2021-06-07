@@ -67,6 +67,11 @@ class Device extends Model
     return $dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
 }
 
+    public static function getMonthEventCount($id){
+        $event = Event::where('remote_id',$id)->count();
+        return $event;
+    }
+
     public static function PollDeviceById($id){
         $device = Device::find($id);
         if($device->devicetype == "mikrotik"){
