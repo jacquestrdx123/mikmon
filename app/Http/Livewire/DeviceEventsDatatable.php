@@ -22,7 +22,7 @@ class DeviceEventsDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Device::query();
+        return Device::query()->where('events.created_at','>=',date('Y-m-d'));
     }
 
     public function columns()
@@ -41,9 +41,6 @@ class DeviceEventsDatatable extends LivewireDatatable
                 ->searchable(),
             NumberColumn::name('events.id:count')
                 ->label('Event Count'),
-            Column::name('events.created_at')
-                ->filterable($this->events->pluck('created_at'))
-                ->label('Date'),
 
         ];
     }
