@@ -68,12 +68,12 @@
                                 @foreach($events as $event)
                                     @if( ($event->current_status == 4))
                                         <li class="list-group-item list-group-item-success">
-                                            {!! $event->getRemoteObject()->description !!} came back Online at {!! $event->created_at !!}
+                                            {!! $event->device->description !!} came back Online at {!! $event->created_at !!}
                                         </li>
                                     @endif
                                     @if( ($event->current_status == 1))
                                         <li class="list-group-item list-group-item-danger">
-                                            {!! $event->getRemoteObject()->description !!} went Offline at {!! $event->created_at !!}
+                                            {!! $event->device->description !!} went Offline at {!! $event->created_at !!}
                                         </li>
                                     @endif
                                 @endforeach
