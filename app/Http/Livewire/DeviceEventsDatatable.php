@@ -41,7 +41,14 @@ class DeviceEventsDatatable extends LivewireDatatable
                 ->searchable(),
             NumberColumn::name('events.id:count')
                 ->label('Event Count'),
+            Column::name('events.created_at')
+                ->filterable($this->events->pluck('created_at'))
+                ->label('Weapon Names'),
 
         ];
+    }
+    public function getEventsProperty()
+    {
+        return Event::pluck('created_at');
     }
 }
