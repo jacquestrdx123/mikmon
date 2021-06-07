@@ -50,6 +50,9 @@ class Device extends Model
     public function deviceinterfaces(){
         return $this->hasMany('App\Models\Deviceinterface');
     }
+    public function events(){
+        return $this->hasMany('App\Models\Event');
+    }
     public function ips(){
         return $this->hasMany('App\Models\Ip');
     }

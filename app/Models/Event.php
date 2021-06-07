@@ -14,4 +14,8 @@ class Event extends Model
             return $device = Device::find($this->remote_id);
         }
     }
+
+    public function device(){
+        return $this->belongsTo('App/Models/Device');
+    }
 }

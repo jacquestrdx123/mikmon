@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('type')->default(0);
             $table->string('previous_status')->default(0);
             $table->string('current_status')->default(0);
-            $table->integer('remote_id')->default(0);
+            $table->integer('device_id')->default(0);
             $table->timestamps();
         });
     }
