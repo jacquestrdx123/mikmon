@@ -63,6 +63,10 @@ class DeviceController extends Controller
     }
 
     public function showEventReport(){
+        $deices = Device::withCount('events')->get();
+        foreach($deices as $deice){
+            dd($deice);
+        }
         return  view('device.events_report');
     }
 
