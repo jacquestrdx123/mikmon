@@ -22,9 +22,7 @@ class DeviceEventsDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Device::query()
-            ->withCount('events')
-            ->groupBy('devices.id');
+        return Device::query();
     }
 
     public function columns()
