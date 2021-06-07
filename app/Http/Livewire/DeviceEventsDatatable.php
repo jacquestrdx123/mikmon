@@ -41,7 +41,9 @@ class DeviceEventsDatatable extends LivewireDatatable
             Column::name('ip')
                 ->label('IP Address')
                 ->searchable(),
-
+            NumberColumn::name('events.id:count')
+                ->filterable()
+                ->label('Event Count'),
         ];
     }
 }
