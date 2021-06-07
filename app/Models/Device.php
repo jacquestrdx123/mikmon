@@ -68,7 +68,7 @@ class Device extends Model
 }
 
     public static function getMonthEventCount($id){
-        $event = Event::where('remote_id',$id)->count();
+        $event = Event::where('remote_id',$id)->whereDate('date', '>=', Carbon::now('Africa/Johannesburg'))->count();
         return $event;
     }
 
