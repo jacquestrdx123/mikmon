@@ -49,7 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterface/{id}','Ap
 Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterfaces/index','App\Http\Controllers\DeviceinterfaceController@showAll')->name('deviceinterfaces.all');
 Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterface/graph/{id}','App\Http\Controllers\DeviceinterfaceController@show');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/device/events','App\Http\Controllers\DeviceController@showEventReport');
+Route::middleware(['auth:sanctum', 'verified'])->get('/device/event_report','App\Http\Controllers\DeviceController@showEventReport');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/onlinedevices','App\Http\Controllers\DeviceController@dashboardOnlineDevices');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/offlinedevices','App\Http\Controllers\DeviceController@dashboardOfflineDevices');
