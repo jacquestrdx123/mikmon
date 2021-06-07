@@ -24,8 +24,7 @@ class DeviceinterfaceAllDatatable extends LivewireDatatable
         return Deviceinterface::query()
             ->rightJoin('devices', 'devices.id', 'deviceinterfaces.device_id')
             ->rightJoin('locations', 'devices.location_id', 'locations.id')
-            ->where('deviceinterfaces.internet','1')
-            ->orderBy('txspeed','DESC');
+            ->where('deviceinterfaces.internet','1');
     }
 
     public function columns()
@@ -52,9 +51,9 @@ class DeviceinterfaceAllDatatable extends LivewireDatatable
             NumberColumn::name('rxspeed')
                 ->label('RX Speed'),
             NumberColumn::name('maxtxspeed')
-                ->label('TX Speed'),
+                ->label(' MAX TX Speed'),
             NumberColumn::name('maxrxspeed')
-                ->label('RX Speed'),
+                ->label('MAX RX Speed'),
             NumberColumn::name('threshhold')
                 ->label('Threshold')
                 ->editable(),
