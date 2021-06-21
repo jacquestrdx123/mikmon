@@ -263,6 +263,7 @@ class PingLibrary
                     $event->current_status = $device->status;
                     $event->previous_status = $previous_status;
                     $event->save();
+                    \Log::info($event);
                 }
                 break;
             case 1:
