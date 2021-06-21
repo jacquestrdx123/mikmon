@@ -360,6 +360,7 @@ class MikrotikLibrary
             $ip_address = $result['gateway'];
             $status = $result['gateway-status'];
             $active = $result['active'];
+            dd($active);
             $disabled = $result['disabled'];
             $default_gateway = Gateway::updateOrCreate(
                 [
