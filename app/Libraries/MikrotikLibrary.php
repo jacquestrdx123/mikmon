@@ -372,6 +372,7 @@ class MikrotikLibrary
                     'device_id' => $device->id
                 ]
             );
+            dd($default_gateway);
             $default_gateway->ip = $ip_address;
             $default_gateway->status = $status;
             $default_gateway->active = $active;
