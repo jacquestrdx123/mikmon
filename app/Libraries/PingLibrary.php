@@ -278,6 +278,7 @@ class PingLibrary
                     if($device->id=="23"){
                         \Log::info("Looking new ".$device->status);
                     }
+                    $device->save();
                     $event = new Event();
                     $event->type = "device";
                     $event->remote_id = $device->id;
