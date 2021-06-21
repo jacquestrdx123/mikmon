@@ -59,36 +59,6 @@
         @endif
     </th>
 </tr>
-@foreach($device->gateways as $gateway)
-    <tr>
-        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Device Gateway
-        </th>
-        <th>
-            {!! $gateway->status !!}
-        </th>
-    </tr>
-    <tr>
-        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-             Gateway Type
-        </th>
-        <th>
-            {!! $gateway->type !!}
-        </th>
-    </tr>
-    <tr>
-        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Is Default
-        </th>
-        <th>
-            @if($gateway->default == 1)
-               <p style="color:green">Yes</p>
-            @else
-                <p style="color:red">No</p>
-            @endif
-        </th>
-    </tr>
-@endforeach
 <tr>
     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
         Last Online
