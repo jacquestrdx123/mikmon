@@ -359,8 +359,7 @@ class MikrotikLibrary
         foreach($results as $result){
             $ip_address = $result['gateway'];
             $status = $result['gateway-status'];
-            $temp_active = $result['active'];
-            if($temp_active =="true"){
+            if($result['active'] =="true"){
                 $active = 1;
             }else{
                 $active = 0;
@@ -377,7 +376,6 @@ class MikrotikLibrary
             $default_gateway->active = $active;
             $default_gateway->disabled = $disabled;
             $default_gateway->type = "Internet";
-            $default_gateway->device_id = $device->id;
             $default_gateway->save();
 
         }
