@@ -20,48 +20,46 @@
                 </thead>
             </table>
             <table>
-                @foreach($device->gateways as $gateway)
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Device Gateway
-                        </th>
-                        <th>
-                            {!! $gateway->status !!}
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Gateway Type
-                        </th>
-                        <th>
-                            {!! $gateway->type !!}
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Is Default
-                        </th>
-                        <th>
-                            @if($gateway->default == 1)
-                                <p style="color:green">Yes</p>
-                            @else
-                                <p style="color:red">No</p>
-                            @endif
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Is Active
-                        </th>
-                        <th>
-                            @if($gateway->active == 1)
-                                <p style="color:green">Yes</p>
-                            @else
-                                <p style="color:red">No</p>
-                            @endif
-                        </th>
-                    </tr>
-                @endforeach
+                <thead>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Device Gateway
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Gateway Type
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Is Default
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Is Active
+                </th>
+                </thead>
+                <tbody>
+                    @foreach($device->gateways as $gateway)
+                        <tr>
+                            <td>
+                                {!! $gateway->status !!}
+                            </td>
+                            <td>
+                                {!! $gateway->type !!}
+                            </td>
+                            <td>
+                                @if($gateway->default == 1)
+                                    <p style="color:green">Yes</p>
+                                @else
+                                    <p style="color:red">No</p>
+                                @endif
+                            </td>
+                            <td>
+                                @if($gateway->active == 1)
+                                    <p style="color:green">Yes</p>
+                                @else
+                                    <p style="color:red">No</p>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
         </div>
