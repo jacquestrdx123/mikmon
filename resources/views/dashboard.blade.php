@@ -52,7 +52,11 @@
                                 <ul class="list-group-flush">
                                     @foreach($down_main_links as $down_main_link)
                                             <li class="list-group-item list-group-item-flush">
-                                                {!! $down_main_link->device->description !!} - {!! $down_main_link->status !!}
+                                                <a href="/device/{!! $down_main_link->device_id !!}">
+                                                    {!! $down_main_link->device->description !!} - {!! $down_main_link->status !!}
+                                                    -Go to Device-
+                                                </a>
+
                                             </li>
                                     @endforeach
                                 </ul>
