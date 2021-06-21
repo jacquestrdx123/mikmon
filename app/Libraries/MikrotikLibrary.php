@@ -356,6 +356,7 @@ class MikrotikLibrary
     }
 
     public static function updateOrCreateDefaultGateways($results,$device){
+        dd($results);
         foreach($results as $result){
             $ip_address = $result['gateway'];
             $status = $result['gateway-status'];
@@ -365,7 +366,6 @@ class MikrotikLibrary
             }else{
                 $active = 0;
             }
-            dd($result);
             $disabled = $result['disabled'];
             $default_gateway = Gateway::updateOrCreate(
                 [
