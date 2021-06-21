@@ -359,7 +359,6 @@ class MikrotikLibrary
         foreach($results as $result){
             $ip_address = $result['gateway'];
             $status = $result['gateway-status'];
-            dd($result);
             $active = $result['active'];
             if($active =="true"){
                 $active = 1;
