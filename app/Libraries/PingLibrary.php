@@ -270,6 +270,7 @@ class PingLibrary
                 break;
             case 1:
                 if($final[1]=="alive"){
+                    \Log::info("Looking ".$device->status);
                     $previous_status = $device->status;
                     $device->status = $device->status+1;
                     $event = new Event();
