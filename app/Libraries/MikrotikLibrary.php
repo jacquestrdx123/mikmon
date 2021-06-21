@@ -356,7 +356,6 @@ class MikrotikLibrary
     }
 
     public static function updateOrCreateDefaultGateways($results,$device){
-        dd($results);
         foreach($results as $result){
             $ip_address = $result['gateway'];
             $status = $result['gateway-status'];
