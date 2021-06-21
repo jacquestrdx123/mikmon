@@ -377,8 +377,9 @@ class MikrotikLibrary
             $default_gateway->disabled = $disabled;
             $default_gateway->type = "Internet";
             $default_gateway->save();
-
+            var_dump($default_gateway);
         }
+        dd("DINE");
     }
 
 
