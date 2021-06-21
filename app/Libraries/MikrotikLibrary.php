@@ -379,7 +379,6 @@ class MikrotikLibrary
             $default_gateway->type = "Internet";
             $default_gateway->device_id = $device->id;
             $default_gateway->save();
-            dd($default_gateway);
 
         }
     }
