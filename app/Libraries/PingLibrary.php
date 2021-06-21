@@ -206,9 +206,6 @@ class PingLibrary
     }
 
     public static function setUpDown($final,$device){
-        if($device->id==23){
-            \Log::info("Looking for ".$final[1]);
-        }
         \Log::info("Set Updown for $device->ip");
         switch ($device->status) {
             case 4:
@@ -217,7 +214,7 @@ class PingLibrary
                     $device->status = $device->status-1;
                     $event = new Event();
                     $event->type = "device";
-                    $event->remote_id = $device->id;
+                    $event->device_id = $device->id;
                     $event->current_status = $device->status;
                     $event->previous_status = $previous_status;
                     $event->save();
@@ -229,7 +226,7 @@ class PingLibrary
                     $device->status = $device->status-1;
                     $event = new Event();
                     $event->type = "device";
-                    $event->remote_id = $device->id;
+                    $event->device_id = $device->id;
                     $event->current_status = $device->status;
                     $event->previous_status = $previous_status;
                     $event->save();
@@ -240,7 +237,7 @@ class PingLibrary
                     $device->status = $device->status+1;
                     $event = new Event();
                     $event->type = "device";
-                    $event->remote_id = $device->id;
+                    $event->device_id = $device->id;
                     $event->current_status = $device->status;
                     $event->previous_status = $previous_status;
                     $event->save();
@@ -252,7 +249,7 @@ class PingLibrary
                     $device->status = $device->status-1;
                     $event = new Event();
                     $event->type = "device";
-                    $event->remote_id = $device->id;
+                    $event->device_id = $device->id;
                     $event->current_status = $device->status;
                     $event->previous_status = $previous_status;
                     $event->save();
@@ -262,7 +259,7 @@ class PingLibrary
                     $device->status = $device->status+1;
                     $event = new Event();
                     $event->type = "device";
-                    $event->remote_id = $device->id;
+                    $event->device_id = $device->id;
                     $event->current_status = $device->status;
                     $event->previous_status = $previous_status;
                     $event->save();
@@ -270,22 +267,14 @@ class PingLibrary
                 break;
             case 1:
                 if($final[1]=="alive"){
-                    if($device->id=="23"){
-                        \Log::info("Looking ".$device->status);
-                    }
                     $previous_status = $device->status;
                     $device->status = $device->status+1;
-                    if($device->id=="23"){
-                        \Log::info("Looking new ".$device->status);
-                    }
-                    $device->save();
                     $event = new Event();
                     $event->type = "device";
-                    $event->remote_id = $device->id;
+                    $event->device_id = $device->id;
                     $event->current_status = $device->status;
                     $event->previous_status = $previous_status;
                     $event->save();
-                    \Log::info($event);
                 }
                 break;
             default:
