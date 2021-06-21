@@ -365,6 +365,7 @@ class MikrotikLibrary
             }else{
                 $active = 0;
             }
+            echo $ip_address ." is $active \n";
             $disabled = $result['disabled'];
             $default_gateway = Gateway::updateOrCreate(
                 [
