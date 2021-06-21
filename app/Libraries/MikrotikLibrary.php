@@ -9,6 +9,7 @@ use App\Models\Dhcplease;
 use App\Models\Gateway;
 use App\Models\Ip;
 use App\Models\Neighbor;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Log;
 
 class MikrotikLibrary
@@ -366,7 +367,7 @@ class MikrotikLibrary
             }
             $disabled = $result['disabled'];
 
-            $default_gateway = User::where('ip', $ip_address)->where('device_id',$device->id)->first();
+            $default_gateway = Gateway::where('ip', $ip_address)->where('device_id',$device->id)->first();
 
             if ($default_gateway === null) {
 
