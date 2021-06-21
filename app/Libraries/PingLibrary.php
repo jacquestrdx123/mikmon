@@ -286,6 +286,7 @@ class PingLibrary
             default:
                 break;
         }
+        $device->save();
         if($device->status == 4){
             $device->current_status = "Online";
         }
