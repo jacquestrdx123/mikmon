@@ -359,13 +359,12 @@ class MikrotikLibrary
         foreach($results as $result){
             $ip_address = $result['gateway'];
             $status = $result['gateway-status'];
-            $active = $result['active'];
-            if($active =="true"){
+            $temp_active = $result['active'];
+            if($temp_active =="true"){
                 $active = 1;
             }else{
                 $active = 0;
             }
-            echo $ip_address ." is $active \n";
             $disabled = $result['disabled'];
             $default_gateway = Gateway::updateOrCreate(
                 [
