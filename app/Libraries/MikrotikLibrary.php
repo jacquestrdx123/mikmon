@@ -365,21 +365,29 @@ class MikrotikLibrary
                 $active = 0;
             }
             $disabled = $result['disabled'];
-            $default_gateway = Gateway::firstOrNew(
-                [
+
+            $default_gateway = User::where('ip', $ip_address)->where('device_id',$device->id)->first();
+
+            if ($default_gateway === null) {
+
+                $default_gateway = new Gateway([
                     'ip' => $ip_address,
-                    'device_id' => $device->id
-                ]
-            );
-            $default_gateway->ip = $ip_address;
-            $default_gateway->status = $status;
-            $default_gateway->active = $active;
-            $default_gateway->disabled = $disabled;
-            $default_gateway->type = "Internet";
+                    'status'=> $status,
+                    'device_id'=>$device->id,
+                    'active'=>$active,
+                    'disabled'=>$disabled,
+                    'type' => "Internet"
+                ]);
+            }else{
+                $default_gateway->ip = $ip_address;
+                $default_gateway->status = $status;
+                $default_gateway->device_id = $device->id;
+                $default_gateway->active = $active;
+                $default_gateway->disabled = $disabled;
+                $default_gateway->type = "Internet";
+            }
             $default_gateway->save();
-            dd($default_gateway);
         }
-        dd("DINE");
     }
 
 
