@@ -60,7 +60,6 @@
     </th>
 </tr>
 @foreach($device->gateways as $gateway)
-    @if($gateway->active == "true")
     <tr>
         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Device Gateway
@@ -89,7 +88,6 @@
             @endif
         </th>
     </tr>
-    @endif
 @endforeach
 <tr>
     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
