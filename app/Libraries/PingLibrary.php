@@ -206,6 +206,9 @@ class PingLibrary
     }
 
     public static function setUpDown($final,$device){
+        if($device->id==23){
+            \Log::info("Looking for ".$final[1]);
+        }
         \Log::info("Set Updown for $device->ip");
         switch ($device->status) {
             case 4:

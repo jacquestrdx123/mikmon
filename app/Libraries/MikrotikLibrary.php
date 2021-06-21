@@ -366,9 +366,7 @@ class MikrotikLibrary
                 $active = 0;
             }
             $disabled = $result['disabled'];
-
             $default_gateway = Gateway::where('ip', $ip_address)->where('device_id',$device->id)->first();
-
             if ($default_gateway === null) {
 
                 $default_gateway = new Gateway([
