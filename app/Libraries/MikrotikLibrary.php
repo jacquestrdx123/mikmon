@@ -366,20 +366,20 @@ class MikrotikLibrary
                 $active = 0;
             }
             $disabled = $result['disabled'];
-            $default_gateway = Gateway::updateOrCreate(
+            $default_gateway = Gateway::firstOrNew(
                 [
                     'ip' => $ip_address,
                     'device_id' => $device->id
-                ],
-                [
-                    "ip" => $ip_address,
-                    "status" => $status,
-                    "active" => $active,
-                    "disabled" => $disabled,
-                    "type" => "Internet",
-                    "device_id" => $device->id
                 ]
             );
+            $default_gateway->ip = $ip_address;
+            $default_gateway->status = $status;
+            $default_gateway->active = $active;
+            $default_gateway->disabled = $disabled;
+            $default_gateway->type = "Internet";
+            $default_gateway->device_id = $device->id;
+            $default_gateway->save();
+
         }
     }
 
