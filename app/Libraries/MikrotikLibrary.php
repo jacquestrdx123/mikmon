@@ -365,6 +365,7 @@ class MikrotikLibrary
             }else{
                 $active = 0;
             }
+            dd($result);
             $disabled = $result['disabled'];
             $default_gateway = Gateway::updateOrCreate(
                 [
