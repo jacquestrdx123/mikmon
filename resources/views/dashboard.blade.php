@@ -10,15 +10,19 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="row col-md-12">
                     <div class="col-md-3">
+                        <div class="card-header border">Online Devices</div>
                         <div id="online_div" style=" height:220px"></div>
                     </div>
                     <div class="col-md-3">
+                        <div class="card-header border">Offline Devices</div>
                         <div id="offline_div" style=" height:220px"></div>
                     </div>
                     <div class="col-md-3">
+                        <div class="card-header border">Unstable Devices</div>
                         <div id="unstable_div" style=" height:220px"></div>
                     </div>
                     <div class="col-md-3">
+                        <div class="card-header border">Events Today</div>
                         <div id="events_div" style=" height:220px"></div>
                     </div>
                 </div>
