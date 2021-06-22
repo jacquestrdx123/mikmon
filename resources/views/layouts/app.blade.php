@@ -31,8 +31,8 @@
             crossorigin="anonymous"></script>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="/raphael-2.1.4.min.js"></script>
-        <script src="/justgage.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
