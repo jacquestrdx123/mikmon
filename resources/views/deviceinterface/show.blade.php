@@ -4,7 +4,7 @@
            Statistics for {{$dinterface->name}}
         </h2>
     </x-slot>
-    <div> 
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             {!! $throughputChart->container() !!}
             {!! $interfaceErrorsChart->container() !!}
@@ -13,8 +13,7 @@
                 <script src="{{ $interfaceErrorsChart->cdn() }}"></script>
                 {{ $throughputChart->script() }}
                 {{ $interfaceErrorsChart->script() }}
-                {!! $interfaceUptimeChart->script() !!}
-
+                {{ $interfaceUptimeChart->script() }}
             @endpush
         </div>
     </div>
