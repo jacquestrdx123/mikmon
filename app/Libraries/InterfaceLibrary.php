@@ -339,6 +339,7 @@ class InterfaceLibrary
                 $interfaceresults[$key][] = $row;
             }
         }
+        dd($interfaceresults);
         foreach($interfaceresults as $index => $interfaceresult) {
             $count = 0;
             $typeid = preg_replace('/INTEGER: /', '', $interfaceresult['2']);
