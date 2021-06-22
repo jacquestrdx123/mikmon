@@ -127,7 +127,7 @@ class DeviceController extends Controller
                         'data'  =>  $array["packet_loss"]
                     ]
                 ]);
-            $availability_chart = (new \LarapexChart)->setType('area')
+            $availability_chart = (new LarapexChart)->setType('area')
                 ->setTitle('Availability Stats for '.$device->description)
                 ->setSubtitle('Click to zoom')
                 ->setColors($colorarray)
