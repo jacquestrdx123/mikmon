@@ -589,14 +589,22 @@ class InterfaceLibrary
                     }
 
 
-                    if ($interface->maxtxspeed < $txvalue) {
+                    if (($interface->maxtxspeed < $txvalue) AND ($txvalue < 220)) {
                         $interface->maxtxspeed = $txvalue;
                     }
-                    if ($interface->maxrxspeed < $rxvalue) {
+                    if ( ($interface->maxrxspeed < $rxvalue) AND ($rxvalue < 250) ) {
                         $interface->maxrxspeed = $rxvalue;
                     }
-                    $interface->txspeed = $txvalue;
-                    $interface->rxspeed = $rxvalue;
+                    if($rxvalue < 250){
+                        $interface->rxspeed = $rxvalue;
+                    }else{
+                        $interface->rxspeed = 0;
+                    }
+                    if($txvalue < 250){
+                        $interface->txspeed = $txvalue;
+                    }else{
+                        $interface->txspeed = 0;
+                    }
                     $interface->save();
                     $date = new \DateTime;
                     $date->modify('-30 minutes');
