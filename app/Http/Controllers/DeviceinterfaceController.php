@@ -116,6 +116,8 @@ class DeviceinterfaceController extends Controller
                                         $final=0;
                                     }
                                     $finals['rxvalue'][] = $final;
+                                }elseif($rxvalue > 150){
+                                    $finals['rxvalue'][] = 0;
                                 }else{
                                     $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
                                     $finals['rxvalue'][] = $final;
@@ -135,6 +137,8 @@ class DeviceinterfaceController extends Controller
                                 }
                                 $finals['txvalue'][] = $final;
 
+                            }elseif($txvalue > 150){
+                                $finals['rxvalue'][] = 0;
                             }else{
                                 $txvalue = $array['txvalue'][$key + 1] - $value;
                                 $final = round($txvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
