@@ -103,26 +103,27 @@ class DeviceinterfaceController extends Controller
 
                     foreach ($array['rxvalue'] as $key => $value) {
                         if (isset($array['rxvalue'][$key + 1])) {
-                            if (($array['rxvalue'][$key + 1] == 0) or ($value == 0) or ($array['rxvalue'][$key + 1] == $value)) {
+                            if (($array['rxvalue'][$key + 1] == 0) or ($value == 0) or ($array['txvalue'][$key + 1] == $value)) {
                                 $finals['rxvalue'][] = 0;
+                            } elseif(($array['rxvalue'][$key] - $array['rxvalue'][$key + 1]) > 0) {
+                                $rxvalue = 4147412756088 - $array['rxvalue'][$key] + $array['rxvalue'][$key+1];
+                                $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                if(($final > 200) or ($final < 0)){
+                                    $final=0;
+                                }
+                                $finals['rxvalue'][] = $final;
+
                             }else{
                                 $rxvalue = $array['rxvalue'][$key + 1] - $value;
-                                if($rxvalue<0){
-//                                    $rxvalue = 4147412756088 - $array['txvalue'][$key] + $array['txvalue'][$key+1];
-//                                    $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
-//                                    $finals['rxvalue'][] = $final;
-                                    $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
-                                    if(($final > 200) or ($final < 0)){
-                                        $final=0;
-                                    }
-                                    $finals['rxvalue'][] = $final;
-                                }else{
-                                    $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
-                                    $finals['rxvalue'][] = $final;
+                                $final = round($rxvalue * 8 / $array['timestamps'][$key] / 1024 / 1024, 2);
+                                if(($final > 200) or ($final < 0)){
+                                    $final=0;
                                 }
+                                $finals['rxvalue'][] = $final;
                             }
                         }
                     }
+
                     foreach ($array['txvalue'] as $key => $value) {
                         if (isset($array['txvalue'][$key + 1])) {
                             if (($array['txvalue'][$key + 1] == 0) or ($value == 0) or ($array['txvalue'][$key + 1] == $value)) {
