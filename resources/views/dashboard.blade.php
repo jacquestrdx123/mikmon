@@ -202,7 +202,7 @@
                     id: "events_div",
                     value: 0,
                     min: 0,
-                    max: 100,
+                    max: 750,
                     title: "Events Today"
                 });
 
