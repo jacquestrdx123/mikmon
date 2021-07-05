@@ -78,7 +78,7 @@ class Device extends Model
     public static function PollDeviceById($id){
         $device = Device::find($id);
         if($device->devicetype == "mikrotik"){
-            MikrotikLibrary::PollDevice($device);
+            MikrotikLibrary::PollDeviceDebug($device);
         }
     }
 

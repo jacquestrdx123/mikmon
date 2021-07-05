@@ -26,6 +26,17 @@ class MikrotikLibrary
             $interfacelibrary->syncInterfaces($device);
             \Log::info('Done Syncing Interfaces for '.$device->ip."");
     }
+    public static function PollDeviceDebug($device){
+        echo('Polling '.$device->ip." API");
+        MikrotikLibrary::pollViaAPI($device);
+        echo('Polling '.$device->ip." SNMP");
+        MikrotikLibrary::pollViaSNMP($device);
+        echo('Done Polling '.$device->ip."");
+        echo('Syncing Interfaces for '.$device->ip."");
+        $interfacelibrary = new InterfaceLibrary();
+        $interfacelibrary->syncInterfaces($device);
+        echo('Done Syncing Interfaces for '.$device->ip."");
+    }
 
     public static function pollViaAPI($device){
         $api = new RouterosAPI();
