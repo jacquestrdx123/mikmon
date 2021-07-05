@@ -152,7 +152,7 @@ class MikrotikLibrary
 
     public static function updateSystemInfo($results,$device){
         $device->description = $results["system_identity"][0]["name"];
-
+        dd($device->description);
         if(is_array($results["system_health"][0])){
             foreach($results["system_health"][0] as $key=> $health_result){
                 $input[$key] = $health_result;
