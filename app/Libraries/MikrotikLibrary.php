@@ -28,7 +28,7 @@ class MikrotikLibrary
     }
     public static function PollDeviceDebug($device){
         echo('Polling '.$device->ip." API");
-        MikrotikLibrary::pollViaAPI($device);
+        MikrotikLibrary::pollViaAPI($device,true);
         echo('Polling '.$device->ip." SNMP");
         MikrotikLibrary::pollViaSNMP($device);
         echo('Done Polling '.$device->ip."");
@@ -38,8 +38,11 @@ class MikrotikLibrary
         echo('Done Syncing Interfaces for '.$device->ip."");
     }
 
-    public static function pollViaAPI($device){
+    public static function pollViaAPI($device,$debug = false){
         $api = new RouterosAPI();
+        if($debug ==true){
+            $api->debug = true;
+        }
         if ($api->connect($device->ip, $device->username, $device->password)) {
             $results["system_identity"] = MikrotikLibrary::getSystemIdentity($api);
             $results["system_health"] =  MikrotikLibrary::getSystemHealth($api);
