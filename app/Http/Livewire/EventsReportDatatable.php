@@ -41,10 +41,7 @@ class EventsReportDatatable extends LivewireDatatable
                 ->label('IP')
                 ->editable()
                 ->searchable(),
-
-            DateColumn::name('created_at')
-                ->label('Added'),
-            Column::delete()->label('delete')->alignRight()
+            Column::make('Events', 'events_count')->sortable(),
         ];
     }
 }
