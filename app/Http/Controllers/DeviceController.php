@@ -20,6 +20,10 @@ class DeviceController extends Controller
         return view('device.index');
     }
 
+    public function showEventsReport(){
+        return view('device.event_report');
+    }
+
     public function show($id){
         $device = Device::find($id);
         return view('device.show',compact('device'));

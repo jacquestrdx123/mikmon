@@ -48,6 +48,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/devices/warning_latencies
 Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterface/{id}','App\Http\Controllers\DeviceinterfaceController@index');
 Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterfaces/index','App\Http\Controllers\DeviceinterfaceController@showAll')->name('deviceinterfaces.all');
 Route::middleware(['auth:sanctum', 'verified'])->get('/deviceinterface/graph/{id}','App\Http\Controllers\DeviceinterfaceController@show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/devices/event_report','App\Http\Controllers\DeviceinterfaceController@showEventsReport');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/devices/event_report','App\Http\Controllers\DeviceController@showEventReport');
 

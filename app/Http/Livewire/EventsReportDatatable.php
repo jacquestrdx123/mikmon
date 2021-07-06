@@ -16,10 +16,14 @@ class EventsReportDatatable extends LivewireDatatable
     public $hideable = 'inline';
     public $exportable = true;
     public $sort_attribute = 'events_count';
+    public $week;
 
+    public function render(){
+        $this->week  = new \DateTime('7 days ago');
+    }
     public function builder()
     {
-        return Device::query()->leftJoin('locations', 'locations.id', 'devices.location_id')->withCount('events');
+        return Device::query()->leftJoin('locations', 'locations.id', 'devices.location_id')->withCount('events')->where('events.created_at','>',$this->week);
     }
 
     public function columns()
