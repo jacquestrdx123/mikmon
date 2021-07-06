@@ -18,10 +18,6 @@ class EventsReportDatatable extends LivewireDatatable
     public $sort_attribute = 'events_count';
     public $week;
 
-    public function render(){
-        $this->week  = new \DateTime('7 days ago');
-        dd($this->week);
-    }
     public function builder()
     {
         return Device::query()->leftJoin('locations', 'locations.id', 'devices.location_id')->withCount('events')->where('events.created_at','>',$this->week);
@@ -33,8 +29,7 @@ class EventsReportDatatable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
             ->linkTo('device'),
-
-            Column::name('description')
+            Column::name('devices.description')
                 ->label('Description')
                 ->searchable(),
             Column::name('ip')
