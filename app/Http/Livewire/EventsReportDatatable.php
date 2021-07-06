@@ -20,6 +20,7 @@ class EventsReportDatatable extends LivewireDatatable
 
     public function render(){
         $this->week  = new \DateTime('7 days ago');
+        dd($this->week);
     }
     public function builder()
     {
