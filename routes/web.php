@@ -25,6 +25,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/device/create','App\Http\
     ->name('device.create');
 Route::middleware(['auth:sanctum', 'verified'])->post('/device','App\Http\Controllers\DeviceController@store')
     ->name('device.store');
+Route::middleware(['auth:sanctum', 'verified'])->get('/location/create','App\Http\Controllers\LocationController@create')
+    ->name('location.create');
+Route::middleware(['auth:sanctum', 'verified'])->post('/location','App\Http\Controllers\LocationController@store')
+    ->name('location.store');
 Route::middleware(['auth:sanctum', 'verified'])->get('/device/{id}','App\Http\Controllers\DeviceController@show')
     ->name('device.show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/device/latency/{id}','App\Http\Controllers\DeviceController@showLatency')

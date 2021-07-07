@@ -20,4 +20,13 @@ class LocationController extends Controller
         $location = Location::find($id);
         return view('location.show',compact('location'));
     }
+    public function create(){
+        return view('location.create');
+    }
+    public function store(Request $request){
+        $input = $request->all();
+        $location = Location::create($input);
+        return redirect('/location/'.$location->id);
+    }
+
 }
