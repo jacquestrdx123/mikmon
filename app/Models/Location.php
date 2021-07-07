@@ -9,6 +9,8 @@ class Location extends Model
 {
     use HasFactory;
 
+    protected $fillable =['description','longitude','latitude'];
+
     public function devices(){
         return $this->hasMany('App\Models\Device');
     }
