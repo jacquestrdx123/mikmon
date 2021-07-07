@@ -13,10 +13,6 @@
                 <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description">
             </div>
             <div class="form-group">
-                <label for="description">Longitude</label>
-                <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description">
-            </div>
-            <div class="form-group">
                 <label for="longitude">Longitude</label>
                 <input type="number" class="form-control" id="longitude" name="longitude" placeholder="Enter longitude">
             </div>
