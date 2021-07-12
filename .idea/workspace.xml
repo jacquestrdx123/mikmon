@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
+    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="Fixed Providers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -224,14 +223,7 @@
       <workItem from="1625122982648" duration="823000" />
       <workItem from="1625226700122" duration="54000" />
       <workItem from="1625493259612" duration="3426000" />
-      <workItem from="1626072104385" duration="139000" />
-    </task>
-    <task id="LOCAL-00225" summary="Fixed Providers">
-      <created>1624261904529</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1624261904529</updated>
+      <workItem from="1626072104385" duration="267000" />
     </task>
     <task id="LOCAL-00226" summary="Fixed Providers">
       <created>1624261956186</created>
@@ -569,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625641262816</updated>
     </task>
-    <option name="localTasksCounter" value="274" />
+    <task id="LOCAL-00274" summary="Fixed Providers">
+      <created>1626072255960</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1626072255960</updated>
+    </task>
+    <option name="localTasksCounter" value="275" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,39 +579,27 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed Providers" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="115" key="#Deployment" timestamp="1617177983570">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="115" key="#Deployment/0.0.1440.900@0.0.1440.900" timestamp="1617177983570" />
     <state x="450" y="285" key="#Notifications" timestamp="1622628290013">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="450" y="285" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1622628290013" />
-    <state x="304" y="102" key="#SSH_Configurations" timestamp="1617177949155">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="304" y="102" key="#SSH_Configurations/0.0.1440.900@0.0.1440.900" timestamp="1617177949155" />
-    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1617178001997">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1617178001997" />
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1625640087200">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1625640087200" />
-    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2" timestamp="1625641262564">
+    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2" timestamp="1626072364673">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1625641262564" />
+    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1626072364673" />
     <state x="292" y="23" width="846" height="812" key="CommitChangelistDialog2/0.23.1440.812@0.23.1440.812" timestamp="1620633567480" />
     <state x="539" y="376" key="NewPhpFileDialog" timestamp="1620724398874">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1620724398874" />
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1625641264268">
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1626072260036">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1625641264268" />
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1626072260036" />
     <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.23.1440.812@0.23.1440.812" timestamp="1622448088938" />
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.814@0.23.1440.814" timestamp="1620720192076" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1620726240421">
@@ -633,13 +620,5 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="355" y="271" width="618" height="580" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1622626123900" />
-    <state x="589" y="312" key="publish.login" timestamp="1617177764401">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="589" y="312" key="publish.login/0.0.1440.900@0.0.1440.900" timestamp="1617177764401" />
-    <state x="385" y="210" key="run.anything.popup" timestamp="1617184667546">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1617184667546" />
   </component>
 </project>
