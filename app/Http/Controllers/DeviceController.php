@@ -37,21 +37,26 @@ class DeviceController extends Controller
                 ->where('device_id',$id)
                 ->groupBy('date')
                 ->get();
+
         foreach($events_per_day as $event_per_day){
-            $array[] = $event_per_day->events;
-            $timestamps[] = $event_per_day->date;
+            $array[] = array(
+                'events' => $event_per_day->events,
+                'datetime' => $events_per_day->date
+            );
         }
+
+        usort($array,'date_compare');
 
         $event_chart = (new LarapexChart)->barChart()
             ->setTitle('Event Stats for '.$device->description)
             ->setSubtitle('Click to zoom')
             ->setColors($colorarray)
             ->setGrid(true)
-            ->setXAxis($timestamps)
+            ->setXAxis($array['datetime'])
             ->setDataset([
                 [
                     'name' => 'Events',
-                    'data'  =>  $array
+                    'data'  =>  $array['events']
                 ],
             ]);
 
@@ -201,6 +206,11 @@ class DeviceController extends Controller
         return view('device.highlatencies',compact('latencies'));
     }
 
+    public function  date_compare($element1, $element2) {
+    $datetime1 = strtotime($element1['datetime']);
+    $datetime2 = strtotime($element2['datetime']);
+    return $datetime1 - $datetime2;
+}
 
 
 }
