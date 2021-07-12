@@ -17,7 +17,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             {!! $event_chart->container() !!}
             @push('scripts')
-                <script src="{{ $ping_chart->cdn() }}"></script>
+                <script src="{{ $event_chart->cdn() }}"></script>
                 {{ $event_chart->script() }}
             @endpush
         </div>
