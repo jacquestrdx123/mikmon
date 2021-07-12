@@ -34,7 +34,7 @@ class DeviceController extends Controller
         $device = Device::find($id);
         $events_per_day = Event::where('device_id',$id)->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d');
-        });
+        })->get();
         dd($events_per_day);
         return view('device.events',compact('device'));
     }
