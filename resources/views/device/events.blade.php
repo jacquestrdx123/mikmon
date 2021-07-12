@@ -12,7 +12,7 @@
     </x-slot>
     <div class="card-header"> Events </div>
     <div class="card">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div>
             {!! $event_chart->container() !!}
             @push('scripts')
                 <script src="{{ $event_chart->cdn() }}"></script>
