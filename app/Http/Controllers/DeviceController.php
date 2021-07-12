@@ -45,16 +45,11 @@ class DeviceController extends Controller
         }
 
         $data = collect($temp_array)->sortBy('datetime')->reverse()->toArray();
-        try{
-            foreach($data as $line){
-                $array[] = array(
-                    'events' => $line['events'],
-                    'datetime' => gmdate("Y-m-d", $line['datetime'])
-                );
-            }
-        }catch (\Exception $e){
-            dd($line);
+        foreach($data as $line){
+            $array['events'] = $line['events'];
+            $array['datetime'] = gmdate("Y-m-d", $line['datetime']);
         }
+
 
 
         $event_chart = (new LarapexChart)->barChart()
