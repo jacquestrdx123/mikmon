@@ -31,7 +31,7 @@ class DeviceController extends Controller
     }
 
     public function showEvents($id){
-        $colorarray = ['#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'];
+        $colorarray = ['#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'];
         $device = Device::find($id);
         $events_per_day = Event::selectRaw("COUNT(*) events, DATE_FORMAT(created_at, '%Y-%m-%e') date")
                 ->where('device_id',$id)
