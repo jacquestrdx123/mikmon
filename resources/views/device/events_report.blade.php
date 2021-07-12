@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div>
-        @livewire('device-events-datatable')
+        @livewire('events-report-datatable')
     </div>
 
 </x-app-layout>

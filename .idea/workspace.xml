@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/table-devices-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/table-devices-show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/device/events_report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/events_report.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,14 +222,7 @@
       <workItem from="1625122982648" duration="823000" />
       <workItem from="1625226700122" duration="54000" />
       <workItem from="1625493259612" duration="3426000" />
-      <workItem from="1626072104385" duration="7381000" />
-    </task>
-    <task id="LOCAL-00282" summary="Fixed Providers">
-      <created>1626073417807</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1626073417807</updated>
+      <workItem from="1626072104385" duration="7513000" />
     </task>
     <task id="LOCAL-00283" summary="Fixed Providers">
       <created>1626073809535</created>
@@ -567,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626084406205</updated>
     </task>
-    <option name="localTasksCounter" value="331" />
+    <task id="LOCAL-00331" summary="Fixed Providers">
+      <created>1626084613103</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1626084613104</updated>
+    </task>
+    <option name="localTasksCounter" value="332" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,19 +586,19 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1625640087200" />
-    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2" timestamp="1626084405928">
+    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2" timestamp="1626084612913">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1626084405928" />
+    <state x="292" y="23" width="870" height="877" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1626084612913" />
     <state x="292" y="23" width="846" height="812" key="CommitChangelistDialog2/0.23.1440.812@0.23.1440.812" timestamp="1620633567480" />
     <state x="539" y="376" key="NewPhpFileDialog" timestamp="1620724398874">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1620724398874" />
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1626084407386">
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1626084614466">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1626084407386" />
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1626084614466" />
     <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.23.1440.812@0.23.1440.812" timestamp="1622448088938" />
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.814@0.23.1440.814" timestamp="1620720192076" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1620726240421">
