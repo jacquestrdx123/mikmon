@@ -37,6 +37,7 @@ class DeviceController extends Controller
                 ->where('device_id',$id)
                 ->groupBy('date')
                 ->get();
+        dd($events_per_day);
         foreach($events_per_day as $event_per_day){
             $temp_array[] = array(
                 'events' => $event_per_day->events,
@@ -45,6 +46,7 @@ class DeviceController extends Controller
         }
 
         $data = collect($temp_array)->sortBy('datetime')->reverse()->toArray();
+
         foreach($data as $line){
             $array['events'][] = $line['events'];
             $array['datetime'][] = gmdate("Y-m-d", $line['datetime']);
