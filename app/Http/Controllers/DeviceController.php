@@ -36,6 +36,7 @@ class DeviceController extends Controller
         $events_per_day = Event::selectRaw("COUNT(*) events, DATE_FORMAT(created_at, '%Y-%m-%e') date")
                 ->where('device_id',$id)
                 ->groupBy('date')
+                ->orderBy('date','ASC')
                 ->get();
         foreach($events_per_day as $event_per_day){
             $array[] = $event_per_day->events;
