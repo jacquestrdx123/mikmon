@@ -46,7 +46,7 @@ class DeviceController extends Controller
 
         $data = collect($temp_array)->sortBy('datetime')->reverse()->toArray();
         foreach($data as $line){
-            dd($line);
+            dd($line['datetime']);
             $array[] = array(
                 'events' => $line['events'],
                 'datetime' => gmdate("Y-m-d", $line['datetime'])
