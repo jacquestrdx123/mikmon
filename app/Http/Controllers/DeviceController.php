@@ -31,6 +31,8 @@ class DeviceController extends Controller
     }
 
     public function showEvents($id){
+        $colorarray = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'];
+
         $device = Device::find($id);
         $events_per_day = Event::selectRaw("COUNT(*) events, DATE_FORMAT(created_at, '%Y-%m-%e') date")
                 ->where('device_id',$id)
@@ -41,9 +43,22 @@ class DeviceController extends Controller
             $timestamps[] = $event_per_day->date;
         }
 
-        dd($timestamps);
+        $event_chart = (new LarapexChart)->lineChart()
+            ->setTitle('Event Stats for '.$device->description)
+            ->setSubtitle('Click to zoom')
+            ->setColors($colorarray)
+            ->setGrid(true)
+            ->setXAxis($timestamps)
+            ->setStroke(2,$colorarray)
+            ->setHeight(450)
+            ->setDataset([
+                [
+                    'name' => 'Events',
+                    'data'  =>  $array
+                ],
+            ]);
 
-        return view('device.events',compact('device'));
+        return view('device.events',compact('device','event_chart'));
     }
 
     public function showNeighbors($id){
