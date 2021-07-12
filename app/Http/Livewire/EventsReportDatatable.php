@@ -22,9 +22,7 @@ class EventsReportDatatable extends LivewireDatatable
     {
         $this->week = new DateTime();
         $this->week->format('Y-m-d');
-        return Device::query()
-            ->where('events.created_at','>',$this->week)
-            ->withCount('events');
+        return Device::query();
     }
 
     public function columns()
@@ -40,7 +38,9 @@ class EventsReportDatatable extends LivewireDatatable
                 ->label('IP')
                 ->editable()
                 ->searchable(),
-            Column::make('Events', 'events_count')->sortable(),
-        ];
+            NumberColumn::name('events.id:count')
+                ->label('Event Count')
+                ->filterable()
+                ->alignRight(),        ];
     }
 }
