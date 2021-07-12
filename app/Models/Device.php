@@ -199,4 +199,9 @@ class Device extends Model
         return $array;
     }
 
+    public static function ResetInterfaces(){
+        \DB::table('deviceinterfaces')->where('device_id',">" ,"0")->update(['maxtxspeed' => "0"]);
+        \DB::table('deviceinterfaces')->where('device_id',">" ,"0")->update(['maxrxspeed' => "0"]);
+    }
+
 }
