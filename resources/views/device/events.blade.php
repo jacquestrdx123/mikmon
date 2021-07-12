@@ -13,5 +13,8 @@
     <div>
         @livewire('events-datatable', ['params' => $device->id])
     </div>
+    <div>
+
+    </div>
 
 </x-app-layout>

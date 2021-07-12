@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('QueuePingJob')->everyMinute();
         $schedule->command('SyncInterfaces')->everyMinute();
         $schedule->command('QueueHistoricalPingJob')->everyMinute();
+        $schedule->command('ResetInterfaces')->daily();
         $schedule->command('QueueUpdateLocationCountersJob')->everyMinute();
     }
 

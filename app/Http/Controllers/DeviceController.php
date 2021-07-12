@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Device;
 use App\Models\Event;
 use App\Models\Gateway;
@@ -31,6 +32,10 @@ class DeviceController extends Controller
 
     public function showEvents($id){
         $device = Device::find($id);
+        $events_per_day = Event::where('device_id',$id)->groupBy(function($date) {
+            return Carbon::parse($date->created_at)->format('d');
+        });
+        dd($events_per_day);
         return view('device.events',compact('device'));
     }
 
