@@ -20,9 +20,9 @@ class EventsReportDatatable extends LivewireDatatable
 
     public function builder()
     {
-        $this->week = new \DateTime();
-        $this->week->format('Y-m-d');
-        return Device::query();
+        $dt = date("Y-m-d");
+        $this->week = date( "Y-m-d", strtotime( "$dt -7 day"));
+        return Device::query()->where('events.created_at','>',$this->week);
     }
 
     public function columns()
