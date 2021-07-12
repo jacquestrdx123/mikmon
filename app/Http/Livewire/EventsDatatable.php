@@ -32,7 +32,8 @@ class EventsDatatable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID'),
             Column::name('created_at')
-                ->label('Timestamp'),
+                ->label('Timestamp')
+                ->searchable(),
             Column::callback(['events.previous_status', 'events.current_status'], function ($previous_status, $current_status) {
                 return view('table-events-status', ['previous_status' => $previous_status, 'current_status' => $current_status]);
             })

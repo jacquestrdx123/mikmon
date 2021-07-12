@@ -28,9 +28,9 @@ class EventsReportDatatable extends LivewireDatatable
     public function columns()
     {
         return [
-            NumberColumn::name('id')
-                ->label('ID')
-                ->linkTo('device'),
+            Column::callback(['id'], function ($id) {
+                return view('table-devices-show', ['id' => $id]);
+            }),
             Column::name('devices.description')
                 ->label('Description')
                 ->editable(),
