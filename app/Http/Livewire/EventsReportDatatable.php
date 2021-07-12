@@ -22,7 +22,7 @@ class EventsReportDatatable extends LivewireDatatable
     {
         $this->week = new DateTime();
         $this->week->format('Y-m-d');
-        return Device::query()->leftJoin('locations', 'locations.id', 'devices.location_id')
+        return Device::query()
             ->where('events.created_at','>',$this->week)
             ->withCount('events');
     }
