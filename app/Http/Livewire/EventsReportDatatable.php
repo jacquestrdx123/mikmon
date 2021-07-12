@@ -32,8 +32,7 @@ class EventsReportDatatable extends LivewireDatatable
                 ->label('ID'),
             Column::name('devices.description')
                 ->label('Description')
-                ->linkTo('device')
-                ->searchable(),
+                ->linkTo('device'),
             Column::name('ip')
                 ->label('IP')
                 ->editable()
