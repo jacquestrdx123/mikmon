@@ -49,7 +49,6 @@ class DeviceController extends Controller
             ->setColors($colorarray)
             ->setGrid(true)
             ->setXAxis($timestamps)
-            ->setStroke(2,$colorarray)
             ->setHeight(450)
             ->setDataset([
                 [
