@@ -38,14 +38,20 @@ class DeviceController extends Controller
                 ->groupBy('date')
                 ->get();
         foreach($events_per_day as $event_per_day){
-            $array[] = array(
+            $temp_array[] = array(
                 'events' => $event_per_day->events,
                 'datetime' => strtotime($event_per_day->date)
             );
         }
 
-        $data = collect($array)->sortBy('datetime')->reverse()->toArray();
-        dd($data);
+        $data = collect($temp_array)->sortBy('datetime')->reverse()->toArray();
+
+        foreach($data as $line){
+            $array[] = array(
+                'events' => $line->events,
+                'datetime' => strtotime($line->datetime)
+            );
+        }
 
         $event_chart = (new LarapexChart)->barChart()
             ->setTitle('Event Stats for '.$device->description)
