@@ -30,7 +30,7 @@ class EventsReportDatatable extends LivewireDatatable
         return [
             NumberColumn::name('id')
                 ->label('ID')
-                ->linkTo('device'),
+                ->linkTo('/device'),
             Column::name('devices.description')
                 ->label('Description')
                 ->searchable(),
