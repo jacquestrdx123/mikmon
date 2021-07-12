@@ -43,6 +43,11 @@ class DeviceController extends Controller
                 'datetime' => $event_per_day->date
             );
         }
+        function date_compare($element1, $element2) {
+            $datetime1 = strtotime($element1['datetime']);
+            $datetime2 = strtotime($element2['datetime']);
+            return $datetime1 - $datetime2;
+        }
 
         usort($array,'date_compare');
 
@@ -205,11 +210,7 @@ class DeviceController extends Controller
         return view('device.highlatencies',compact('latencies'));
     }
 
-    public function  date_compare($element1, $element2) {
-    $datetime1 = strtotime($element1['datetime']);
-    $datetime2 = strtotime($element2['datetime']);
-    return $datetime1 - $datetime2;
-}
+
 
 
 }
