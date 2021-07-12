@@ -20,7 +20,7 @@ class EventsReportDatatable extends LivewireDatatable
 
     public function builder()
     {
-        $this->week = new DateTime();
+        $this->week = new \DateTime();
         $this->week->format('Y-m-d');
         return Device::query();
     }
@@ -28,9 +28,9 @@ class EventsReportDatatable extends LivewireDatatable
     public function columns()
     {
         return [
-            Column::callback(['id'], function ($id) {
-                return view('table-devices-show', ['id' => $id]);
-            }),
+            NumberColumn::name('id')
+                ->label('ID')
+                ->linkTo('device'),
             Column::name('devices.description')
                 ->label('Description')
                 ->editable(),
