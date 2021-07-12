@@ -29,10 +29,11 @@ class EventsReportDatatable extends LivewireDatatable
     {
         return [
             NumberColumn::name('id')
-                ->label('ID'),
+                ->label('ID')
+                ->linkTo('device'),
             Column::name('devices.description')
                 ->label('Description')
-                ->linkTo('device'),
+                ->editable(),
             Column::name('ip')
                 ->label('IP')
                 ->editable()
