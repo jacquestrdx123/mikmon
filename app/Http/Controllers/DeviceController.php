@@ -45,10 +45,10 @@ class DeviceController extends Controller
         }
 
         $data = collect($temp_array)->sortBy('datetime')->reverse()->toArray();
-
+        dd($data);
         foreach($data as $line){
             $array[] = array(
-                'events' => $line->events,
+                'events' => $line->event,
                 'datetime' => strtotime($line->datetime)
             );
         }
