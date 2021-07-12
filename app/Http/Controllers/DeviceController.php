@@ -52,6 +52,7 @@ class DeviceController extends Controller
             $array['datetime'][] = gmdate("Y-m-d", $line['datetime']);
         }
 
+        dd($array);
 
 
         $event_chart = (new LarapexChart)->barChart()
