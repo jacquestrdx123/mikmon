@@ -20,23 +20,27 @@ class EventsReportDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Events::query()->leftJoin('devices', 'devices.id', 'events.device_id')
-            ->groupBy('devices.id');
+        $this->week = new DateTime();
+        $this->week->format('Y-m-d');
+        return Device::query()
+            ->where('events.created_at','>',$this->week)
+            ->withCount('events');
     }
 
     public function columns()
     {
         return [
-            NumberColumn::name('devices.id')
+            NumberColumn::name('id')
                 ->label('ID')
             ->linkTo('device'),
             Column::name('devices.description')
                 ->label('Description')
                 ->searchable(),
-            Column::name('devices.ip')
+            Column::name('ip')
                 ->label('IP')
                 ->editable()
                 ->searchable(),
+            Column::make('Events', 'events_count')->sortable(),
         ];
     }
 }
