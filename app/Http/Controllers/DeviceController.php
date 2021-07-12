@@ -37,7 +37,6 @@ class DeviceController extends Controller
                 ->where('device_id',$id)
                 ->groupBy('date')
                 ->get();
-        dd($events_per_day);
         foreach($events_per_day as $event_per_day){
             $temp_array[] = array(
                 'events' => $event_per_day->events,
