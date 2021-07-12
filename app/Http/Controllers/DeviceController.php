@@ -32,9 +32,10 @@ class DeviceController extends Controller
 
     public function showEvents($id){
         $device = Device::find($id);
-        $events_per_day = Event::where('device_id',$id)->groupBy(function($date) {
-            return Carbon::parse($date->created_at)->format('d');
-        })->get();
+        $events_per_day = Event::where('device_id',$id)
+            ->where('created_at', '>=', \Carbon\Carbon::now->subMonth())
+            ->groupBy(DB::raw('Date(created_at)'))
+            ->orderBy('created_at', 'DESC')->get();
         dd($events_per_day);
         return view('device.events',compact('device'));
     }
