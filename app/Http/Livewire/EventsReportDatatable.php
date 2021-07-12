@@ -20,7 +20,11 @@ class EventsReportDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Device::query()->leftJoin('locations', 'locations.id', 'devices.location_id')->withCount('events')->where('events.created_at','>',$this->week);
+        $this->week = new DateTime();
+        $this->week->format('Y-m-d');
+        return Device::query()->leftJoin('locations', 'locations.id', 'devices.location_id')
+            ->where('events.created_at','>',$this->week)
+            ->withCount('events');
     }
 
     public function columns()
