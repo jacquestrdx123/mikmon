@@ -32,11 +32,17 @@ class DeviceController extends Controller
 
     public function showEvents($id){
         $device = Device::find($id);
-        $events_per_day = Event::selectRaw("COUNT(*) views, DATE_FORMAT(created_at, '%Y %m %e') date")
+        $events_per_day = Event::selectRaw("COUNT(*) events, DATE_FORMAT(created_at, '%Y-%m-%e') date")
                 ->where('device_id',$id)
                 ->groupBy('date')
                 ->get();
-        dd($events_per_day);
+        foreach($events_per_day as $event_per_day){
+            $array[] = $event_per_day->events;
+            $timestamps[] = $event_per_day->date;
+        }
+
+        dd($timestamps);
+
         return view('device.events',compact('device'));
     }
 
