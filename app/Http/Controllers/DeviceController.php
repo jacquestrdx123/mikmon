@@ -49,7 +49,6 @@ class DeviceController extends Controller
             ->setColors($colorarray)
             ->setGrid(true)
             ->setXAxis($timestamps)
-            ->setHeight(450)
             ->setDataset([
                 [
                     'name' => 'Events',
