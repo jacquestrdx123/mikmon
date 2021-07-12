@@ -43,13 +43,9 @@ class DeviceController extends Controller
                 'datetime' => $event_per_day->date
             );
         }
-        function date_compare($element1, $element2) {
-            $datetime1 = strtotime($element1['datetime']);
-            $datetime2 = strtotime($element2['datetime']);
-            return $datetime1 - $datetime2;
-        }
 
-        usort($array,'date_compare');
+        $data = collect($array)->sortBy('datetime')->reverse()->toArray();
+        dd($data);
 
         $event_chart = (new LarapexChart)->barChart()
             ->setTitle('Event Stats for '.$device->description)
