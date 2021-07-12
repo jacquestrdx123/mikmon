@@ -40,7 +40,7 @@ class DeviceController extends Controller
         foreach($events_per_day as $event_per_day){
             $array[] = array(
                 'events' => $event_per_day->events,
-                'datetime' => $event_per_day->date
+                'datetime' => strtotime($event_per_day->date)
             );
         }
 
