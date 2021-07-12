@@ -33,14 +33,13 @@ class DeviceController extends Controller
     public function showEvents($id){
         $colorarray = ['#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'];
         $device = Device::find($id);
-        $events_per_day = Event::selectRaw("COUNT(*) events, DATE_FORMAT(created_at, '%Y %m %e') date, created_at")
+        $events_per_day = Event::selectRaw("COUNT(*) events, created_at")
                 ->where('device_id',$id)
-                ->groupBy('date','created_at')
-                ->orderBy('date','ASC')
+                ->orderBy('created_at','ASC')
                 ->get();
         foreach($events_per_day as $event_per_day){
             $array[] = $event_per_day->events;
-            $timestamps[] = $event_per_day->date;
+            $timestamps[] = $event_per_day->created_at;
         }
 
         $event_chart = (new LarapexChart)->barChart()
