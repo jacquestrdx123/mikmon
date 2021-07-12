@@ -43,7 +43,7 @@ class DeviceController extends Controller
             $timestamps[] = $event_per_day->date;
         }
 
-        $event_chart = (new LarapexChart)->lineChart()
+        $event_chart = (new LarapexChart)->barChart()
             ->setTitle('Event Stats for '.$device->description)
             ->setSubtitle('Click to zoom')
             ->setColors($colorarray)

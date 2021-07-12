@@ -10,10 +10,8 @@
 
         </h2>
     </x-slot>
-    <div>
-        @livewire('events-datatable', ['params' => $device->id])
-    </div>
-    <div>
+    <div class="card-header"> Events </div>
+    <div class="card">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             {!! $event_chart->container() !!}
             @push('scripts')
@@ -22,5 +20,9 @@
             @endpush
         </div>
     </div>
+    <div>
+        @livewire('events-datatable', ['params' => $device->id])
+    </div>
+
 
 </x-app-layout>
