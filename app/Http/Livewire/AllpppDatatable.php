@@ -23,7 +23,7 @@ class AllpppDatatable extends LivewireDatatable
     public function builder()
     {
         return Pppconnection::query()
-            ->rightJoin('devices', 'devices.id', 'pppconnections.device_id');
+            ->leftJoin('devices', 'devices.id', 'pppconnections.device_id');
     }
 
     public function columns()
