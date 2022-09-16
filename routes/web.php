@@ -43,6 +43,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/device/ip/{id}','App\Http
     ->name('device.ip');
 Route::middleware(['auth:sanctum', 'verified'])->get('/ip','App\Http\Controllers\IpController@index')
     ->name('ip.index');
+Route::middleware(['auth:sanctum', 'verified'])->get('/ppp','App\Http\Controllers\PppController@index')
+    ->name('ppp.index');
 Route::middleware(['auth:sanctum', 'verified'])->get('/device/neighbors/{id}','App\Http\Controllers\DeviceController@showNeighbors')
     ->name('device.neighbors');
 Route::middleware(['auth:sanctum', 'verified'])->get('/location','App\Http\Controllers\LocationController@index')
