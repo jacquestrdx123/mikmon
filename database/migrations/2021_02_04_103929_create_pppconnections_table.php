@@ -15,6 +15,7 @@ class CreatePppconnectionsTable extends Migration
     {
         Schema::create('pppconnections', function (Blueprint $table) {
             $table->id();
+            $table->integer("device_id");
             $table->string("name");
             $table->string("service");
             $table->string("caller-id");

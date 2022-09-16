@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Pppconnection extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'device_id',
+        'name',
+        "caller-id",
+        "service",
+        "address",
+        "radius",
+        "uptime",
+    ];
 }

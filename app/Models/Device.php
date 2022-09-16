@@ -87,6 +87,16 @@ class Device extends Model
             MikrotikLibrary::PollDevice($device);
         }
     }
+    public static function FixConfig(){
+        $devices = Device::get();
+        foreach($devices as $device){
+            try{
+                MikrotikLibrary::fixConfig($device);
+            }catch (\Exception $e){
+
+            }
+        }
+    }
 
     public static function SyncInterfaces(){
         $formatted_date_now = date("Y-m-d H:i:s", strtotime('+2 hours'));
@@ -106,8 +116,7 @@ class Device extends Model
 
     public static function PollDevices(){
         $formatted_date_now = date("Y-m-d H:i:s", strtotime('+2 hours'));
-        $take =  round(Device::count()/3,0);
-        $devices = Device::orderBy('update_started','ASC')->take($take)->get();
+        $devices = Device::get();
         foreach ($devices as $device) {
             $device->update_started = $formatted_date_now;
             $device->save();

@@ -35,6 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/device/latency/{id}','App
     ->name('device.latency');
 Route::middleware(['auth:sanctum', 'verified'])->get('/device/events/{id}','App\Http\Controllers\DeviceController@showEvents')
     ->name('device.events');
+Route::middleware(['auth:sanctum', 'verified'])->get('/device/ppp/{id}','App\Http\Controllers\DeviceController@showPPP')
+    ->name('device.ppp');
 Route::middleware(['auth:sanctum', 'verified'])->get('/device/dhcp/{id}','App\Http\Controllers\DeviceController@showDHCP')
     ->name('device.dhcp');
 Route::middleware(['auth:sanctum', 'verified'])->get('/device/ip/{id}','App\Http\Controllers\DeviceController@showIP')

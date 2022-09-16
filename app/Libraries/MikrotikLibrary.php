@@ -9,6 +9,7 @@ use App\Models\Dhcplease;
 use App\Models\Gateway;
 use App\Models\Ip;
 use App\Models\Neighbor;
+use App\Models\Pppconnection;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Log;
 
@@ -59,6 +60,73 @@ class MikrotikLibrary
             MikrotikLibrary::updateOrCreateIpNeighbors($results['ip_neighbours'],$device);
             MikrotikLibrary::updateOrCreateDefaultGateways($results['default_gateways'],$device);
             MikrotikLibrary::updateOrCreateIPAddresses($results['ip_adresses'],$device);
+            MikrotikLibrary::updateOrCreateActivePPP($results['ppp_active'],$device);
+
+        }
+    }
+
+    public static function fixConfig($device){
+        $api = new RouterosAPI();
+        $api->debug = true;
+        if ($api->connect($device->ip, $device->username, $device->password)) {
+                $api->write('/snmp/community/print',true);
+                $READ = $api->read();
+                if (array_key_exists('0',$READ)){
+                    foreach($READ as $row){
+                        $api->write('/snmp/community/set',false);
+                        $api->write('=name=dude',false);
+                        $api->write('=.id='.$row[".id"]);
+                        $api->read();
+                    }
+                }
+                $api->write('/snmp/set',false);
+                $api->write('=enabled=yes',false);
+                $api->write('=trap-community=dude',true);
+                $results = $api->read();
+            try{
+                $API->write('/interface/pppoe-server/server/print',true);
+                $READ = $API->read();
+                if (array_key_exists('0',$READ)){
+                    foreach($READ as $row){
+                        $API->write('/interface/pppoe-server/server/set',false);
+                        $API->write('=authentication=pap,chap',false);
+                        $API->write('=.id='.$row[".id"]);
+                        $API->read();
+                    }
+                }
+            }catch(\Exception $e){
+
+            }
+            try{
+                $API->write('/radius/print',true);
+                $READ = $API->read();
+                if (array_key_exists('0',$READ)){
+                    foreach($READ as $row){
+                        $API->write('/radius/set',false);
+                        $API->write('=address=160.19.39.4',false);
+                        $API->write('=service=login,ppp',false);
+                        $API->write('=.id='.$row[".id"]);
+                        $radius = $API->read();
+
+
+                    }
+                }
+
+            }catch(\Exception $e){
+
+            }
+            $API->write('/user/aaa/set',false);
+            $API->write('=use-radius=yes',true);
+            $radius = $API->read();
+
+
+            $API->write('/ppp/active/print');
+            $READ = $API->read();
+            if (array_key_exists('0',$READ)){
+                foreach($READ as $row){
+                    echo $row['name'].' '.$row['address']."\n";
+                }
+            }
         }
     }
 
@@ -166,7 +234,6 @@ class MikrotikLibrary
 
     public static function updateSystemInfo($results,$device){
         $device->description = $results["system_identity"][0]["name"];
-        dd($device->description);
         if(is_array($results["system_health"][0])){
             foreach($results["system_health"][0] as $key=> $health_result){
                 $input[$key] = $health_result;
@@ -319,6 +386,30 @@ class MikrotikLibrary
                     "system_caps" => $system_caps,
                     "system_caps_enabled" => $system_caps_enabled,
                     "device_id" => $device_id
+                ]
+            );
+        }
+    }
+
+    public static function updateOrCreateActivePPP($results,$device){
+        $device_id = $device->id;
+        foreach($results as $ppp){
+            $name = $ppp['name'] ?? "name";
+            $service = $ppp['service'] ?? "service";
+            $called_id = $ppp['caller-id'] ?? "caller-id";
+            $address = $ppp['address'] ?? "address";
+            $radius = $ppp['radius'] ?? "false";
+            $uptime = $ppp['uptime'] ?? "0";
+            $ppp_connection = Pppconnection::updateOrCreate(
+                ['device_id' => $device->id, 'name' => $name],
+                [
+                    'device_id' => $device->id,
+                    'name' => $name,
+                    "caller-id" => $called_id,
+                    "service" => $service,
+                    "address" => $address,
+                    "radius" =>$radius,
+                    "uptime" => $uptime,
                 ]
             );
         }

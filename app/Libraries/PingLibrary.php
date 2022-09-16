@@ -25,25 +25,25 @@ class PingLibrary
 
         for ($x = 1; $x <= $counter; $x++) {
         try{
-            exec("rm -rf /home/forge/netmon.barko.co.za/storage/pings/ips_to_be_pinged$x.txt");
+            exec("rm -rf storage/pings/ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
             dd($e);
 
         }
             try{
-                exec("touch /home/forge/netmon.barko.co.za/storage/pings/ips_to_be_pinged$x.txt");
+                exec("touch storage/pings/ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
                 dd($e);
 
             }
             try{
-                exec("rm -rf /home/forge/netmon.barko.co.za/storage/pings/historical_ips_to_be_pinged$x.txt");
+                exec("rm -rf storage/pings/historical_ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
                 dd($e);
 
             }
             try{
-                exec("touch /home/forge/netmon.barko.co.za/storage/pings/historical_ips_to_be_pinged$x.txt");
+                exec("touch storage/pings/historical_ips_to_be_pinged$x.txt");
             }catch (\Exception $e){
                 dd($e);
             }
@@ -63,8 +63,8 @@ class PingLibrary
             }
         }
         foreach($finals as $key=> $final){
-            $file = "/home/forge/netmon.barko.co.za/storage/pings/ips_to_be_pinged$key.txt";
-            $historical_file = "/home/forge/netmon.barko.co.za/storage/pings/historical_ips_to_be_pinged$key.txt";
+            $file = "storage/pings/ips_to_be_pinged$key.txt";
+            $historical_file = "storage/pings/historical_ips_to_be_pinged$key.txt";
             foreach($final as $ip){
                 file_put_contents($file, $ip."\n", FILE_APPEND);
                 file_put_contents($historical_file, $ip."\n", FILE_APPEND);
@@ -84,7 +84,7 @@ class PingLibrary
 
     public static function PingWorker($filename){
         \Log::info("Normal Pingworker nr $filename starting with historical_ips_to_be_pinged".$filename);
-        $file= "/home/forge/netmon.barko.co.za/storage/pings/ips_to_be_pinged$filename.txt";
+        $file= "storage/pings/ips_to_be_pinged$filename.txt";
         exec("fping -t 250 -f $file",$results);
         foreach($results as $result){
             $finals[] = preg_split('/ is /',$result);
@@ -106,7 +106,7 @@ class PingLibrary
 
     public static function HistoricalPingWorker($filename){
         \Log::info("Historical Pingworker nr $filename starting with historical_ips_to_be_pinged".$filename);
-        $file= "/home/forge/netmon.barko.co.za/storage/pings/historical_ips_to_be_pinged$filename.txt";
+        $file= "storage/pings/historical_ips_to_be_pinged$filename.txt";
         $results = array();
         $matrix = array();
         $data = array();

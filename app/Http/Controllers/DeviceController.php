@@ -73,6 +73,10 @@ class DeviceController extends Controller
         $device = Device::find($id);
         return view('device.neighbors',compact('device'));
     }
+    public function showPPP($id){
+        $device = Device::find($id);
+        return view('device.ppp',compact('device'));
+    }
 
     public function showDHCP($id){
         $device = Device::find($id);
@@ -104,6 +108,7 @@ class DeviceController extends Controller
     public function showEventReport(){
         return  view('device.events_report');
     }
+
 
     public function showLatency($id){
         $device = Device::find($id);

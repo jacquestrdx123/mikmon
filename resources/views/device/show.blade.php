@@ -91,6 +91,11 @@
                         View Events
                     </a>
                 </button>
+            <button type="button" class="btn btn-primary">
+                <a class="btn" href="/device/ppp/{!! $device->id !!}">
+                    View PPP
+                </a>
+            </button>
         </div>
     </div>
 </x-app-layout>

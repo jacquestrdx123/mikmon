@@ -18,7 +18,7 @@ class InterfaceLibrary
         }catch (\Exception $e){
         }
         try{
-            InterfaceLibrary::CalculateThroughput($device);
+            //InterfaceLibrary::CalculateThroughput($device);
         }catch (\Exception $e){
         }
         \Log::info( "Interfaces Done for $device->description");
