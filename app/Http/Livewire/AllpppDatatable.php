@@ -14,7 +14,7 @@ use Mediconesystems\LivewireDatatables\TimeColumn;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 
-class AllPppDatatable extends LivewireDatatable
+class AllpppDatatable extends LivewireDatatable
 {
 
     public $hideable = 'inline';
