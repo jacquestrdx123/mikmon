@@ -30,6 +30,9 @@
                     <x-jet-nav-link href="{{ route('deviceinterfaces.all') }}"  :active="request()->routeIs('deviceinterfaces.all')">
                         {{ __('Interface Report') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('ppp.index') }}"  :active="request()->routeIs('ppp.index')">
+                        {{ __('PPP Report') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
