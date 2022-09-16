@@ -394,30 +394,31 @@ class MikrotikLibrary
     public static function updateOrCreateActivePPP($results,$device){
         $device_id = $device->id;
         foreach($results as $ppp){
-            dd($ppp);
-            try{
-                $name = $ppp['name'];
-                $service = $ppp['service'];
-                $called_id = $ppp['caller-id'];
-                $address = $ppp['address'];
-                $radius = $ppp['radius'];
-                $uptime = $ppp['uptime'];
-            }catch (\Throwable $th){
-                Log::critical($th->getMessage());
-            }
+            if(array_key_exists('name',$ppp)){
+                try{
+                    $name = $ppp['name'];
+                    $service = $ppp['service'];
+                    $called_id = $ppp['caller-id'];
+                    $address = $ppp['address'];
+                    $radius = $ppp['radius'];
+                    $uptime = $ppp['uptime'];
+                }catch (\Throwable $th){
+                    Log::critical($th->getMessage());
+                }
 
-            $ppp_connection = Pppconnection::updateOrCreate(
-                ['device_id' => $device->id, 'name' => $name],
-                [
-                    'device_id' => $device->id,
-                    'name' => $name,
-                    "caller-id" => $called_id,
-                    "service" => $service,
-                    "address" => $address,
-                    "radius" =>$radius,
-                    "uptime" => $uptime,
-                ]
-            );
+                $ppp_connection = Pppconnection::updateOrCreate(
+                    ['device_id' => $device->id, 'name' => $name],
+                    [
+                        'device_id' => $device->id,
+                        'name' => $name,
+                        "caller-id" => $called_id,
+                        "service" => $service,
+                        "address" => $address,
+                        "radius" =>$radius,
+                        "uptime" => $uptime,
+                    ]
+                );
+            }
         }
     }
 
