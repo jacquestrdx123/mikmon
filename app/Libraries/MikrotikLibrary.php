@@ -22,10 +22,10 @@ class MikrotikLibrary
             \Log::info('Polling '.$device->ip." SNMP");
             MikrotikLibrary::pollViaSNMP($device);
             \Log::info('Done Polling '.$device->ip."");
-            \Log::info('Syncing Interfaces for '.$device->ip."");
-            $interfacelibrary = new InterfaceLibrary();
-            $interfacelibrary->syncInterfaces($device);
-            \Log::info('Done Syncing Interfaces for '.$device->ip."");
+//            \Log::info('Syncing Interfaces for '.$device->ip."");
+//            $interfacelibrary = new InterfaceLibrary();
+//            $interfacelibrary->syncInterfaces($device);
+//            \Log::info('Done Syncing Interfaces for '.$device->ip."");
     }
     public static function PollDeviceDebug($device){
         echo('Polling '.$device->ip." API");
@@ -33,10 +33,10 @@ class MikrotikLibrary
         echo('Polling '.$device->ip." SNMP");
         MikrotikLibrary::pollViaSNMP($device);
         echo('Done Polling '.$device->ip."");
-        echo('Syncing Interfaces for '.$device->ip."");
-        $interfacelibrary = new InterfaceLibrary();
-        $interfacelibrary->syncInterfaces($device);
-        echo('Done Syncing Interfaces for '.$device->ip."");
+//        echo('Syncing Interfaces for '.$device->ip."");
+//        $interfacelibrary = new InterfaceLibrary();
+//        $interfacelibrary->syncInterfaces($device);
+//        echo('Done Syncing Interfaces for '.$device->ip."");
     }
 
     public static function pollViaAPI($device,$debug = false){
@@ -137,7 +137,7 @@ class MikrotikLibrary
 
 
     public static function pollViaSNMP($device){
-        InterfaceLibrary::doInterfaces($device);
+        //InterfaceLibrary::doInterfaces($device);
     }
 
     public static function getSNMPSystemValues($device){
