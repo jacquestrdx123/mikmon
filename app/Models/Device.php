@@ -116,7 +116,8 @@ class Device extends Model
 
     public static function PollDevices(){
         $formatted_date_now = date("Y-m-d H:i:s", strtotime('+2 hours'));
-        $devices = Device::get();
+        $take =  round(Device::count()/3,0);
+        $devices = Device::orderBy('update_started','ASC')->take($take)->get();
         foreach ($devices as $device) {
             $device->update_started = $formatted_date_now;
             $device->save();
