@@ -14,5 +14,6 @@ yarn-error.log
 config/rrd.php
 /storage
 /phpredis/
+*.rrd
 /public/justgage.min.js
 /public/raphael-min.js
