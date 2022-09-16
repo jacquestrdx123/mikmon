@@ -35,6 +35,7 @@ class AllpppDatatable extends LivewireDatatable
             Column::name('caller-id')->label('Mac Address'),
             Column::name('radius')->label('Radius'),
             Column::name('address')->label('Address'),
+            Column::delete()->label('delete')->alignRight()
         ];
     }
 }
