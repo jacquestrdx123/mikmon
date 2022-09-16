@@ -394,6 +394,7 @@ class MikrotikLibrary
     public static function updateOrCreateActivePPP($results,$device){
         $device_id = $device->id;
         foreach($results as $ppp){
+            dd($ppp);
             try{
                 $name = $ppp['name'];
                 $service = $ppp['service'];
