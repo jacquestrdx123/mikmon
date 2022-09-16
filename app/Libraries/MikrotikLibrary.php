@@ -394,12 +394,17 @@ class MikrotikLibrary
     public static function updateOrCreateActivePPP($results,$device){
         $device_id = $device->id;
         foreach($results as $ppp){
-            $name = $ppp['name'] ?? "name";
-            $service = $ppp['service'] ?? "service";
-            $called_id = $ppp['caller-id'] ?? "caller-id";
-            $address = $ppp['address'] ?? "address";
-            $radius = $ppp['radius'] ?? "false";
-            $uptime = $ppp['uptime'] ?? "0";
+            try{
+                $name = $ppp['name'];
+                $service = $ppp['service'];
+                $called_id = $ppp['caller-id'];
+                $address = $ppp['address'];
+                $radius = $ppp['radius'];
+                $uptime = $ppp['uptime'];
+            }catch (\Throwable $th){
+                Log::critical($th->getMessage());
+            }
+
             $ppp_connection = Pppconnection::updateOrCreate(
                 ['device_id' => $device->id, 'name' => $name],
                 [
