@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Libraries/MikrotikLibrary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Libraries/MikrotikLibrary.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_update_pppoe_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,22 +168,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console/Commands" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/migrations" />
       <recent name="$PROJECT_DIR$/app/Console/Commands" />
       <recent name="$PROJECT_DIR$/app/Http/Livewire" />
       <recent name="$PROJECT_DIR$/resources/views/device" />
       <recent name="$PROJECT_DIR$/resources/views/location" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -234,14 +235,7 @@
       <workItem from="1663267912359" duration="1141000" />
       <workItem from="1663310765913" duration="1988000" />
       <workItem from="1663314831743" duration="1209000" />
-      <workItem from="1663324904156" duration="188000" />
-    </task>
-    <task id="LOCAL-00291" summary="Fixed Providers">
-      <created>1626076281617</created>
-      <option name="number" value="00291" />
-      <option name="presentableId" value="LOCAL-00291" />
-      <option name="project" value="LOCAL" />
-      <updated>1626076281618</updated>
+      <workItem from="1663324904156" duration="540000" />
     </task>
     <task id="LOCAL-00292" summary="Fixed Providers">
       <created>1626076367905</created>
@@ -579,7 +573,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663324915150</updated>
     </task>
-    <option name="localTasksCounter" value="340" />
+    <task id="LOCAL-00340" summary="Fixed Providers">
+      <created>1663325143232</created>
+      <option name="number" value="00340" />
+      <option name="presentableId" value="LOCAL-00340" />
+      <option name="project" value="LOCAL" />
+      <updated>1663325143232</updated>
+    </task>
+    <option name="localTasksCounter" value="341" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,14 +591,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed Providers" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="296" y="0" key="CommitChangelistDialog2" timestamp="1663324914864">
+    <state x="296" y="0" key="CommitChangelistDialog2" timestamp="1663325142939">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="296" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1663324914864" />
-    <state x="320" y="183" key="Vcs.Push.Dialog.v2" timestamp="1663324917460">
+    <state x="296" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1663325142939" />
+    <state x="320" y="183" key="Vcs.Push.Dialog.v2" timestamp="1663325144524">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="183" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1663324917460" />
+    <state x="320" y="183" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1663325144524" />
     <state x="221" y="150" width="595" height="580" key="find.popup" timestamp="1663243031767">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
