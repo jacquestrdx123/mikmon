@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
+    <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="Fixed Providers">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllpppDatatable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllpppDatatable.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,14 +236,7 @@
       <workItem from="1663310765913" duration="1988000" />
       <workItem from="1663314831743" duration="1209000" />
       <workItem from="1663324904156" duration="2595000" />
-      <workItem from="1663568975083" duration="363000" />
-    </task>
-    <task id="LOCAL-00305" summary="Fixed Providers">
-      <created>1626077421324</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1626077421324</updated>
+      <workItem from="1663568975083" duration="416000" />
     </task>
     <task id="LOCAL-00306" summary="Fixed Providers">
       <created>1626078493506</created>
@@ -580,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663569104045</updated>
     </task>
-    <option name="localTasksCounter" value="354" />
+    <task id="LOCAL-00354" summary="Fixed Providers">
+      <created>1663569532606</created>
+      <option name="number" value="00354" />
+      <option name="presentableId" value="LOCAL-00354" />
+      <option name="project" value="LOCAL" />
+      <updated>1663569532607</updated>
+    </task>
+    <option name="localTasksCounter" value="355" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,14 +596,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1663569023653" />
-    <state x="296" y="0" key="CommitChangelistDialog2" timestamp="1663569103651">
+    <state x="296" y="0" key="CommitChangelistDialog2" timestamp="1663569578368">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="296" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1663569103651" />
-    <state x="320" y="183" key="Vcs.Push.Dialog.v2" timestamp="1663569105665">
+    <state x="296" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1663569578368" />
+    <state x="320" y="183" key="Vcs.Push.Dialog.v2" timestamp="1663569533796">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="183" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1663569105665" />
+    <state x="320" y="183" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1663569533796" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1663328063681">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
