@@ -30,6 +30,7 @@ class DeviceDatatable extends LivewireDatatable
 
             Column::name('description')
                 ->label('Description')
+                ->editable()
                 ->searchable(),
             Column::name('ip')
                 ->label('IP')
