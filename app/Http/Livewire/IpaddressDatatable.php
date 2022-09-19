@@ -20,7 +20,7 @@ class IpaddressDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Ip::query()->leftJoin('devices', 'devices.id', 'ips.device_id');
+        return Ip::query()->leftJoin('devices', 'devices.id', '=','ips.device_id');
     }
 
     public function columns()

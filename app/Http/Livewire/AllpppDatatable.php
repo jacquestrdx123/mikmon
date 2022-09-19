@@ -31,6 +31,7 @@ class AllpppDatatable extends LivewireDatatable
         return [
             NumberColumn::name('id')
                 ->label('ID'),
+            Column::name('device.description')->label('Name'),
             Column::name('name')->label('Name'),
             Column::name('caller-id')->label('Mac Address'),
             Column::name('radius')->label('Radius'),
