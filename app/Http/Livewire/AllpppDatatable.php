@@ -34,7 +34,7 @@ class AllpppDatatable extends LivewireDatatable
             Column::name('devices.description')->label('WAP Name')->searchable(),
             Column::name('devices.ip')->label('WAP IP')->searchable(),
             Column::name('name')->label('Name')->searchable(),
-            Column::name('caller-id')->label('Mac Address')->searchable(),
+            Column::name('caller-id')->label('Mac Address'),
             Column::name('radius')->label('Radius')->searchable(),
             Column::name('address')->label('Address')->searchable(),
             Column::delete()->label('delete')->alignRight()
