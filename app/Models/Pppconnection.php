@@ -495,7 +495,9 @@ class Pppconnection extends Model
             if(isset($pppConnection->address)){
                 $connection = ssh2_connect($pppConnection->address, 22);
                 ssh2_auth_password($connection, 'admin', '345y1c0m5');
-                $stream = ssh2_exec($connection, '/system identity set name='.$customer);
+                $command = '/interface pppoe-client set user='.$customer.'password=s1mplyw1r3l3ss numbers=[find user='.$key.']';
+                dd($command);
+                $stream = ssh2_exec($connection, $command);
                 dd($stream);
             }
             dd($pppConnection);
