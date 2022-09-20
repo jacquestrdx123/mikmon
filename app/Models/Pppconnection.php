@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\UpdatePppJob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -491,20 +492,8 @@ class Pppconnection extends Model
             "etrei002" => "djtransportjenniferreinders@swstilbaai"
         );
         foreach($customerlist as $key =>$customer){
-            $pppConnection = Pppconnection::where('name',$key)->first();
-            if(isset($pppConnection->address)){
-                try{
-                    $command = '/interface pppoe-client set user='.$customer.' password=s1mplyw1r3l3ss numbers=[find user='.$key.']';
-                    $connection = ssh2_connect($pppConnection->address, 22);
-                    ssh2_auth_password($connection, 'admin', '345y1c0m5');
-                    $stream = ssh2_exec($connection, $command);
-                    ssh2_disconnect($connection);
-                }catch (\Exception $e){
-                    echo "Failed on ".$pppConnection->address."\n";
-                }
-
-            }
-            echo $key ." Not Found \n";
+            $object = [$key,$customer];
+            UpdatePppJob::dispatch($object);
         }
 
     }
