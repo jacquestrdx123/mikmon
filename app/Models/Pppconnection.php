@@ -492,10 +492,13 @@ class Pppconnection extends Model
         );
         foreach($customerlist as $key =>$customer){
             $pppConnection = Pppconnection::where('name',$key)->first();
+            if(isset($pppConnection->address)){
+                $connection = ssh2_connect($pppConnection->address, 22);
+                ssh2_auth_password($connection, 'admin', '345y1c0m5');
+                $stream = ssh2_exec($connection, '/interface/print');
+                dd($stream);
+            }
             dd($pppConnection);
-//            $connection = ssh2_connect('shell.example.com', 22);
-//            ssh2_auth_password($connection, 'username', 'password');
-//            $stream = ssh2_exec($connection, '/usr/local/bin/php -i');
         }
 
     }
