@@ -118,11 +118,12 @@ class MikrotikLibrary
             $radius = $api->read();
 
 
-            $api->write('/ppp/active/print');
+            $api->write('/ppp/secret/print');
             $READ = $api->read();
             if (array_key_exists('0',$READ)){
                 foreach($READ as $row){
-                    echo $row['name'].' '.$row['address']."\n";
+                    $api->write('/ppp/secret/set',false);
+                    $api->write('=disabled=yes',true);
                 }
             }
         }
