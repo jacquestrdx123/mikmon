@@ -102,7 +102,7 @@ class MikrotikLibrary
                         $api->write('/radius/set',false);
                         $api->write('=address=160.19.39.4',false);
                         $api->write('=service=login,ppp',false);
-                        $api->write('=src-address'.$device->ip.'=login,ppp',false);
+                        $api->write('=src-address='.$device->ip,false);
                         $api->write('=.id='.$row[".id"]);
                         $radius = $api->read();
 
