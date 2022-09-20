@@ -19,7 +19,7 @@ class UpdatePppJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($filename)
+    public function __construct($ppp)
     {
         $this->ppp = $ppp;
     }
