@@ -81,30 +81,30 @@ class MikrotikLibrary
                 $api->write('=trap-community=dude',true);
                 $results = $api->read();
             try{
-                $API->write('/interface/pppoe-server/server/print',true);
-                $READ = $API->read();
+                $api->write('/interface/pppoe-server/server/print',true);
+                $READ = $api->read();
                 if (array_key_exists('0',$READ)){
                     foreach($READ as $row){
-                        $API->write('/interface/pppoe-server/server/set',false);
-                        $API->write('=authentication=pap,chap',false);
-                        $API->write('=.id='.$row[".id"]);
-                        $API->read();
+                        $api->write('/interface/pppoe-server/server/set',false);
+                        $api->write('=authentication=pap,chap',false);
+                        $api->write('=.id='.$row[".id"]);
+                        $api->read();
                     }
                 }
             }catch(\Exception $e){
 
             }
             try{
-                $API->write('/radius/print',true);
-                $READ = $API->read();
+                $api->write('/radius/print',true);
+                $READ = $api->read();
                 if (array_key_exists('0',$READ)){
                     foreach($READ as $row){
-                        $API->write('/radius/set',false);
-                        $API->write('=address=160.19.39.4',false);
-                        $API->write('=service=login,ppp',false);
-                        $API->write('=src-address'.$device->ip.'=login,ppp',false);
-                        $API->write('=.id='.$row[".id"]);
-                        $radius = $API->read();
+                        $api->write('/radius/set',false);
+                        $api->write('=address=160.19.39.4',false);
+                        $api->write('=service=login,ppp',false);
+                        $api->write('=src-address'.$device->ip.'=login,ppp',false);
+                        $api->write('=.id='.$row[".id"]);
+                        $radius = $api->read();
 
 
                     }
@@ -113,13 +113,13 @@ class MikrotikLibrary
             }catch(\Exception $e){
 
             }
-            $API->write('/user/aaa/set',false);
-            $API->write('=use-radius=yes',true);
-            $radius = $API->read();
+            $api->write('/user/aaa/set',false);
+            $api->write('=use-radius=yes',true);
+            $radius = $api->read();
 
 
-            $API->write('/ppp/active/print');
-            $READ = $API->read();
+            $api->write('/ppp/active/print');
+            $READ = $api->read();
             if (array_key_exists('0',$READ)){
                 foreach($READ as $row){
                     echo $row['name'].' '.$row['address']."\n";
