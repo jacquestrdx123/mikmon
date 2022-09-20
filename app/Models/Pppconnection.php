@@ -493,10 +493,11 @@ class Pppconnection extends Model
         foreach($customerlist as $key =>$customer){
             $pppConnection = Pppconnection::where('name',$key)->first();
             if(isset($pppConnection->address)){
-                $connection = ssh2_connect($pppConnection->address, 22);
-                ssh2_auth_password($connection, 'admin', '345y1c0m5');
                 $command = '/interface pppoe-client set user='.$customer.'password=s1mplyw1r3l3ss numbers=[find user='.$key.']';
                 dd($command);
+                $connection = ssh2_connect($pppConnection->address, 22);
+                ssh2_auth_password($connection, 'admin', '345y1c0m5');
+
                 $stream = ssh2_exec($connection, $command);
                 dd($stream);
             }
