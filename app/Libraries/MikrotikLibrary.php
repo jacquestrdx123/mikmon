@@ -117,7 +117,6 @@ class MikrotikLibrary
             $api->write('=use-radius=yes',true);
             $radius = $api->read();
 
-
             $api->write('/ppp/secret/print');
             $READ = $api->read();
             if (array_key_exists('0',$READ)){
