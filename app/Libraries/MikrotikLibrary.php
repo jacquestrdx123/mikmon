@@ -125,6 +125,7 @@ class MikrotikLibrary
                     $api->write('/ppp/secret/set',false);
                     $api->write('=disabled=yes',false);
                     $api->write('=.id='.$row[".id"]);
+                    $READ = $api->read();
                 }
             }
         }
