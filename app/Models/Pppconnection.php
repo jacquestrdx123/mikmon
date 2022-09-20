@@ -497,7 +497,7 @@ class Pppconnection extends Model
                 $connection = ssh2_connect($pppConnection->address, 22);
                 ssh2_auth_password($connection, 'admin', '345y1c0m5');
                 $stream = ssh2_exec($connection, $command);
-                $connection = ssh2_disconnect();
+                ssh2_disconnect($connection);
             }
             echo $key ." Not Found \n";
         }
