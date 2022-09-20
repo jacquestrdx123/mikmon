@@ -501,7 +501,7 @@ class Pppconnection extends Model
                 $stream = ssh2_exec($connection, $command);
                 dd($stream);
             }
-            dd($pppConnection);
+            echo $key ." Not Found \n";
         }
 
     }
