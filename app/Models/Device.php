@@ -59,6 +59,9 @@ class Device extends Model
     public function gateways(){
         return $this->hasMany('App\Models\Gateway');
     }
+    public function pool(){
+        return $this->hasMany('App\Models\IpPool');
+    }
 
     public function getDownTime(){
         return $this->secondsToTime(strtotime($this->last_offline)-strtotime('now'));
@@ -112,6 +115,11 @@ class Device extends Model
                 \Log::info("Device $device->ip is offline. NOT SYNCING INTERFACES");
             }
         }
+    }
+
+    public function createPools(){
+        $devices = Device::where('description','LIKE','%wap%')->get();
+        dd($devices);
     }
 
     public static function PollDevices(){

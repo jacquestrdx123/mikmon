@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40e98ecd-0acb-4e3d-bba3-1ff7164ff73e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllpppDatatable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllpppDatatable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/IpPool.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_104546_create_ip_pools_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Device.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Device.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,22 +170,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Jobs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/migrations" />
+      <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/app/Jobs" />
       <recent name="$PROJECT_DIR$/app/Console/Commands" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
-      <recent name="$PROJECT_DIR$/resources/views/ppp" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -238,14 +241,9 @@
       <workItem from="1663568975083" duration="1253000" />
       <workItem from="1663593495677" duration="379000" />
       <workItem from="1663660044552" duration="4194000" />
-      <workItem from="1663673568947" duration="80000" />
-    </task>
-    <task id="LOCAL-00335" summary="Fixed Providers">
-      <created>1626085298989</created>
-      <option name="number" value="00335" />
-      <option name="presentableId" value="LOCAL-00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1626085298989</updated>
+      <workItem from="1663673568947" duration="552000" />
+      <workItem from="1663830681301" duration="348000" />
+      <workItem from="1667284382520" duration="188000" />
     </task>
     <task id="LOCAL-00336" summary="Fixed Providers">
       <created>1663313237766</created>
@@ -583,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663673591599</updated>
     </task>
-    <option name="localTasksCounter" value="384" />
+    <task id="LOCAL-00384" summary="Yay">
+      <created>1663673652718</created>
+      <option name="number" value="00384" />
+      <option name="presentableId" value="LOCAL-00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1663673652719</updated>
+    </task>
+    <option name="localTasksCounter" value="385" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,14 +604,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1663663670281" />
-    <state x="296" y="0" key="CommitChangelistDialog2" timestamp="1663673591298">
+    <state x="296" y="0" key="CommitChangelistDialog2" timestamp="1663673652252">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="296" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1663673591298" />
-    <state x="320" y="183" key="Vcs.Push.Dialog.v2" timestamp="1663673592925">
+    <state x="296" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1663673652252" />
+    <state x="320" y="183" key="Vcs.Push.Dialog.v2" timestamp="1663673653892">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="183" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1663673592925" />
+    <state x="320" y="183" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1663673653892" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1663328063681">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
