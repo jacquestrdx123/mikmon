@@ -119,11 +119,17 @@ class Device extends Model
 
     public static function createPools(){
         $devices = Device::where('description','LIKE','%wap%')->get();
+        $pools = array();
         foreach($devices as $device){
-            foreach($device->ips as $ip){
-                dd($ip);
+            $device_ip = $device->ip;
+            $digits = preg_split('/\./', $device_ip);
+            if(array_key_exists('3',$digits)){
+                $suggested_pool = $digits[0].".".$digits[1].".".$digits[2]."."."130";
+                $suggested_pool .= "-".$digits[0].".".$digits[1].".".$digits[2]."."."254";
+                $pools[$device->id] = $suggested_pool;
             }
         }
+        return $pools;
     }
 
     public static function PollDevices(){
