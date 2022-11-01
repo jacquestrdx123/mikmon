@@ -117,7 +117,7 @@ class Device extends Model
         }
     }
 
-    public function createPools(){
+    public static function createPools(){
         $devices = Device::where('description','LIKE','%wap%')->get();
         dd($devices);
     }
