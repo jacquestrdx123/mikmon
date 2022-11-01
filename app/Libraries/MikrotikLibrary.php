@@ -159,7 +159,6 @@ class MikrotikLibrary
                 }
             }
         }
-        dd("DONE");
     }
 
     public static function getIPAddresses($routeros_api){
