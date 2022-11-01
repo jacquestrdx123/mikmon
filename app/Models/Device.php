@@ -129,7 +129,7 @@ class Device extends Model
                 $pools[] = array(
                     "device" => $device,
                     "pool" => $suggested_pool,
-                    "network" => $digits[0].".".$digits[1].".0.0/16"
+                    "network" => $digits[0].".".$digits[1]
                 );
             }
         }

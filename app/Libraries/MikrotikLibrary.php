@@ -139,7 +139,12 @@ class MikrotikLibrary
 //            $api->write('=disabled=yes',false);
 //            $api->write('=.id='.$row[".id"]);
             $READ = $api->read();
-            dd($READ);
+            foreach($READ as $network){
+                if(preg_match('/'.$pool['network'].'/', $network)){
+                    dd($network);
+                }
+            }
+            dd("STOP");
         }
     }
 
