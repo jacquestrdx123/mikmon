@@ -151,15 +151,15 @@ class MikrotikLibrary
             $api->write('/ip/pool/print',true);
             $READ = $api->read();
             foreach($READ as $api_pool){
-                dd($api_pool);
-                $api->write('/ip/pool/set',false);
-                $api->write('=ranges='.$pool['pool'],false);
-                $api->write('=.id='.$network[".id"]);
-                $READ = $api->read();
+                if($api_pool['name']=="pppoe"){
+                    $api->write('/ip/pool/set',false);
+                    $api->write('=ranges='.$pool['pool'],false);
+                    $api->write('=.id='.$api_pool[".id"]);
+                    $READ = $api->read();
+                }
             }
-
-
         }
+        dd("DONE");
     }
 
     public static function getIPAddresses($routeros_api){
