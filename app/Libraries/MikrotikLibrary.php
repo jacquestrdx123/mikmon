@@ -130,6 +130,19 @@ class MikrotikLibrary
         }
     }
 
+    public static function ConfirmAreaNetwork($pool){
+        $device =  $pool['device'];
+        $api = new RouterosAPI();
+        $api->debug = true;
+        if ($api->connect($device->ip, $device->username, $device->password)) {
+            $api->write('/routing/ospf/network/print',true);
+//            $api->write('=disabled=yes',false);
+//            $api->write('=.id='.$row[".id"]);
+            $READ = $api->read();
+            dd($READ);
+        }
+    }
+
     public static function getIPAddresses($routeros_api){
         $routeros_api->write('/ip/address/print');
         return $results = $routeros_api->read();
