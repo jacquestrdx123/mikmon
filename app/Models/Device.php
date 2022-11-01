@@ -119,7 +119,9 @@ class Device extends Model
 
     public static function createPools(){
         $devices = Device::where('description','LIKE','%wap%')->get();
-        dd($devices);
+        foreach($devices as $device){
+            dd($device);
+        }
     }
 
     public static function PollDevices(){
