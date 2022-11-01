@@ -120,7 +120,9 @@ class Device extends Model
     public static function createPools(){
         $devices = Device::where('description','LIKE','%wap%')->get();
         foreach($devices as $device){
-            dd($device);
+            foreach($device->ips as $ip){
+                dd($ip);
+            }
         }
     }
 
