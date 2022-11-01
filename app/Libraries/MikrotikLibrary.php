@@ -142,8 +142,8 @@ class MikrotikLibrary
             foreach($READ as $network){
                 if(preg_match('/'.$pool['network'].'/', $network['network'])){
                     $suggested = $pool['network'].".0.0/16";
-                    $api->write('/routing/ospf/network/set',true);
-                    $api->write('=network="'.$suggested.'"',false);
+                    $api->write('/routing/ospf/network/set',false);
+                    $api->write('=network='.$suggested,false);
                     $api->write('=.id='.$network[".id"]);
                     $READ = $api->read();
                 }
