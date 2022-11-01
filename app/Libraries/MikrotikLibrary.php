@@ -140,7 +140,7 @@ class MikrotikLibrary
 //            $api->write('=.id='.$row[".id"]);
             $READ = $api->read();
             foreach($READ as $network){
-                if(preg_match('/'.$pool['network'].'/', $network)){
+                if(preg_match('/'.$pool['network'].'/', $network['network'])){
                     dd($network);
                 }
             }
