@@ -146,8 +146,16 @@ class MikrotikLibrary
                     $api->write('=network='.$suggested,false);
                     $api->write('=.id='.$network[".id"]);
                     $READ = $api->read();
-                    dd($READ);
                 }
+            }
+            $api->write('/ip/pool/print',true);
+            $READ = $api->read();
+            foreach($READ as $api_pool){
+                dd($api_pool);
+                $api->write('/ip/pool/set',false);
+                $api->write('=ranges='.$pool['pool'],false);
+                $api->write('=.id='.$network[".id"]);
+                $READ = $api->read();
             }
 
 
