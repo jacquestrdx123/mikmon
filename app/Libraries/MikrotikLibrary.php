@@ -74,7 +74,10 @@ class MikrotikLibrary
             foreach($results as $result){
                 if(array_key_exists('topics',$result)){
                     if($result['topics'] == "radius"){
-                        dd($result);
+                        $api->write('/system/logging/set',false);
+                        $api->write('=disabled=yes',false);
+                        $api->write('=.id='.$result[".id"],true);
+                        $do_it = $api->read();
                     }
                 }
             }
