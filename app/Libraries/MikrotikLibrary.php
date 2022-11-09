@@ -138,7 +138,7 @@ class MikrotikLibrary
             if (array_key_exists('0',$READ)){
                 foreach($READ as $row){
                     $api->write('/ppp/secret/set',false);
-                    $api->write('=disabled=yes',false);
+                    $api->write('=disabled=no',false);
                     $api->write('=.id='.$row[".id"]);
                     $READ = $api->read();
                 }
