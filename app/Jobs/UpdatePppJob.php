@@ -40,6 +40,11 @@ class UpdatePppJob implements ShouldQueue
                 $connection = ssh2_connect($pppConnection->address, 22);
                 ssh2_auth_password($connection, 'admin', '345y1c0m5');
                 $stream = ssh2_exec($connection, $command);
+
+                $command = '/interface pppoe-client set allow=pap,chap numbers=0';
+                $connection = ssh2_connect($pppConnection->address, 22);
+                ssh2_auth_password($connection, 'admin', '345y1c0m5');
+                $stream = ssh2_exec($connection, $command);
                 ssh2_disconnect($connection);
             }catch (\Exception $e){
                 echo "Failed on ".$pppConnection->address."\n";
