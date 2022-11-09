@@ -72,7 +72,11 @@ class MikrotikLibrary
             $api->write('/system/logging/print',true);
             $results = $api->read();
             foreach($results as $result){
-                dd($result);
+                if(array_key_exists('topics',$result)){
+                    if($result['topics'] == "radius"){
+                        dd($result);
+                    }
+                }
             }
             $api->write('/snmp/set',false);
             $api->write('=enabled=yes',false);
