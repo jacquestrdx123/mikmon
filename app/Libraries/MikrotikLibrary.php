@@ -69,6 +69,15 @@ class MikrotikLibrary
         $api = new RouterosAPI();
         $api->debug = true;
         if ($api->connect($device->ip, $device->username, $device->password)) {
+            $api->write('/system/logging/print',true);
+            $results = $api->read();
+            foreach($results as $result){
+                dd($result);
+            }
+            $api->write('/snmp/set',false);
+            $api->write('=enabled=yes',false);
+            $api->write('=trap-community=dude',true);
+            $results = $api->read();
                 $api->write('/snmp/community/add',false);
                 $api->write('=name=dude',true);
                 $api->read();
